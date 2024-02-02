@@ -47,7 +47,7 @@ WorkflowMain.initialise(workflow, params, log)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-include { ORTHOLOGYMAP } from './workflows/orthologymap'
+include { ORTHOLOGYMAP } from './workflows/orthologymap.nf'
 
 //
 // WORKFLOW: Run main nf-core/orthologymap analysis pipeline

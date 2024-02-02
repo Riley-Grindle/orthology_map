@@ -53,7 +53,7 @@ include { TRANSDECODER_LONGORF } from '../modules/nf-core/transdecoder/longorf/m
 // Info required for completion email and summary
 def multiqc_report = []
 
-workflow {
+workflow ORTHOLOGYMAP {
     
     ch_versions = Channel.empty()
     
