@@ -1,0 +1,22 @@
+{
+    "name": "nf-core/orthologymap",
+    "homePage": "https://github.com/nf-core/orthologymap",
+    "repos": {
+        "https://github.com/nf-core/modules.git": {
+            "modules": {
+                "nf-core": {
+                    "custom/dumpsoftwareversions": {
+                        "branch": "master",
+                        "git_sha": "911696ea0b62df80e900ef244d7867d177971f73",
+                        "installed_by": ["modules"]
+                    },
+                    "eggnogmapper": {
+                        "branch": "master",
+                        "git_sha": "18cd2206622dc606bbceea533c7823feb2a251db",
+                        "installed_by": ["modules"]
+                    }
+                }
+            }
+        }
+    }
+}

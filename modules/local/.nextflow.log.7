@@ -1,0 +1,164 @@
+Dec-21 13:30:27.170 [main] DEBUG nextflow.cli.Launcher - $> nextflow run treegrafter.nf --fasta /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/tool_testing/panther/nextflow_test/data/ --out_dir /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/tool_testing/panther/nextflow_test/outs --sup_info /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/tool_testing/panther/nextflow_test/treeGrafter1.01_supplemental --project_id human_nf
+Dec-21 13:30:27.242 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.10.0
+Dec-21 13:30:27.255 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/Users/rgrindle/.nextflow/plugins; core-plugins: nf-amazon@2.1.4,nf-azure@1.3.2,nf-cloudcache@0.3.0,nf-codecommit@0.1.5,nf-console@1.0.6,nf-ga4gh@1.1.0,nf-google@1.8.3,nf-tower@1.6.3,nf-wave@1.0.0
+Dec-21 13:30:27.262 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Dec-21 13:30:27.263 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Dec-21 13:30:27.266 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Dec-21 13:30:27.273 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Dec-21 13:30:27.287 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/nextflow.config
+Dec-21 13:30:27.288 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/nextflow.config
+Dec-21 13:30:27.309 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Dec-21 13:30:27.682 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Dec-21 13:30:27.694 [main] INFO  nextflow.cli.CmdRun - Launching `treegrafter.nf` [evil_einstein] DSL2 - revision: 281b4e57ad
+Dec-21 13:30:27.694 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Dec-21 13:30:27.694 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Dec-21 13:30:27.700 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /Users/rgrindle/.nextflow/secrets/store.json
+Dec-21 13:30:27.703 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@138aa3cc] - activable => nextflow.secret.LocalSecretsProvider@138aa3cc
+Dec-21 13:30:27.744 [main] DEBUG nextflow.Session - Session UUID: 1f644446-dad9-4ddc-892e-9fd0886abc6a
+Dec-21 13:30:27.744 [main] DEBUG nextflow.Session - Run name: evil_einstein
+Dec-21 13:30:27.745 [main] DEBUG nextflow.Session - Executor pool size: 10
+Dec-21 13:30:27.751 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Dec-21 13:30:27.754 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=30; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Dec-21 13:30:27.792 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 23.10.0 build 5889
+  Created: 15-10-2023 15:07 UTC (11:07 EDT)
+  System: Mac OS X 13.5
+  Runtime: Groovy 3.0.19 on OpenJDK 64-Bit Server VM 11.0.21+0
+  Encoding: UTF-8 (UTF-8)
+  Process: 74835@rgrindle-mbp [172.16.6.96]
+  CPUs: 10 - Mem: 16 GB (2.2 GB) - Swap: 22 GB (1001.1 MB)
+Dec-21 13:30:27.803 [main] DEBUG nextflow.Session - Work-dir: /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work [Mac OS X]
+Dec-21 13:30:27.804 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/bin
+Dec-21 13:30:27.816 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Dec-21 13:30:27.828 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Dec-21 13:30:27.843 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Dec-21 13:30:27.856 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 11; maxThreads: 1000
+Dec-21 13:30:27.926 [main] DEBUG nextflow.Session - Session start
+Dec-21 13:30:28.136 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Dec-21 13:30:28.229 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:TREEGRAFTER` matches process TREEGRAFTER
+Dec-21 13:30:28.262 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-21 13:30:28.262 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-21 13:30:28.267 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Dec-21 13:30:28.270 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=10; memory=16 GB; capacity=10; pollInterval=100ms; dumpInterval=5m
+Dec-21 13:30:28.271 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Dec-21 13:30:28.331 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: TREEGRAFTER
+Dec-21 13:30:28.336 [main] WARN  nextflow.Session - There's no process matching config selector: ORTHOFINDER
+Dec-21 13:30:28.337 [main] WARN  nextflow.Session - There's no process matching config selector: EGGNOGMAPPER
+Dec-21 13:30:28.337 [main] DEBUG nextflow.Session - Igniting dataflow network (1)
+Dec-21 13:30:28.337 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > TREEGRAFTER
+Dec-21 13:30:28.338 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_095cb76b573279cb: /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/treegrafter.nf
+Dec-21 13:30:28.338 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Dec-21 13:30:28.338 [main] DEBUG nextflow.Session - Session await
+Dec-21 13:30:28.450 [Task submitter] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=TREEGRAFTER (Grafting human_nf); work-dir=/Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/60/bd7948c8acdc1a250ef1d80f8fc9b6
+  error [java.lang.reflect.UndeclaredThrowableException]: java.lang.reflect.UndeclaredThrowableException
+Dec-21 13:30:28.458 [Task submitter] ERROR nextflow.processor.TaskProcessor - Error executing process > 'TREEGRAFTER (Grafting human_nf)'
+
+Caused by:
+  File `/Users/rgrindle/Desktop/mdibl/wd/ortho_finder/tool_testing/panther/nextflow_test/outs/*.out` is outside the scope of the process work directory: /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/60/bd7948c8acdc1a250ef1d80f8fc9b6
+
+java.lang.reflect.UndeclaredThrowableException: null
+	at com.sun.proxy.$Proxy28.apply(Unknown Source)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoCachedMethodSiteNoUnwrap.invoke(PojoMetaMethodSite.java:198)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:51)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:148)
+	at nextflow.processor.TaskRun.getOutputFilesNames(TaskRun.groovy:453)
+	at nextflow.processor.TaskBean.<init>(TaskBean.groovy:153)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:72)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:105)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at nextflow.processor.TaskRun.toTaskBean(TaskRun.groovy:887)
+	at nextflow.executor.local.LocalTaskHandler.buildTaskWrapper(LocalTaskHandler.groovy:128)
+	at nextflow.executor.local.LocalTaskHandler.submit(LocalTaskHandler.groovy:98)
+	at nextflow.processor.TaskPollingMonitor.submit(TaskPollingMonitor.groovy:196)
+	at nextflow.processor.LocalPollingMonitor.submit(LocalPollingMonitor.groovy:192)
+	at nextflow.processor.TaskPollingMonitor.submitPendingTasks(TaskPollingMonitor.groovy:565)
+	at nextflow.processor.TaskPollingMonitor.submitLoop(TaskPollingMonitor.groovy:390)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1254)
+	at groovy.lang.MetaClassImpl.invokeMethodClosure(MetaClassImpl.java:1042)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1128)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1030)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at groovy.lang.Closure.run(Closure.java:498)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: nextflow.exception.IllegalFileException: File `/Users/rgrindle/Desktop/mdibl/wd/ortho_finder/tool_testing/panther/nextflow_test/outs/*.out` is outside the scope of the process work directory: /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/60/bd7948c8acdc1a250ef1d80f8fc9b6
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:72)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:59)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at nextflow.script.params.FileOutParam.relativize(FileOutParam.groovy:233)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:189)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:57)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:194)
+	at nextflow.script.params.FileOutParam.getFilePatterns(FileOutParam.groovy:212)
+	at nextflow.script.params.FileOutParam$getFilePatterns$1.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:148)
+	at nextflow.processor.TaskRun.getOutputFilesNames0(TaskRun.groovy:460)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:362)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:61)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:176)
+	at nextflow.processor.TaskRun$_getOutputFilesNames_closure2.doCall(TaskRun.groovy:453)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:274)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1030)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.runtime.ConvertedClosure.invokeCustom(ConvertedClosure.java:50)
+	at org.codehaus.groovy.runtime.ConversionHandler.invoke(ConversionHandler.java:112)
+	... 44 common frames omitted
+Dec-21 13:30:28.462 [Task submitter] DEBUG nextflow.Session - Session aborted -- Cause: java.lang.reflect.UndeclaredThrowableException
+Dec-21 13:30:28.475 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Dec-21 13:30:28.475 [main] DEBUG nextflow.Session - Session await > all processes finished
+Dec-21 13:30:28.480 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Dec-21 13:30:28.485 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=1; submittedCount=0; runningCount=-1; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=-6; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Dec-21 13:30:28.671 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Dec-21 13:30:28.684 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

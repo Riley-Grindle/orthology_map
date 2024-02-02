@@ -1,0 +1,109 @@
+
+OrthoFinder version 2.5.5 Copyright (C) 2014 David Emms
+
+2023-12-07 21:35:25 : Starting OrthoFinder 2.5.5
+10 thread(s) for highly parallel tasks (BLAST searches etc.)
+1 thread(s) for OrthoFinder algorithm
+
+Checking required programs are installed
+----------------------------------------
+Test can run "mcl -h" - ok
+Test can run "fastme -i /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/26/6afa421e31a79ce1ff6edd2856e7a4/app/OrthoFinder/Results_Dec07_4/WorkingDirectory/dependencies/SimpleTest.phy -o /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/26/6afa421e31a79ce1ff6edd2856e7a4/app/OrthoFinder/Results_Dec07_4/WorkingDirectory/dependencies/SimpleTest.tre" - ok
+
+WARNING: Files have been ignored as they don't appear to be FASTA files:
+.DS_Store
+OrthoFinder expects FASTA files to have one of the following extensions: fas, faa, fasta, pep, fa
+
+Dividing up work for BLAST for parallel processing
+--------------------------------------------------
+2023-12-07 21:35:27 : Creating diamond database 1 of 3
+2023-12-07 21:35:27 : Creating diamond database 2 of 3
+2023-12-07 21:35:27 : Creating diamond database 3 of 3
+
+Running diamond all-versus-all
+------------------------------
+Using 10 thread(s)
+2023-12-07 21:35:28 : This may take some time....
+2023-12-07 21:35:28 : Done 0 of 9
+2023-12-07 21:46:11 : Done all-versus-all sequence search
+
+Running OrthoFinder algorithm
+-----------------------------
+2023-12-07 21:46:11 : Initial processing of each species
+WARNING: THIS IS UNCOMMON, there are zero hits when searching the genes in species 0 against itself. Check the input proteome contains all the genes from that species and check the search program is working (default is diamond).
+2023-12-07 21:46:11 : Initial processing of species 0 complete
+2023-12-07 21:46:16 : Initial processing of species 1 complete
+2023-12-07 21:46:19 : Initial processing of species 2 complete
+2023-12-07 21:46:22 : Connected putative homologues
+2023-12-07 21:46:22 : Written final scores for species 0 to graph file
+2023-12-07 21:46:24 : Written final scores for species 1 to graph file
+2023-12-07 21:46:25 : Written final scores for species 2 to graph file
+2023-12-07 21:46:31 : Ran MCL
+
+Writing orthogroups to file
+---------------------------
+OrthoFinder assigned 7907 genes (91.6% of total) to 1772 orthogroups. Fifty percent of all genes were in orthogroups with 5 or more genes (G50 was 5) and were contained in the largest 503 orthogroups (O50 was 503). There were 1 orthogroups with all species present and 0 of these consisted entirely of single-copy genes.
+
+2023-12-07 21:46:33 : Done orthogroups
+
+Analysing Orthogroups
+=====================
+
+Calculating gene distances
+--------------------------
+2023-12-07 21:46:45 : Done
+2023-12-07 21:46:46 : Done 0 of 828
+2023-12-07 21:46:47 : Done 100 of 828
+2023-12-07 21:46:47 : Done 200 of 828
+2023-12-07 21:46:48 : Done 300 of 828
+2023-12-07 21:46:49 : Done 400 of 828
+2023-12-07 21:46:49 : Done 500 of 828
+2023-12-07 21:46:50 : Done 600 of 828
+2023-12-07 21:46:51 : Done 700 of 828
+2023-12-07 21:46:51 : Done 800 of 828
+
+Inferring gene and species trees
+--------------------------------
+
+Best outgroup(s) for species tree
+---------------------------------
+2023-12-07 21:46:53 : Starting STRIDE
+2023-12-07 21:46:53 : Done STRIDE
+Observed 0 well-supported, non-terminal duplications. 0 support the best roots and 0 contradict them.
+Best outgroups for species tree:
+  axo_hox
+  human_chr2
+  mouse_chr1
+
+WARNING: Multiple potential species tree roots were identified, only one will be analyed.
+
+Reconciling gene trees and species tree
+---------------------------------------
+Outgroup: axo_hox
+2023-12-07 21:46:53 : Starting Recon and orthologues
+2023-12-07 21:46:53 : Starting OF Orthologues
+2023-12-07 21:46:53 : Done 0 of 828
+2023-12-07 21:46:55 : Done 100 of 828
+2023-12-07 21:46:56 : Done 200 of 828
+2023-12-07 21:46:57 : Done 300 of 828
+2023-12-07 21:46:58 : Done 400 of 828
+2023-12-07 21:46:59 : Done 500 of 828
+2023-12-07 21:47:00 : Done 600 of 828
+2023-12-07 21:47:00 : Done 700 of 828
+2023-12-07 21:47:01 : Done 800 of 828
+2023-12-07 21:47:01 : Done OF Orthologues
+
+Writing results files
+=====================
+2023-12-07 21:47:02 : Done orthologues
+
+Results:
+    /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/26/6afa421e31a79ce1ff6edd2856e7a4/app/OrthoFinder/Results_Dec07_4/
+
+CITATION:
+ When publishing work that uses OrthoFinder please cite:
+ Emms D.M. & Kelly S. (2019), Genome Biology 20:238
+
+ If you use the species tree in your work then please also cite:
+ Emms D.M. & Kelly S. (2017), MBE 34(12): 3267-3278
+ Emms D.M. & Kelly S. (2018), bioRxiv https://doi.org/10.1101/267914

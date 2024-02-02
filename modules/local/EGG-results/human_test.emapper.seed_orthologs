@@ -1,0 +1,10 @@
+## Wed Dec 20 16:04:37 2023
+## emapper-2.1.12
+## /usr/local/bin/emapper.py -i fastas/axo_hox.fasta -m diamond -o human_test --itype proteins --cpu 6
+##
+##/usr/local/bin/diamond blastp -d '/usr/local/lib/python3.11/site-packages/data/eggnog_proteins.dmnd' -q '/Users/rgrindle/Desktop/mdibl/wd/ortho_finder/tool_testing/eggnogg/fastas/axo_hox.fasta' --threads 6 -o '/Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/ba/af3c8f8bc874b48ca63925457c26db/human_test.emapper.hits' --tmpdir '/Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/ba/af3c8f8bc874b48ca63925457c26db/emappertmp_dmdn_r20j93xo' --sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+sp|P31357|HXB1_AMBME	8364.ENSXETP00000047531	7.63e-40	144.0	75	181	198	303	78.5	58.2	34.9
+## 1 queries scanned
+## Total time (seconds): 0.040343284606933594
+## Rate: 24.79 q/s

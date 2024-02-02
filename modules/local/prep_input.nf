@@ -1,0 +1,45 @@
+
+
+
+process PREP_INPUT {
+    tag "Staging input fastas for $project_id processes"
+    label 'process_single'
+
+    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+        'https://depot.galaxyproject.org/singularity/ubuntu:20.04' :
+        'biocontainers/python:3.9--1' }"
+
+    input:
+    path ref_fastas
+    path query_fasta
+    val project_id
+
+    output:
+    path "./ortho_f", emit: ortho_f
+    path "./ortho_l/odbwork", emit: ortho_l_work
+    path "./ortho_l/odbdata", emit: ortho_l_data
+    path "./eggnog", emit: egg
+    path "./treegrafter", emit: tree
+
+    
+    script:
+    """
+    mkdir ortho_f; mkdir ortho_l; mkdir treegrafter; mkdir eggnog
+    cd ortho_l 
+    mkdir odbwork
+    mkdir odbdata
+    cd ..
+    touch blank.txt
+    mv blank.txt ./ortho_l/odbwork/
+    cp -r $ref_fastas/* ./ortho_f/; cp -r $query_fasta/* ./ortho_f/
+    cp -r $ref_fastas/* ./ortho_l/odbdata/; cp -r $query_fasta/* ./ortho_l/odbdata/
+    cp $query_fasta/* ./treegrafter/ 
+    cp $query_fasta/* ./eggnog/
+    """
+
+    stub:
+    """
+    touch $fastas
+    """
+}
+

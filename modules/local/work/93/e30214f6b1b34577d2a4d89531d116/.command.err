@@ -1,0 +1,7 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Use of uninitialized value $start in subtraction (-) at treeGrafter.pl line 496.
+Use of uninitialized value $prevend in foreach loop entry at treeGrafter.pl line 511.
+Use of uninitialized value $start in subtraction (-) at treeGrafter.pl line 496.
+Use of uninitialized value $prevend in foreach loop entry at treeGrafter.pl line 511.
+Use of uninitialized value $start in subtraction (-) at treeGrafter.pl line 496.
+Use of uninitialized value $prevend in foreach loop entry at treeGrafter.pl line 511.

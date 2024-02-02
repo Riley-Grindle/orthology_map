@@ -1,0 +1,32 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+
+OrthoFinder version 2.5.5 Copyright (C) 2014 David Emms
+
+2023-12-20 15:45:24 : Starting OrthoFinder 2.5.5
+10 thread(s) for highly parallel tasks (BLAST searches etc.)
+1 thread(s) for OrthoFinder algorithm
+
+Checking required programs are installed
+----------------------------------------
+diamond produced the following output:
+
+Illegal instruction
+
+
+Illegal instruction
+
+
+ERROR: Cannot run diamond
+
+Environment:
+{'FASTME_VER': '2.1.6.2', 'HOSTNAME': 'f356b9694440', 'PYTHON_VERSION': '3.10.11', 'ORTHOFINDER_PATH': '/opt/OrthoFinder_source', 'NXF_TASK_WORKDIR': '/Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/19/263c429faa71a70cd6bc40631d3ba2', 'PACKAGES': 'wget mafft mcl libatlas-base-dev ncbi-blast+', 'PWD': '/Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/19/263c429faa71a70cd6bc40631d3ba2', 'PYTHON_SETUPTOOLS_VERSION': '65.5.1', 'HOME': '/root', 'LANG': 'C.UTF-8', 'FASTTREE_URL': 'http://www.microbesonline.org/fasttree/FastTree', 'GPG_KEY': 'A035C8C19219BA821ECEA86B64E628F8D684696D', 'ORTHOFINDER_FILE_NAME': 'OrthoFinder_source.tar.gz', 'SHLVL': '1', 'PYTHON_PIP_VERSION': '23.0.1', 'PYTHON_GET_PIP_SHA256': '96461deced5c2a487ddc65207ec5a9cffeca0d34e7af7ea1afc470ff0d746207', 'PYTHON_GET_PIP_URL': 'https://github.com/pypa/get-pip/raw/0d8570dc44796f4369b652222cf176b3db6ac70e/public/get-pip.py', 'PATH': '/opt/OrthoFinder_source/scripts_of/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'ORTHOFINDER_URL': 'https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder_source.tar.gz', 'DEBIAN_FRONTEND': 'noninteractive', '_': '/usr/local/bin/orthofinder'}
+
+Command:
+export PATH=/opt/OrthoFinder_source/scripts_of/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:
+diamond makedb --ignore-warnings --in /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/19/263c429faa71a70cd6bc40631d3ba2/app/OrthoFinder/Results_Dec20_1/WorkingDirectory/dependencies/Species0.fa -d /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/19/263c429faa71a70cd6bc40631d3ba2/app/OrthoFinder/Results_Dec20_1/WorkingDirectory/dependencies/diamondDBSpecies0
+diamond blastp --ignore-warnings -d /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/19/263c429faa71a70cd6bc40631d3ba2/app/OrthoFinder/Results_Dec20_1/WorkingDirectory/dependencies/diamondDBSpecies0 -q /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/19/263c429faa71a70cd6bc40631d3ba2/app/OrthoFinder/Results_Dec20_1/WorkingDirectory/dependencies/Species0.fa -o /Users/rgrindle/Desktop/mdibl/wd/ortho_finder/GitHub/orthologymap/modules/local/work/19/263c429faa71a70cd6bc40631d3ba2/app/OrthoFinder/Results_Dec20_1/WorkingDirectory/dependencies/test_search_results.txt --more-sensitive -p 1 --quiet -e 0.001 --compress 1
+
+Resolve any issues so that you can successfully run the above commands for OrthoFinder's dependencies on your computer and then re-run OrthoFinder.
+Please check diamond is installed and that the executables are in the system path
+
+ERROR: An error occurred, ***please review the error messages*** they may contain useful information about the problem.

@@ -1,0 +1,3 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+[1;32mFunctional annotation of hits...[0m
+1 436.77008414268494 0.00 q/s (% mem usage: 7.70, % mem avail: 92.29)

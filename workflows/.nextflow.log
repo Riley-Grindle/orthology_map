@@ -1,0 +1,84 @@
+Feb-02 10:10:20.787 [main] DEBUG nextflow.cli.Launcher - $> nextflow run orthologymap.nf -c /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config -with-tower -profile docker
+Feb-02 10:10:21.093 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.04.3
+Feb-02 10:10:21.127 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/rgrindle/.nextflow/plugins; core-plugins: nf-amazon@1.16.2,nf-azure@1.0.1,nf-codecommit@0.1.4,nf-console@1.0.5,nf-ga4gh@1.0.5,nf-google@1.7.3,nf-tower@1.5.12,nf-wave@0.8.4
+Feb-02 10:10:21.142 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Feb-02 10:10:21.143 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Feb-02 10:10:21.147 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Feb-02 10:10:21.161 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Feb-02 10:10:21.179 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/nextflow.config
+Feb-02 10:10:21.183 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config
+Feb-02 10:10:21.183 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/nextflow.config
+Feb-02 10:10:21.183 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config
+Feb-02 10:10:21.212 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Feb-02 10:10:22.611 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Feb-02 10:10:22.803 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [docker]
+Feb-02 10:10:22.869 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Feb-02 10:10:22.900 [main] INFO  nextflow.cli.CmdRun - Launching `orthologymap.nf` [fervent_lalande] DSL2 - revision: f419ca0455
+Feb-02 10:10:22.901 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[nf-amazon@1.16.2]
+Feb-02 10:10:22.902 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[nf-amazon@1.16.2, nf-tower@1.5.12]
+Feb-02 10:10:22.902 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-amazon version: 1.16.2
+Feb-02 10:10:22.929 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-amazon@1.16.2' resolved
+Feb-02 10:10:22.929 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-amazon@1.16.2'
+Feb-02 10:10:22.957 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-amazon@1.16.2
+Feb-02 10:10:22.990 [main] DEBUG nextflow.file.FileHelper - > Added 'S3FileSystemProvider' to list of installed providers [s3]
+Feb-02 10:10:22.990 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-tower version: 1.5.12
+Feb-02 10:10:22.999 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-tower@1.5.12' resolved
+Feb-02 10:10:23.000 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-tower@1.5.12'
+Feb-02 10:10:23.015 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-tower@1.5.12
+Feb-02 10:10:23.040 [main] DEBUG nextflow.secret.LocalSecretsProvider - Secrets store: /home/rgrindle/.nextflow/secrets/store.json
+Feb-02 10:10:23.044 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@70d63e05] - activable => nextflow.secret.LocalSecretsProvider@70d63e05
+Feb-02 10:10:23.125 [main] DEBUG nextflow.Session - Session UUID: 32a75185-97d3-4a01-b7e8-419ffbd7924f
+Feb-02 10:10:23.126 [main] DEBUG nextflow.Session - Run name: fervent_lalande
+Feb-02 10:10:23.126 [main] DEBUG nextflow.Session - Executor pool size: 16
+Feb-02 10:10:23.142 [main] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider
+Feb-02 10:10:23.152 [main] DEBUG nextflow.Global - Using AWS credentials defined in nextflow config file
+Feb-02 10:10:23.154 [main] DEBUG nextflow.file.FileHelper - AWS S3 config details: {secret_key=HDeqVm.., region=us-east-1, max_error_retry=5, access_key=AKIAQF..}
+Feb-02 10:10:23.723 [main] DEBUG com.upplication.s3fs.AmazonS3Client - Setting S3 glacierRetrievalTier=null
+Feb-02 10:10:23.758 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=48; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Feb-02 10:10:23.763 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/nextflow.config
+Feb-02 10:10:23.763 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config
+Feb-02 10:10:23.763 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/nextflow.config
+Feb-02 10:10:23.764 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config
+Feb-02 10:10:23.764 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Feb-02 10:10:23.902 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Feb-02 10:10:23.956 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [docker]
+Feb-02 10:10:23.980 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 23.04.3 build 5875
+  Created: 11-08-2023 18:37 UTC (14:37 EDT)
+  System: Linux 4.18.0-372.9.1.el8.x86_64
+  Runtime: Groovy 3.0.16 on Java HotSpot(TM) 64-Bit Server VM 17.0.6+9-LTS-190
+  Encoding: UTF-8 (UTF-8)
+  Process: 289379@random.mdibl.net [209.222.195.242]
+  CPUs: 16 - Mem: 141.4 GB (59.8 GB) - Swap: 32 MB (0)
+Feb-02 10:10:24.537 [main] DEBUG nextflow.file.FileHelper - Can't check if specified path is NFS (1): s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test
+
+Feb-02 10:10:24.537 [main] DEBUG nextflow.Session - Work-dir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test [null]
+Feb-02 10:10:24.537 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/bin
+Feb-02 10:10:24.566 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[AwsBatchExecutor]
+Feb-02 10:10:24.581 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Feb-02 10:10:24.583 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Feb-02 10:10:24.688 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Feb-02 10:10:24.701 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 17; maxThreads: 1000
+Feb-02 10:10:24.812 [main] DEBUG nextflow.Session - Session start
+Feb-02 10:10:24.822 [main] DEBUG io.seqera.tower.plugin.TowerClient - Creating Tower observer -- endpoint=https://api.tower.nf; requestInterval=1s; aliveInterval=1m; maxRetries=5; backOffBase=3; backOffDelay=250
+Feb-02 10:10:25.691 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Feb-02 10:10:25.705 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-validation version: latest
+Feb-02 10:10:25.993 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-validation@1.1.3' resolved
+Feb-02 10:10:25.993 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-validation@1.1.3'
+Feb-02 10:10:26.353 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-validation@1.1.3
+Feb-02 10:10:26.380 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [paramsSummaryLog:paramsSummaryLog, paramsSummaryMap:paramsSummaryMap, fromSamplesheet:fromSamplesheet]; plugin Id: nf-validation
+Feb-02 10:10:26.517 [main] DEBUG nextflow.Session - Session aborted -- Cause: No such property: NfcoreTemplate for class: Script_729c83ef
+Feb-02 10:10:26.532 [main] ERROR nextflow.cli.Launcher - @unknown
+groovy.lang.MissingPropertyException: No such property: NfcoreTemplate for class: Script_729c83ef
+	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.unwrap(ScriptBytecodeAdapter.java:65)
+	at org.codehaus.groovy.runtime.callsite.PogoGetPropertySite.getProperty(PogoGetPropertySite.java:51)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callGroovyObjectGetProperty(AbstractCallSite.java:341)
+	at Script_729c83ef.runScript(Script_729c83ef:10)
+	at nextflow.script.BaseScript.run0(BaseScript.groovy:145)
+	at nextflow.script.BaseScript.run(BaseScript.groovy:192)
+	at nextflow.script.ScriptParser.runScript(ScriptParser.groovy:229)
+	at nextflow.script.ScriptRunner.run(ScriptRunner.groovy:224)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:130)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:368)
+	at nextflow.cli.Launcher.run(Launcher.groovy:494)
+	at nextflow.cli.Launcher.main(Launcher.groovy:653)

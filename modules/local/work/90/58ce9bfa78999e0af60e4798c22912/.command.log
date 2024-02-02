@@ -1,0 +1,2 @@
+docker: Error response from daemon: Conflict. The container name "/treegrafter" is already in use by container "15ee1a703f4203d8f50aa50827c1ce490a4465da6ca752b2fcb74e96c6696ff0". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.

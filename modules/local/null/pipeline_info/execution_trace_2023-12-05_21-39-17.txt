@@ -1,0 +1,2 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+1	96/787c7a	3956	ORTHOFINDER (Orthofinder on null)	FAILED	127	2023-12-05 21:39:25.325	634ms	550ms	-	-	-	-	-

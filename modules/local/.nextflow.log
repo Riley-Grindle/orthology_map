@@ -1,0 +1,14 @@
+Dec-22 15:41:50.692 [main] DEBUG nextflow.cli.Launcher - $> nextflow run orthologymap.nf --fasta /home/rgrindle/ortho_prediction/panther/data/ --project_id test_3
+Dec-22 15:41:50.895 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.04.3
+Dec-22 15:41:50.926 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/rgrindle/.nextflow/plugins; core-plugins: nf-amazon@1.16.2,nf-azure@1.0.1,nf-codecommit@0.1.4,nf-console@1.0.5,nf-ga4gh@1.0.5,nf-google@1.7.3,nf-tower@1.5.12,nf-wave@0.8.4
+Dec-22 15:41:50.965 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Dec-22 15:41:50.967 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Dec-22 15:41:50.972 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Dec-22 15:41:50.989 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Dec-22 15:41:51.099 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /home/rgrindle/.nextflow/scm
+Dec-22 15:41:51.114 [main] DEBUG nextflow.cli.Launcher - Operation aborted
+nextflow.exception.AbortOperationException: Cannot find script file: orthologymap.nf
+	at nextflow.cli.CmdRun.getScriptFile(CmdRun.groovy:462)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:314)
+	at nextflow.cli.Launcher.run(Launcher.groovy:494)
+	at nextflow.cli.Launcher.main(Launcher.groovy:653)

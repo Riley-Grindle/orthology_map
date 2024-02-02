@@ -1,0 +1,204 @@
+Feb-01 10:08:54.957 [main] DEBUG nextflow.cli.Launcher - $> nextflow run orthologymap.nf -c /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config -with-tower -profile docker -resume
+Feb-01 10:08:55.265 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.04.3
+Feb-01 10:08:55.300 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/rgrindle/.nextflow/plugins; core-plugins: nf-amazon@1.16.2,nf-azure@1.0.1,nf-codecommit@0.1.4,nf-console@1.0.5,nf-ga4gh@1.0.5,nf-google@1.7.3,nf-tower@1.5.12,nf-wave@0.8.4
+Feb-01 10:08:55.316 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Feb-01 10:08:55.318 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Feb-01 10:08:55.322 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Feb-01 10:08:55.342 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Feb-01 10:08:55.368 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/nextflow.config
+Feb-01 10:08:55.373 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config
+Feb-01 10:08:55.374 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/nextflow.config
+Feb-01 10:08:55.374 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config
+Feb-01 10:08:55.416 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Feb-01 10:08:56.495 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Feb-01 10:08:56.687 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [docker]
+Feb-01 10:08:56.748 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Feb-01 10:08:56.776 [main] INFO  nextflow.cli.CmdRun - Launching `orthologymap.nf` [sad_poisson] DSL2 - revision: b099260c06
+Feb-01 10:08:56.776 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[nf-amazon@1.16.2]
+Feb-01 10:08:56.777 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[nf-amazon@1.16.2, nf-tower@1.5.12]
+Feb-01 10:08:56.777 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-amazon version: 1.16.2
+Feb-01 10:08:56.804 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-amazon@1.16.2' resolved
+Feb-01 10:08:56.804 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-amazon@1.16.2'
+Feb-01 10:08:56.848 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-amazon@1.16.2
+Feb-01 10:08:56.883 [main] DEBUG nextflow.file.FileHelper - > Added 'S3FileSystemProvider' to list of installed providers [s3]
+Feb-01 10:08:56.883 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-tower version: 1.5.12
+Feb-01 10:08:56.891 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-tower@1.5.12' resolved
+Feb-01 10:08:56.891 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-tower@1.5.12'
+Feb-01 10:08:56.908 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-tower@1.5.12
+Feb-01 10:08:56.931 [main] DEBUG nextflow.secret.LocalSecretsProvider - Secrets store: /home/rgrindle/.nextflow/secrets/store.json
+Feb-01 10:08:56.937 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@3f1a4795] - activable => nextflow.secret.LocalSecretsProvider@3f1a4795
+Feb-01 10:08:57.025 [main] DEBUG nextflow.Session - Session UUID: 5cdfef24-2107-4e01-bb39-2e754cddfa64
+Feb-01 10:08:57.025 [main] DEBUG nextflow.Session - Run name: sad_poisson
+Feb-01 10:08:57.026 [main] DEBUG nextflow.Session - Executor pool size: 16
+Feb-01 10:08:57.045 [main] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider
+Feb-01 10:08:57.053 [main] DEBUG nextflow.Global - Using AWS credentials defined in nextflow config file
+Feb-01 10:08:57.054 [main] DEBUG nextflow.file.FileHelper - AWS S3 config details: {secret_key=HDeqVm.., region=us-east-1, max_error_retry=5, access_key=AKIAQF..}
+Feb-01 10:08:57.653 [main] DEBUG com.upplication.s3fs.AmazonS3Client - Setting S3 glacierRetrievalTier=null
+Feb-01 10:08:57.689 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=48; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Feb-01 10:08:57.695 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/nextflow.config
+Feb-01 10:08:57.696 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config
+Feb-01 10:08:57.696 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/nextflow.config
+Feb-01 10:08:57.697 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config
+Feb-01 10:08:57.697 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Feb-01 10:08:57.782 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Feb-01 10:08:57.847 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [docker]
+Feb-01 10:08:57.874 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 23.04.3 build 5875
+  Created: 11-08-2023 18:37 UTC (14:37 EDT)
+  System: Linux 4.18.0-372.9.1.el8.x86_64
+  Runtime: Groovy 3.0.16 on Java HotSpot(TM) 64-Bit Server VM 17.0.6+9-LTS-190
+  Encoding: UTF-8 (UTF-8)
+  Process: 4185600@random.mdibl.net [209.222.195.242]
+  CPUs: 16 - Mem: 141.4 GB (63.1 GB) - Swap: 32 MB (0)
+Feb-01 10:08:58.429 [main] DEBUG nextflow.file.FileHelper - Can't check if specified path is NFS (1): s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test
+
+Feb-01 10:08:58.429 [main] DEBUG nextflow.Session - Work-dir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test [null]
+Feb-01 10:08:58.429 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/bin
+Feb-01 10:08:58.465 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[AwsBatchExecutor]
+Feb-01 10:08:58.479 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Feb-01 10:08:58.482 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Feb-01 10:08:58.587 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Feb-01 10:08:58.597 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 17; maxThreads: 1000
+Feb-01 10:08:58.705 [main] DEBUG nextflow.Session - Session start
+Feb-01 10:08:58.718 [main] DEBUG io.seqera.tower.plugin.TowerClient - Creating Tower observer -- endpoint=https://api.tower.nf; requestInterval=1s; aliveInterval=1m; maxRetries=5; backOffBase=3; backOffDelay=250
+Feb-01 10:08:59.496 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Feb-01 10:09:00.707 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:PREP_INPUT` matches process PREP_INPUT
+Feb-01 10:09:00.718 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:09:00.718 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:09:00.722 [main] DEBUG nextflow.executor.Executor - [warm up] executor > awsbatch
+Feb-01 10:09:00.734 [main] DEBUG nextflow.util.ThrottlingExecutor - Creating throttling executor with opts: nextflow.util.ThrottlingExecutor$Options(poolName:AWSBatch-executor, limiter:RateLimiter[stableRate=50.0qps], poolSize:80, maxPoolSize:80, queueSize:5000, maxRetries:10, keepAlive:1m, autoThrottle:true, errorBurstDelay:1s, rampUpInterval:100, rampUpFactor:1.2, rampUpMaxRate:1.7976931348623157E308, backOffFactor:2.0, backOffMinRate:0.0166666667, retryDelay:1s)
+Feb-01 10:09:00.742 [main] DEBUG nextflow.util.ThrottlingExecutor - Creating throttling executor with opts: nextflow.util.ThrottlingExecutor$Options(poolName:AWSBatch-reaper, limiter:RateLimiter[stableRate=50.0qps], poolSize:80, maxPoolSize:80, queueSize:5000, maxRetries:10, keepAlive:1m, autoThrottle:true, errorBurstDelay:1s, rampUpInterval:100, rampUpFactor:1.2, rampUpMaxRate:1.7976931348623157E308, backOffFactor:2.0, backOffMinRate:0.0166666667, retryDelay:1s)
+Feb-01 10:09:00.743 [main] DEBUG n.cloud.aws.batch.AwsBatchExecutor - Creating parallel monitor for executor 'awsbatch' > pollInterval=10s; dumpInterval=5m
+Feb-01 10:09:00.793 [main] DEBUG nextflow.Global - Using AWS credentials defined in nextflow config file
+Feb-01 10:09:00.852 [main] DEBUG n.cloud.aws.batch.AwsBatchExecutor - [AWS BATCH] Executor options=AwsOptions(cliPath:/home/ec2-user/miniconda/bin/aws, storageClass:null, storageEncryption:null, storageKmsKeyId:null, remoteBinDir:null, region:us-east-1, maxParallelTransfers:4, maxTransferAttempts:5, delayBetweenAttempts:10s, retryMode:standard, maxSpotAttempts:5, debug:null, fetchInstanceType:true, jobRole:null, logsGroup:null, volumes:[], shareIdentifier:null, schedulingPriority:0, s3Acl:null, awsCli:/home/ec2-user/miniconda/bin/aws --region us-east-1)
+Feb-01 10:09:00.951 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:ORTHOFINDER` matches process ORTHOFINDER
+Feb-01 10:09:00.953 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:09:00.953 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:09:00.983 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:EGGNOGMAPPER` matches process EGGNOGMAPPER
+Feb-01 10:09:00.985 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:09:00.985 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:09:01.002 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:TREEGRAFTER` matches process TREEGRAFTER
+Feb-01 10:09:01.004 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:09:01.004 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:09:01.016 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:ORTHOLOGER` matches process ORTHOLOGER
+Feb-01 10:09:01.017 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:09:01.017 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:09:01.051 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:PANTHER_API` matches process PANTHER_API
+Feb-01 10:09:01.052 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:09:01.052 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:09:01.063 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:09:01.063 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:09:01.068 [main] WARN  nextflow.extension.OperatorImpl - The operator `first` is useless when applied to a value channel which returns a single value by definition
+Feb-01 10:09:01.073 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:09:01.073 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:09:01.081 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:POST_PROC` matches process POST_PROC
+Feb-01 10:09:01.083 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:09:01.083 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:09:01.263 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:09:01.263 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:09:01.268 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: PREP_INPUT, PANTHER_API, ORTHOLOGER, TREEGRAFTER, ORTHOFINDER, PULL_AWS, TRANSDECODER_LONGORF, POST_PROC, CUSTOM_DUMPSOFTWAREVERSIONS, COLLECT_CHUNKS, EGGNOGMAPPER, STAGE_OUTS
+Feb-01 10:09:01.519 [main] INFO  io.seqera.tower.plugin.TowerClient - Monitor the execution with Nextflow Tower using this URL: https://tower.nf/user/rgrindle/watch/3x363ukrKvx0ZA
+Feb-01 10:09:01.522 [main] DEBUG nextflow.Session - Igniting dataflow network (13)
+Feb-01 10:09:01.532 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PREP_INPUT
+Feb-01 10:09:01.532 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ORTHOFINDER
+Feb-01 10:09:01.532 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > EGGNOGMAPPER
+Feb-01 10:09:01.532 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > TREEGRAFTER
+Feb-01 10:09:01.532 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ORTHOLOGER
+Feb-01 10:09:01.533 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PANTHER_API
+Feb-01 10:09:01.533 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > COLLECT_CHUNKS
+Feb-01 10:09:01.533 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > STAGE_OUTS
+Feb-01 10:09:01.533 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > POST_PROC
+Feb-01 10:09:01.533 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > CUSTOM_DUMPSOFTWAREVERSIONS
+Feb-01 10:09:01.533 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Feb-01 10:09:01.533 [main] DEBUG nextflow.Session - Session await
+Feb-01 10:09:01.582 [Actor Thread 16] DEBUG nextflow.file.SortFileCollector - FileCollector temp dir not removed: null
+Feb-01 10:09:02.122 [Actor Thread 11] INFO  nextflow.processor.TaskProcessor - [30/1f5103] Cached process > PREP_INPUT (Staging input fastas for aws_test processes)
+Feb-01 10:09:02.503 [Actor Thread 13] INFO  nextflow.processor.TaskProcessor - [cd/9ee48a] Cached process > ORTHOLOGER (Logging aws_test)
+Feb-01 10:09:02.984 [AWSBatch-executor-2] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] [AWS BATCH] Found job definition name=nf-quay-io-rgrindle-orthofinder:1; container=quay.io/rgrindle/orthofinder
+Feb-01 10:09:03.105 [AWSBatch-executor-3] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] [AWS BATCH] Found job definition name=nf-quay-io-rgrindle-treegrafter:1; container=quay.io/rgrindle/treegrafter
+Feb-01 10:09:03.153 [AWSBatch-executor-2] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=39bfc4e2-1f36-4054-b054-b3e5cc2d6fe5; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/48/224ef56439b1ade624163f62457ecb
+Feb-01 10:09:03.153 [AWSBatch-executor-2] INFO  nextflow.Session - [48/224ef5] Submitted process > ORTHOFINDER (Orthofinding aws_test)
+Feb-01 10:09:03.196 [AWSBatch-executor-1] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] [AWS BATCH] Found job definition name=nf-quay-io-rgrindle-eggnogg-mapper:1; container=quay.io/rgrindle/eggnogg-mapper
+Feb-01 10:09:03.256 [AWSBatch-executor-3] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=6dbd6fe4-5fdb-4461-84b7-b921abddfeb6; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/7c/f289cc7052681d6230f15e349eb002
+Feb-01 10:09:03.256 [AWSBatch-executor-3] INFO  nextflow.Session - [7c/f289cc] Submitted process > TREEGRAFTER (Grafting aws_test using: shorter.fasta)
+Feb-01 10:09:03.290 [AWSBatch-executor-1] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=13cecc83-493f-4c8a-865a-30c32abaf031; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/cd/323f03634960a6e4801c1aef8c42ad
+Feb-01 10:09:03.290 [AWSBatch-executor-1] INFO  nextflow.Session - [cd/323f03] Submitted process > EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta)
+Feb-01 10:11:21.032 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: ORTHOFINDER (Orthofinding aws_test); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/48/224ef56439b1ade624163f62457ecb]
+Feb-01 10:14:10.763 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor awsbatch > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 4; name: TREEGRAFTER (Grafting aws_test using: shorter.fasta); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/7c/f289cc7052681d6230f15e349eb002]
+~> TaskHandler[id: 5; name: EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta); status: SUBMITTED; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/cd/323f03634960a6e4801c1aef8c42ad]
+Feb-01 10:15:21.040 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: TREEGRAFTER (Grafting aws_test using: shorter.fasta); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/7c/f289cc7052681d6230f15e349eb002]
+Feb-01 10:15:21.512 [Actor Thread 6] DEBUG n.splitter.AbstractTextSplitter - Splitter `Text` collector path: nextflow.splitter.TextFileCollector$CachePath(/mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/9a/902d28ec3308bbb5cd14a71fe6cc36/chunk.out, null)
+Feb-01 10:15:22.233 [AWSBatch-executor-42] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] [AWS BATCH] Created job definition name=nf-quay-io-rgrindle-panther_api_sf:2; container=quay.io/rgrindle/panther_api_sf
+Feb-01 10:15:22.349 [AWSBatch-executor-42] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=be16faa4-b122-4de9-876b-d0cd3bd64fc1; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/06/44df6119b01d40c3af366761946ee5
+Feb-01 10:15:22.349 [AWSBatch-executor-42] INFO  nextflow.Session - [06/44df61] Submitted process > PANTHER_API (Pulling gene ids from PantherDB)
+Feb-01 10:15:22.408 [AWSBatch-executor-43] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=5c2ced96-c034-405e-be73-dd6dc44bb82c; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/a0/e2a4d0d355750c0e8c3116513160da
+Feb-01 10:15:22.409 [AWSBatch-executor-43] INFO  nextflow.Session - [a0/e2a4d0] Submitted process > PANTHER_API (Pulling gene ids from PantherDB)
+Feb-01 10:15:22.480 [AWSBatch-executor-44] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=bc71eacf-c4de-4a7e-ad37-4df9f72673a5; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/df/2236f93d3632591a58e4454a959031
+Feb-01 10:15:22.480 [AWSBatch-executor-44] INFO  nextflow.Session - [df/2236f9] Submitted process > PANTHER_API (Pulling gene ids from PantherDB)
+Feb-01 10:15:22.549 [AWSBatch-executor-45] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=c76bd59d-dbe2-476e-8934-916ffcc16bc3; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/51/50989419146472d5bc495d7ddea175
+Feb-01 10:15:22.549 [AWSBatch-executor-45] INFO  nextflow.Session - [51/509894] Submitted process > PANTHER_API (Pulling gene ids from PantherDB)
+Feb-01 10:15:22.615 [AWSBatch-executor-46] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=de1ab11a-cce8-4145-8aa1-7826a1653340; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/96/95f473a6a474288360744df14f32fc
+Feb-01 10:15:22.615 [AWSBatch-executor-46] INFO  nextflow.Session - [96/95f473] Submitted process > PANTHER_API (Pulling gene ids from PantherDB)
+Feb-01 10:15:22.744 [AWSBatch-executor-47] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=8bb86bee-3c1d-4deb-a72d-583345a5ff4e; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/fa/3b34df87e51bf1942a8c135958781d
+Feb-01 10:15:22.745 [AWSBatch-executor-47] INFO  nextflow.Session - [fa/3b34df] Submitted process > PANTHER_API (Pulling gene ids from PantherDB)
+Feb-01 10:15:22.850 [AWSBatch-executor-48] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=9e94c842-e59c-4a87-8faf-e02bfa161aae; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/74/b9be2b6b0a321ae4f6d6a3633a2e16
+Feb-01 10:15:22.850 [AWSBatch-executor-48] INFO  nextflow.Session - [74/b9be2b] Submitted process > PANTHER_API (Pulling gene ids from PantherDB)
+Feb-01 10:19:10.772 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor awsbatch > tasks to be completed: 8 -- submitted tasks are shown below
+~> TaskHandler[id: 5; name: EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta); status: SUBMITTED; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/cd/323f03634960a6e4801c1aef8c42ad]
+~> TaskHandler[id: 6; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/06/44df6119b01d40c3af366761946ee5]
+~> TaskHandler[id: 7; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/a0/e2a4d0d355750c0e8c3116513160da]
+~> TaskHandler[id: 9; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/df/2236f93d3632591a58e4454a959031]
+~> TaskHandler[id: 8; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/51/50989419146472d5bc495d7ddea175]
+~> TaskHandler[id: 10; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/96/95f473a6a474288360744df14f32fc]
+~> TaskHandler[id: 11; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/fa/3b34df87e51bf1942a8c135958781d]
+~> TaskHandler[id: 12; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/74/b9be2b6b0a321ae4f6d6a3633a2e16]
+Feb-01 10:23:41.051 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/cd/323f03634960a6e4801c1aef8c42ad]
+Feb-01 10:24:10.780 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor awsbatch > tasks to be completed: 7 -- submitted tasks are shown below
+~> TaskHandler[id: 6; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/06/44df6119b01d40c3af366761946ee5]
+~> TaskHandler[id: 7; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/a0/e2a4d0d355750c0e8c3116513160da]
+~> TaskHandler[id: 9; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/df/2236f93d3632591a58e4454a959031]
+~> TaskHandler[id: 8; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/51/50989419146472d5bc495d7ddea175]
+~> TaskHandler[id: 10; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/96/95f473a6a474288360744df14f32fc]
+~> TaskHandler[id: 11; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/fa/3b34df87e51bf1942a8c135958781d]
+~> TaskHandler[id: 12; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/74/b9be2b6b0a321ae4f6d6a3633a2e16]
+Feb-01 10:29:10.787 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor awsbatch > tasks to be completed: 7 -- submitted tasks are shown below
+~> TaskHandler[id: 6; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/06/44df6119b01d40c3af366761946ee5]
+~> TaskHandler[id: 7; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/a0/e2a4d0d355750c0e8c3116513160da]
+~> TaskHandler[id: 9; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/df/2236f93d3632591a58e4454a959031]
+~> TaskHandler[id: 8; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/51/50989419146472d5bc495d7ddea175]
+~> TaskHandler[id: 10; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/96/95f473a6a474288360744df14f32fc]
+~> TaskHandler[id: 11; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/fa/3b34df87e51bf1942a8c135958781d]
+~> TaskHandler[id: 12; name: PANTHER_API (Pulling gene ids from PantherDB); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/74/b9be2b6b0a321ae4f6d6a3633a2e16]
+Feb-01 10:32:11.048 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: PANTHER_API (Pulling gene ids from PantherDB); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/74/b9be2b6b0a321ae4f6d6a3633a2e16]
+Feb-01 10:32:21.017 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: PANTHER_API (Pulling gene ids from PantherDB); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/51/50989419146472d5bc495d7ddea175]
+Feb-01 10:32:21.203 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: PANTHER_API (Pulling gene ids from PantherDB); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/96/95f473a6a474288360744df14f32fc]
+Feb-01 10:32:31.021 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: PANTHER_API (Pulling gene ids from PantherDB); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/06/44df6119b01d40c3af366761946ee5]
+Feb-01 10:32:31.192 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: PANTHER_API (Pulling gene ids from PantherDB); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/df/2236f93d3632591a58e4454a959031]
+Feb-01 10:32:41.026 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: PANTHER_API (Pulling gene ids from PantherDB); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/a0/e2a4d0d355750c0e8c3116513160da]
+Feb-01 10:32:41.208 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: PANTHER_API (Pulling gene ids from PantherDB); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/fa/3b34df87e51bf1942a8c135958781d]
+Feb-01 10:32:42.052 [AWSBatch-executor-153] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] [AWS BATCH] Found job definition name=nf-quay-io-biocontainers-python-3-9--1:3; container=quay.io/biocontainers/python:3.9--1
+Feb-01 10:32:42.162 [AWSBatch-executor-153] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=5527dfff-fd80-456f-a959-b1c184829971; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/77/9a3fa1dbf7d08365bdbfb4f6189b4f
+Feb-01 10:32:42.162 [AWSBatch-executor-153] INFO  nextflow.Session - [77/9a3fa1] Submitted process > COLLECT_CHUNKS (Combining Outputs)
+Feb-01 10:33:11.024 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: COLLECT_CHUNKS (Combining Outputs); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/77/9a3fa1dbf7d08365bdbfb4f6189b4f]
+Feb-01 10:33:11.818 [AWSBatch-executor-157] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=4b9bd4ec-bc8d-4402-88a2-a3e04ab7e094; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/e0/dd85913507e85dd27576e9f34067c3
+Feb-01 10:33:11.818 [AWSBatch-executor-157] INFO  nextflow.Session - [e0/dd8591] Submitted process > STAGE_OUTS (Staging orthology tool outputs...)
+Feb-01 10:34:10.822 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor awsbatch > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 14; name: STAGE_OUTS (Staging orthology tool outputs...); status: SUBMITTED; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/e0/dd85913507e85dd27576e9f34067c3]
+Feb-01 10:35:41.049 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: STAGE_OUTS (Staging orthology tool outputs...); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/e0/dd85913507e85dd27576e9f34067c3]
+Feb-01 10:35:42.084 [AWSBatch-executor-173] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] [AWS BATCH] Created job definition name=nf-quay-io-rgrindle-post_proc:4; container=quay.io/rgrindle/post_proc
+Feb-01 10:35:42.177 [AWSBatch-executor-173] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=5132272e-8e25-415c-9d9b-59874949ea79; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/48/9f72be7ff3351c9cbb2eb991af2bdd
+Feb-01 10:35:42.177 [AWSBatch-executor-173] INFO  nextflow.Session - [48/9f72be] Submitted process > POST_PROC (Processing orthology tool outputs...)
+Feb-01 10:39:10.831 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor awsbatch > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: POST_PROC (Processing orthology tool outputs...); status: SUBMITTED; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/48/9f72be7ff3351c9cbb2eb991af2bdd]
+Feb-01 10:39:31.062 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: POST_PROC (Processing orthology tool outputs...); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/48/9f72be7ff3351c9cbb2eb991af2bdd]
+Feb-01 10:39:31.109 [main] DEBUG nextflow.Session - Session await > all processes finished
+Feb-01 10:39:31.149 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Feb-01 10:39:31.157 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=13; failedCount=0; ignoredCount=0; cachedCount=2; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=11h 54m 48s; failedDuration=0ms; cachedDuration=4m 21s;loadCpus=0; loadMemory=0; peakRunning=8; peakCpus=54; peakMemory=284 GB; ]
+Feb-01 10:39:31.883 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Feb-01 10:39:31.883 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-tower@1.5.12'
+Feb-01 10:39:31.883 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-tower
+Feb-01 10:39:31.883 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-amazon@1.16.2'
+Feb-01 10:39:31.883 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-amazon
+Feb-01 10:39:31.934 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Feb-01 10:39:31.936 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

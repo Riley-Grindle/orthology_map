@@ -1,0 +1,202 @@
+Feb-01 10:02:01.457 [main] DEBUG nextflow.cli.Launcher - $> nextflow run orthologymap.nf -c /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config -with-tower -profile docker
+Feb-01 10:02:01.757 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.04.3
+Feb-01 10:02:01.785 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/rgrindle/.nextflow/plugins; core-plugins: nf-amazon@1.16.2,nf-azure@1.0.1,nf-codecommit@0.1.4,nf-console@1.0.5,nf-ga4gh@1.0.5,nf-google@1.7.3,nf-tower@1.5.12,nf-wave@0.8.4
+Feb-01 10:02:01.801 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Feb-01 10:02:01.802 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Feb-01 10:02:01.806 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Feb-01 10:02:01.826 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Feb-01 10:02:01.849 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/nextflow.config
+Feb-01 10:02:01.854 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config
+Feb-01 10:02:01.854 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/nextflow.config
+Feb-01 10:02:01.854 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config
+Feb-01 10:02:01.888 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Feb-01 10:02:02.944 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Feb-01 10:02:03.132 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [docker]
+Feb-01 10:02:03.177 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Feb-01 10:02:03.205 [main] INFO  nextflow.cli.CmdRun - Launching `orthologymap.nf` [extravagant_jepsen] DSL2 - revision: b099260c06
+Feb-01 10:02:03.206 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[nf-amazon@1.16.2]
+Feb-01 10:02:03.207 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[nf-amazon@1.16.2, nf-tower@1.5.12]
+Feb-01 10:02:03.207 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-amazon version: 1.16.2
+Feb-01 10:02:03.233 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-amazon@1.16.2' resolved
+Feb-01 10:02:03.233 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-amazon@1.16.2'
+Feb-01 10:02:03.265 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-amazon@1.16.2
+Feb-01 10:02:03.307 [main] DEBUG nextflow.file.FileHelper - > Added 'S3FileSystemProvider' to list of installed providers [s3]
+Feb-01 10:02:03.308 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-tower version: 1.5.12
+Feb-01 10:02:03.317 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-tower@1.5.12' resolved
+Feb-01 10:02:03.317 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-tower@1.5.12'
+Feb-01 10:02:03.340 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-tower@1.5.12
+Feb-01 10:02:03.371 [main] DEBUG nextflow.secret.LocalSecretsProvider - Secrets store: /home/rgrindle/.nextflow/secrets/store.json
+Feb-01 10:02:03.379 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@54402c04] - activable => nextflow.secret.LocalSecretsProvider@54402c04
+Feb-01 10:02:03.480 [main] DEBUG nextflow.Session - Session UUID: 5cdfef24-2107-4e01-bb39-2e754cddfa64
+Feb-01 10:02:03.480 [main] DEBUG nextflow.Session - Run name: extravagant_jepsen
+Feb-01 10:02:03.481 [main] DEBUG nextflow.Session - Executor pool size: 16
+Feb-01 10:02:03.499 [main] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider
+Feb-01 10:02:03.510 [main] DEBUG nextflow.Global - Using AWS credentials defined in nextflow config file
+Feb-01 10:02:03.511 [main] DEBUG nextflow.file.FileHelper - AWS S3 config details: {secret_key=HDeqVm.., region=us-east-1, max_error_retry=5, access_key=AKIAQF..}
+Feb-01 10:02:04.076 [main] DEBUG com.upplication.s3fs.AmazonS3Client - Setting S3 glacierRetrievalTier=null
+Feb-01 10:02:04.118 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=48; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Feb-01 10:02:04.123 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/nextflow.config
+Feb-01 10:02:04.124 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config
+Feb-01 10:02:04.124 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/nextflow.config
+Feb-01 10:02:04.124 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/rgrindle/ortho_prediction/test_cloud_configs/batch.config
+Feb-01 10:02:04.125 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Feb-01 10:02:04.221 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Feb-01 10:02:04.315 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [docker]
+Feb-01 10:02:04.339 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 23.04.3 build 5875
+  Created: 11-08-2023 18:37 UTC (14:37 EDT)
+  System: Linux 4.18.0-372.9.1.el8.x86_64
+  Runtime: Groovy 3.0.16 on Java HotSpot(TM) 64-Bit Server VM 17.0.6+9-LTS-190
+  Encoding: UTF-8 (UTF-8)
+  Process: 4185262@random.mdibl.net [209.222.195.242]
+  CPUs: 16 - Mem: 141.4 GB (63.1 GB) - Swap: 32 MB (0)
+Feb-01 10:02:04.863 [main] DEBUG nextflow.file.FileHelper - Can't check if specified path is NFS (1): s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test
+
+Feb-01 10:02:04.863 [main] DEBUG nextflow.Session - Work-dir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test [null]
+Feb-01 10:02:04.863 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /compbio/scratch/rgrindle/Ortho_Pipeline/orthologymap/workflows/bin
+Feb-01 10:02:04.894 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[AwsBatchExecutor]
+Feb-01 10:02:04.912 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Feb-01 10:02:04.916 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Feb-01 10:02:05.022 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Feb-01 10:02:05.035 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 17; maxThreads: 1000
+Feb-01 10:02:05.131 [main] DEBUG nextflow.Session - Session start
+Feb-01 10:02:05.142 [main] DEBUG io.seqera.tower.plugin.TowerClient - Creating Tower observer -- endpoint=https://api.tower.nf; requestInterval=1s; aliveInterval=1m; maxRetries=5; backOffBase=3; backOffDelay=250
+Feb-01 10:02:05.981 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Feb-01 10:02:07.521 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:PREP_INPUT` matches process PREP_INPUT
+Feb-01 10:02:07.535 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:02:07.535 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:02:07.541 [main] DEBUG nextflow.executor.Executor - [warm up] executor > awsbatch
+Feb-01 10:02:07.560 [main] DEBUG nextflow.util.ThrottlingExecutor - Creating throttling executor with opts: nextflow.util.ThrottlingExecutor$Options(poolName:AWSBatch-executor, limiter:RateLimiter[stableRate=50.0qps], poolSize:80, maxPoolSize:80, queueSize:5000, maxRetries:10, keepAlive:1m, autoThrottle:true, errorBurstDelay:1s, rampUpInterval:100, rampUpFactor:1.2, rampUpMaxRate:1.7976931348623157E308, backOffFactor:2.0, backOffMinRate:0.0166666667, retryDelay:1s)
+Feb-01 10:02:07.568 [main] DEBUG nextflow.util.ThrottlingExecutor - Creating throttling executor with opts: nextflow.util.ThrottlingExecutor$Options(poolName:AWSBatch-reaper, limiter:RateLimiter[stableRate=50.0qps], poolSize:80, maxPoolSize:80, queueSize:5000, maxRetries:10, keepAlive:1m, autoThrottle:true, errorBurstDelay:1s, rampUpInterval:100, rampUpFactor:1.2, rampUpMaxRate:1.7976931348623157E308, backOffFactor:2.0, backOffMinRate:0.0166666667, retryDelay:1s)
+Feb-01 10:02:07.570 [main] DEBUG n.cloud.aws.batch.AwsBatchExecutor - Creating parallel monitor for executor 'awsbatch' > pollInterval=10s; dumpInterval=5m
+Feb-01 10:02:07.612 [main] DEBUG nextflow.Global - Using AWS credentials defined in nextflow config file
+Feb-01 10:02:07.681 [main] DEBUG n.cloud.aws.batch.AwsBatchExecutor - [AWS BATCH] Executor options=AwsOptions(cliPath:/home/ec2-user/miniconda/bin/aws, storageClass:null, storageEncryption:null, storageKmsKeyId:null, remoteBinDir:null, region:us-east-1, maxParallelTransfers:4, maxTransferAttempts:5, delayBetweenAttempts:10s, retryMode:standard, maxSpotAttempts:5, debug:null, fetchInstanceType:true, jobRole:null, logsGroup:null, volumes:[], shareIdentifier:null, schedulingPriority:0, s3Acl:null, awsCli:/home/ec2-user/miniconda/bin/aws --region us-east-1)
+Feb-01 10:02:07.771 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:ORTHOFINDER` matches process ORTHOFINDER
+Feb-01 10:02:07.773 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:02:07.773 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:02:07.800 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:EGGNOGMAPPER` matches process EGGNOGMAPPER
+Feb-01 10:02:07.802 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:02:07.802 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:02:07.816 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:TREEGRAFTER` matches process TREEGRAFTER
+Feb-01 10:02:07.818 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:02:07.818 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:02:07.828 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:ORTHOLOGER` matches process ORTHOLOGER
+Feb-01 10:02:07.829 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:02:07.829 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:02:07.879 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:PANTHER_API` matches process PANTHER_API
+Feb-01 10:02:07.880 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:02:07.881 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:02:07.898 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:02:07.898 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:02:07.903 [main] WARN  nextflow.extension.OperatorImpl - The operator `first` is useless when applied to a value channel which returns a single value by definition
+Feb-01 10:02:07.909 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:02:07.909 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:02:07.915 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:POST_PROC` matches process POST_PROC
+Feb-01 10:02:07.917 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:02:07.917 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:02:08.088 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: awsbatch
+Feb-01 10:02:08.088 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'awsbatch'
+Feb-01 10:02:08.092 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: PREP_INPUT, PANTHER_API, ORTHOLOGER, TREEGRAFTER, ORTHOFINDER, PULL_AWS, TRANSDECODER_LONGORF, POST_PROC, CUSTOM_DUMPSOFTWAREVERSIONS, COLLECT_CHUNKS, EGGNOGMAPPER, STAGE_OUTS
+Feb-01 10:02:08.354 [main] INFO  io.seqera.tower.plugin.TowerClient - Monitor the execution with Nextflow Tower using this URL: https://tower.nf/user/rgrindle/watch/3RZxuflAdbhpdC
+Feb-01 10:02:08.356 [main] DEBUG nextflow.Session - Igniting dataflow network (13)
+Feb-01 10:02:08.364 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PREP_INPUT
+Feb-01 10:02:08.364 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ORTHOFINDER
+Feb-01 10:02:08.364 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > EGGNOGMAPPER
+Feb-01 10:02:08.364 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > TREEGRAFTER
+Feb-01 10:02:08.365 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ORTHOLOGER
+Feb-01 10:02:08.365 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PANTHER_API
+Feb-01 10:02:08.365 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > COLLECT_CHUNKS
+Feb-01 10:02:08.365 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > STAGE_OUTS
+Feb-01 10:02:08.365 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > POST_PROC
+Feb-01 10:02:08.365 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > CUSTOM_DUMPSOFTWAREVERSIONS
+Feb-01 10:02:08.365 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Feb-01 10:02:08.365 [main] DEBUG nextflow.Session - Session await
+Feb-01 10:02:08.408 [Actor Thread 17] DEBUG nextflow.file.SortFileCollector - FileCollector temp dir not removed: null
+Feb-01 10:02:09.254 [AWSBatch-executor-1] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] [AWS BATCH] Found job definition name=nf-quay-io-biocontainers-python-3-9--1:3; container=quay.io/biocontainers/python:3.9--1
+Feb-01 10:02:09.371 [AWSBatch-executor-1] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=17ce49f9-552b-4ef7-a190-0dff2e07ad3a; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/30/1f51032973ecfa7354585e9d6a1ba3
+Feb-01 10:02:09.371 [AWSBatch-executor-1] INFO  nextflow.Session - [30/1f5103] Submitted process > PREP_INPUT (Staging input fastas for aws_test processes)
+Feb-01 10:06:07.809 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: PREP_INPUT (Staging input fastas for aws_test processes); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/30/1f51032973ecfa7354585e9d6a1ba3]
+Feb-01 10:06:08.538 [AWSBatch-executor-27] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] [AWS BATCH] Found job definition name=nf-quay-io-rgrindle-orthofinder:1; container=quay.io/rgrindle/orthofinder
+Feb-01 10:06:08.726 [AWSBatch-executor-27] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=8e8509f1-6098-43b1-b170-cbd0ccd6248a; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/22/a90ce53a52fd2f65a5dfc1bc4bd0bd
+Feb-01 10:06:08.726 [AWSBatch-executor-27] INFO  nextflow.Session - [22/a90ce5] Submitted process > ORTHOFINDER (Orthofinding aws_test)
+Feb-01 10:06:08.895 [AWSBatch-executor-26] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] [AWS BATCH] Created job definition name=nf-quay-io-rgrindle-eggnog-mapper:1; container=quay.io/rgrindle/eggnog-mapper
+Feb-01 10:06:08.991 [AWSBatch-executor-26] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=e21ec897-743e-4778-8770-ee807d0b5afe; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/9b/a55c4db7846523a5d78c3410a7d723
+Feb-01 10:06:08.991 [AWSBatch-executor-26] INFO  nextflow.Session - [9b/a55c4d] Submitted process > EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta)
+Feb-01 10:06:09.024 [AWSBatch-executor-29] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] [AWS BATCH] Found job definition name=nf-quay-io-rgrindle-treegrafter:1; container=quay.io/rgrindle/treegrafter
+Feb-01 10:06:09.113 [AWSBatch-executor-28] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] [AWS BATCH] Found job definition name=nf-quay-io-rgrindle-orthologer:1; container=quay.io/rgrindle/orthologer
+Feb-01 10:06:09.117 [AWSBatch-executor-29] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=cc527246-12a4-44f6-851b-a7616e0a1d49; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/d7/03f24eddedfe920625ee48674704d7
+Feb-01 10:06:09.118 [AWSBatch-executor-29] INFO  nextflow.Session - [d7/03f24e] Submitted process > TREEGRAFTER (Grafting aws_test using: shorter.fasta)
+Feb-01 10:06:09.203 [AWSBatch-executor-28] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] submitted > job=f9d791dd-34a8-4833-b736-16653066d86c; work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/cd/9ee48a660df6b62e0c494d0e8c6128
+Feb-01 10:06:09.204 [AWSBatch-executor-28] INFO  nextflow.Session - [cd/9ee48a] Submitted process > ORTHOLOGER (Logging aws_test)
+Feb-01 10:07:17.599 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor awsbatch > tasks to be completed: 4 -- submitted tasks are shown below
+~> TaskHandler[id: 5; name: ORTHOFINDER (Orthofinding aws_test); status: SUBMITTED; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/22/a90ce53a52fd2f65a5dfc1bc4bd0bd]
+~> TaskHandler[id: 4; name: EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta); status: SUBMITTED; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/9b/a55c4db7846523a5d78c3410a7d723]
+~> TaskHandler[id: 3; name: TREEGRAFTER (Grafting aws_test using: shorter.fasta); status: SUBMITTED; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/d7/03f24eddedfe920625ee48674704d7]
+~> TaskHandler[id: 2; name: ORTHOLOGER (Logging aws_test); status: RUNNING; exit: -; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/cd/9ee48a660df6b62e0c494d0e8c6128]
+Feb-01 10:07:27.820 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: ORTHOLOGER (Logging aws_test); status: COMPLETED; exit: 0; error: -; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/cd/9ee48a660df6b62e0c494d0e8c6128]
+Feb-01 10:08:08.290 [Task monitor] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] Cannot read exitstatus for task: `EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta)` | /mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/9b/a55c4db7846523a5d78c3410a7d723/.exitcode
+Feb-01 10:08:08.567 [Task monitor] DEBUG n.cloud.aws.batch.AwsBatchExecutor - Unable to find AWS Cloudwatch logs for Batch Job id=e21ec897-743e-4778-8770-ee807d0b5afe - The specified log stream does not exist. (Service: AWSLogs; Status Code: 400; Error Code: ResourceNotFoundException; Request ID: 9c2c1f84-0f1e-4f3e-ae26-ff9b09a18ab0; Proxy: null)
+Feb-01 10:08:08.568 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta); status: COMPLETED; exit: -; error: nextflow.exception.ProcessUnrecoverableException: Task failed to start - CannotPullContainerError: Error response from daemon: unauthorized: access to the requested resource is not authorized; workDir: s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/9b/a55c4db7846523a5d78c3410a7d723]
+Feb-01 10:08:08.571 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta); work-dir=s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/9b/a55c4db7846523a5d78c3410a7d723
+  error [nextflow.exception.ProcessFailedException]: Process `EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta)` failed
+Feb-01 10:08:08.636 [Task monitor] DEBUG nextflow.processor.TaskRun - Unable to dump output of process 'EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta)' -- Cause: java.nio.file.NoSuchFileException: /tmp/temp-s3-10294202873296858879/.command.out
+Feb-01 10:08:08.675 [Task monitor] DEBUG nextflow.processor.TaskRun - Unable to dump error of process 'EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta)' -- Cause: java.nio.file.NoSuchFileException: /tmp/temp-s3-1007841740670279464/.command.err
+Feb-01 10:08:08.677 [Task monitor] ERROR nextflow.processor.TaskProcessor - Error executing process > 'EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta)'
+
+Caused by:
+  Task failed to start - CannotPullContainerError: Error response from daemon: unauthorized: access to the requested resource is not authorized
+
+Command executed:
+
+  emapper.py \
+      -i eggnog/shorter.fasta \
+      -m diamond \
+      -o aws_test \
+      --itype proteins \
+      --cpu 12 \
+  
+  
+  cat <<-END_VERSIONS > versions.yml
+  "EGGNOGMAPPER":
+      eggnog_mapper: $(emapper.py --version)
+  END_VERSIONS
+
+Command exit status:
+  -
+
+Command output:
+  (empty)
+
+Work dir:
+  s3://mdibl-rgrindle/orthology_pipe/work_dirs/batch_test/9b/a55c4db7846523a5d78c3410a7d723
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+Feb-01 10:08:08.715 [Task monitor] DEBUG nextflow.Session - Session aborted -- Cause: Process `EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta)` failed
+Feb-01 10:08:08.732 [Task monitor] DEBUG nextflow.Session - The following nodes are still active:
+[process] PANTHER_API
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: tree_out
+  port 1: (cntrl) -     ; channel: $
+
+[process] COLLECT_CHUNKS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: ortho_text
+  port 1: (cntrl) -     ; channel: $
+
+Feb-01 10:08:08.764 [Task monitor] DEBUG nextflow.processor.TaskRun - Unable to dump error of process 'EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta)' -- Cause: java.nio.file.NoSuchFileException: /tmp/temp-s3-8341948619294751533/.command.err
+Feb-01 10:08:08.796 [Task monitor] DEBUG nextflow.processor.TaskRun - Unable to dump output of process 'EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta)' -- Cause: java.nio.file.NoSuchFileException: /tmp/temp-s3-8109536591830140857/.command.out
+Feb-01 10:08:08.798 [main] DEBUG nextflow.Session - Session await > all processes finished
+Feb-01 10:08:08.798 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Feb-01 10:08:08.833 [main] DEBUG nextflow.processor.TaskRun - Unable to dump error of process 'EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta)' -- Cause: java.nio.file.NoSuchFileException: /tmp/temp-s3-5831742163417691045/.command.err
+Feb-01 10:08:08.867 [main] DEBUG nextflow.processor.TaskRun - Unable to dump output of process 'EGGNOGMAPPER (Eggnogging aws_test using: shorter.fasta)' -- Cause: java.nio.file.NoSuchFileException: /tmp/temp-s3-9487684501506569910/.command.out
+Feb-01 10:08:08.872 [main] WARN  n.processor.TaskPollingMonitor - Killing running tasks (2)
+Feb-01 10:08:09.081 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=2; succeedDuration=4m 21s; failedDuration=8.8s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=18; peakMemory=72 GB; ]
+Feb-01 10:08:09.112 [AWSBatch-reaper-1] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] killing job=8e8509f1-6098-43b1-b170-cbd0ccd6248a; response={}
+Feb-01 10:08:09.123 [AWSBatch-reaper-2] DEBUG n.c.aws.batch.AwsBatchTaskHandler - [AWS BATCH] killing job=cc527246-12a4-44f6-851b-a7616e0a1d49; response={}
+Feb-01 10:08:09.494 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Feb-01 10:08:09.494 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-tower@1.5.12'
+Feb-01 10:08:09.494 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-tower
+Feb-01 10:08:09.494 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-amazon@1.16.2'
+Feb-01 10:08:09.494 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-amazon
+Feb-01 10:08:09.545 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
