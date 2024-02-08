@@ -1,3 +1,0 @@
-Unable to find image 'quay.io/biocontainers/eggnog-mapper:latest' locally
-docker: Error response from daemon: manifest for quay.io/biocontainers/eggnog-mapper:latest not found: manifest unknown: manifest unknown.
-See 'docker run --help'.

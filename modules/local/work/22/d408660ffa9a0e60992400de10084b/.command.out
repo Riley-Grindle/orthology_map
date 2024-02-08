@@ -1,8 +1,0 @@
-Reading HMM file
-hmm database size in memory: 265780560
-fasta file size in memory: 10806
-Best algorithm is hmmscan
-ERROR MSF of tr|A0A7I2PJA1|A0A7I2PJA1_HUMAN should have length 771, actual length is 1605
-ERROR MSF of tr|A0A1D5RMN4|A0A1D5RMN4_HUMAN should have length 510, actual length is 555
-ERROR MSF of sp|A4UGR9|XIRP2_HUMAN should have length 2801, actual length is 5720
-ERROR MSF of tr|A0A7I2SVS4|A0A7I2SVS4_HUMAN should have length 592, actual length is 1204

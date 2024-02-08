@@ -1,4 +1,0 @@
-[1;33mDownload main annotation database?[0m [y,n] Decompressing...
-[32mDownloading "eggnog.db" at /usr/local/lib/python3.11/site-packages/data...[0m
-[36mcd /usr/local/lib/python3.11/site-packages/data && wget -nH --user-agent=Mozilla/5.0 --relative --no-parent --reject "index.html*" --cut-dirs=4 -e robots=off -O eggnog.db.gz http://eggnogdb.embl.de/download/emapperdb-5.0.2/eggnog.db.gz && echo Decompressing... && gunzip eggnog.db.gz [0m
-[1;33mDownload taxa database?[0m [y,n] 

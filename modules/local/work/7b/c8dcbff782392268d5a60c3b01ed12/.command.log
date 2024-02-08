@@ -1,9 +1,0 @@
-WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
-[1;33mDownload main annotation database?[0m [y,n] Traceback (most recent call last):
-  File "/usr/local/bin/download_eggnog_data.py", line 261, in <module>
-    if args.allyes or ask("Download main annotation database?") == 'y':
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/site-packages/eggnogmapper/utils.py", line 195, in ask
-    v = input("%s [%s] " % (string,','.join(valid_values) ))
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
