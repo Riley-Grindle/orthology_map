@@ -9,7 +9,7 @@ process TRANSDECODER_PREDICT {
 
     input:
     tuple val(meta), path(fasta)
-    path(fold)
+    path(pfam)
 
     output:
     tuple val(meta), path("*.transdecoder.pep")  , emit: pep
@@ -28,9 +28,11 @@ process TRANSDECODER_PREDICT {
     """
     TransDecoder.Predict \\
         $args \\
-        -O ${prefix} \\
         -t \\
-        $fasta
+        $fasta \\
+        --retain_pfam_hits $pfam \\
+        
+
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
