@@ -20,3 +20,4 @@ process GTF_2_GENETX_MAP {
     """
 
 }
+

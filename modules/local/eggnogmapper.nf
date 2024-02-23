@@ -2,7 +2,7 @@
 
 
 process EGGNOGMAPPER {
-    tag "Eggnogging $project_id using: $file"
+    tag "Eggnogging $project_id using: $fasta"
     label "process_high"    
     
     conda "conda-forge::python=3.9.5"
@@ -11,8 +11,7 @@ process EGGNOGMAPPER {
         'rgrindle/eggnogg-mapper' }"
 
     input:
-    path to_fasta
-    val file
+    path fasta
     val project_id
 
     output:
@@ -23,7 +22,7 @@ process EGGNOGMAPPER {
     def args = task.ext.args  ?: ''
     """
     emapper.py \\
-        -i $to_fasta/$file \\
+        -i $fasta/ \\
         -m diamond \\
         -o $project_id \\
         --itype proteins \\

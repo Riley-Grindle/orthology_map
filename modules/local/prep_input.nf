@@ -18,23 +18,24 @@ process PREP_INPUT {
     path "./ortho_f", emit: ortho_f
     path "./ortho_l/odbwork", emit: ortho_l_work
     path "./ortho_l/odbdata", emit: ortho_l_data
-    path "./eggnog", emit: egg
-    path "./treegrafter", emit: tree
+    path "./eggnog/*", emit: egg
+    path "./treegrafter/*", emit: tree
 
     
     script:
     """
     mkdir ortho_f; mkdir ortho_l; mkdir treegrafter; mkdir eggnog
+    mv $query_fasta "$query_fasta\.fasta"
     cd ortho_l 
     mkdir odbwork
     mkdir odbdata
     cd ..
     touch blank.txt
     mv blank.txt ./ortho_l/odbwork/
-    cp -r $ref_fastas/* ./ortho_f/; cp -r $query_fasta/* ./ortho_f/
-    cp -r $ref_fastas/* ./ortho_l/odbdata/; cp -r $query_fasta/* ./ortho_l/odbdata/
-    cp $query_fasta/* ./treegrafter/ 
-    cp $query_fasta/* ./eggnog/
+    cp -r $ref_fastas/* ./ortho_f/; cp "$query_fasta".fasta ./ortho_f/
+    cp -r $ref_fastas/* ./ortho_l/odbdata/; cp "$query_fasta".fasta ./ortho_l/odbdata/
+    cp "$query_fasta".fasta ./treegrafter/ 
+    cp "$query_fasta".fasta ./eggnog/
     """
 
     stub:

@@ -16,7 +16,7 @@ process STAGE_OUTS {
     output:
     path "./outs", emit: all_outs
 
-    script:
+    script: 
     """
     mkdir outs
     cd outs

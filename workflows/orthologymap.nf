@@ -42,7 +42,9 @@ include { STAGE_OUTS } from "../modules/local/stage_outs.nf"
 include { PANTHER_API } from "../modules/local/panther_api.nf"
 include { COLLECT_CHUNKS } from "../modules/local/collect_chunks.nf"
 include { CUSTOM_DUMPSOFTWAREVERSIONS } from "../modules/nf-core/custom/dumpsoftwareversions/main"
-include { TRANSDECODER_LONGORF } from '../modules/nf-core/transdecoder/longorf/main' 
+
+
+include { TRANSDECODER } from "../subworkflows/local/transdecoder.nf"
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,28 +58,34 @@ def multiqc_report = []
 workflow ORTHOLOGYMAP {
     
     ch_versions = Channel.empty()
-    
-    ch_fasta = Channel.fromPath(params.query_fasta)
+
+    ch_fasta = TRANSDECODER(params.query_transcriptome, params.gtf, params.pfam, params.project_id).peptide_fasta
     ch_ref_fastas = Channel.fromPath(params.aws_reference_ortho)
 
     PREP_INPUT(ch_ref_fastas, ch_fasta,  params.project_id)
 
-    ortho_f_ch = ORTHOFINDER(PREP_INPUT.out.ortho_f.first(), params.project_id)
-    ch_versions.mix(ORTHOFINDER.out.versions)
+    ch_ortho_f = ORTHOFINDER(PREP_INPUT.out.ortho_f.first(), params.project_id)
+    ch_versions.mix(ORTHOFINDER.out.versions)    
 
-    egg_ch = EGGNOGMAPPER(PREP_INPUT.out.egg.first(), params.query_fasta_file, params.project_id)
+    ch_egg = EGGNOGMAPPER(PREP_INPUT.out.egg.first(), params.project_id)
     ch_versions.mix(EGGNOGMAPPER.out.versions)
 
-    tree_ch = TREEGRAFTER(PREP_INPUT.out.tree.first(), params.query_fasta_file, params.sup_data_panther, params.project_id)
-    
-    ortho_l_ch = ORTHOLOGER(PREP_INPUT.out.ortho_l_data.first(), PREP_INPUT.out.ortho_l_work.first(), params.formatter_script, PREP_INPUT.out.ortho_l_work.first(), params.project_id)
+    ch_tree = TREEGRAFTER(PREP_INPUT.out.tree.first(), params.sup_data_panther, params.project_id)
+   
+    ch_ortho_l = ORTHOLOGER(PREP_INPUT.out.ortho_l_data.first(), PREP_INPUT.out.ortho_l_work.first(), params.formatter_script, PREP_INPUT.out.ortho_l_work.first(), params.project_id)
     ch_versions.mix(ORTHOLOGER.out.versions)
 
-    panther_ch = PANTHER_API(tree_ch.splitText(by: 10, file: 'chunk.out'))
-    COLLECT_CHUNKS(panther_ch.collect())
+    ch_panther = PANTHER_API(ch_tree.splitText(by: 10, file: 'chunk.out'))
+    COLLECT_CHUNKS(ch_panther.collect())
   
-    out_dir_ch = STAGE_OUTS(ortho_f_ch.ortho_f, ortho_l_ch.loger, egg_ch.egg, COLLECT_CHUNKS.out.first())
-    outs_ch = POST_PROC(out_dir_ch, PREP_INPUT.out.ortho_l_data.first(), params.query_fasta_file)
+    ch_ortho_f = ch_ortho_f.ortho_f.ifEmpty(params.blank).branch { 
+									ortho_f: it    
+									na     : !it
+								 }
+    
+    ch_out_dir = STAGE_OUTS(ch_ortho_f.ortho_f, ch_ortho_l.loger, ch_egg.egg, COLLECT_CHUNKS.out.first())
+
+    ch_outs = POST_PROC(ch_out_dir, PREP_INPUT.out.ortho_l_data.first(), PREP_INPUT.out.egg.first())
     
     CUSTOM_DUMPSOFTWAREVERSIONS (ch_versions.unique().collectFile(name: 'collated_versions.yml'))
 }

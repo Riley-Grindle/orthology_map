@@ -1,8 +1,7 @@
 
-process HMMER_HMMSCAN {
-    
-    beforeScript = 'ulimit -Ss'
-    label 'process_high'
+process TRANSDECODER_LONGORF {
+
+    label 'process_medium'
 
     conda "bioconda::transdecoder=5.5.0"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
@@ -10,28 +9,29 @@ process HMMER_HMMSCAN {
     'rgrindle/transdecoder' }"
 
     input:
-    path(hmmfile)
-    path(longest_orfs)
+    path(fasta)
+    path(genetx_map)    
 
     output:
-    path("*.domtblout"), emit: table
-    path "versions.yml"
+    path("*transdecoder_dir/*.pep")  , emit: pep
+    path("*transdecoder_dir")        , emit: out_dir
+    path "versions.yml"              , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
-    
+
     script:
     def args = task.ext.args ?: ''
-    def output = "Pfam.domtblout"
     """
-    hmmpress $hmmfile
-
-    hmmscan --cpu $task.cpus --domtblout $output $hmmfile $longest_orfs $args
-
+    TransDecoder.LongOrfs \\
+        $args \\
+        -t \\
+        $fasta \\
+        --gene_trans_map $genetx_map
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        hmmer: \$(hmmscan -h | grep -o '^# HMMER [0-9.]*' | sed 's/^# HMMER *//')
+        transdecoder: \$(echo \$(TransDecoder.LongOrfs --version) | sed -e "s/TransDecoder.LongOrfs //g")
     END_VERSIONS
     """
 }
