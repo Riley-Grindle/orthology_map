@@ -33,6 +33,11 @@ process POST_PROC {
         grep ">" "\$file" | grep -o '^[^[:space:]]*' > "/headers/"\$filename_no_extension""
     done
     Rscript /rscripts/hexadecimal_correction.R ./odbdata /headers/ ./
+    Rscript /rscripts/biomart.R tree_std.csv
+    cut -d"," -f2 eggnog_std.csv | sed "s/^.//" | sed "s/.\$//" > match_ids.txt
+    string_search.py /sup_data/string_db.json ./match_ids.txt
+    sed 's/^/"/' gene_symbols.txt | sed 's/\$/"/' > gene_symbols_01.txt
+    paste -d "," eggnog_std.csv gene_symbols_01.txt
     mkdir std_outs
     mv *std.csv std_outs/
     """
