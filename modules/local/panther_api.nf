@@ -16,7 +16,7 @@ process PANTHER_API {
 
     script:
     """
-    bash /post_panther/post_panther.sh
+    post_panther.sh
     mv orthologs.txt "\$(basename $tree_out)_orthologs.txt"
     """
 

@@ -21,9 +21,11 @@ process POST_PROC {
     """
     FILE="\$(basename $fasta_file)"
     PREFIX="\$(echo "\$FILE" | rev | cut -d. -f2- | rev)"
+    
     if ! [[ -e "./outs/ortho_f/blank.txt" ]]; then
         Rscript /rscripts/ortho_f_post.R ./outs/ortho_f/*/Orthologues/Orthologues_\${PREFIX}
     fi
+    
     ORTHO_L_PREFIX="\$(echo "\$FILE" | cut -d. -f1)"
     Rscript /rscripts/ortho_l_post.R ./outs/ortho_l/ "\${ORTHO_L_PREFIX}"
     Rscript /rscripts/eggnog_post.R ./outs/egg
