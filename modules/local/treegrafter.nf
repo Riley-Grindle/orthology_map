@@ -1,6 +1,3 @@
-params.fasta = ""
-params.sup   = ""
-params.proj  = ""
 
 
 process TREEGRAFTER {
@@ -42,12 +39,5 @@ process TREEGRAFTER {
     """
     touch $fasta
     """
-
-}
-
-
-workflow {
-
-    TREEGRAFTER(params.fasta, params.sup, params.proj)
 
 }

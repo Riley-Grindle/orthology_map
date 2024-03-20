@@ -15,7 +15,6 @@ process ORTHOLOGER {
     input:
     path odbdata
     path odbwork
-    path format
     val path_to_work
     val project_id 
 
@@ -30,12 +29,11 @@ process ORTHOLOGER {
     def args = task.ext.args  ?: ''
     """
     cp -r $odbdata/* /odbdata
-    cp $format /format
     cd /odbwork
     setup_odb.sh
     orthologer -c import
     cd Sequences/
-    python3 /format/capitalize_files.py
+    capitalize_files.py
     cd ../
     orthologer \\
         -c run \\

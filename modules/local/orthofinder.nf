@@ -38,7 +38,7 @@ process ORTHOFINDER {
     """
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        kallisto: \$(echo \$(kallisto version) | sed "s/kallisto, version //g" )
+        orthofinder: \$(echo \$(orthofinder --version) | sed "s/orthofinder, version //g" )
     END_VERSIONS
     """
 }

@@ -23,19 +23,20 @@ process PREP_INPUT {
 
     
     script:
+    def query_fasta_ext = "$query_fasta" + ".fasta"
     """
     mkdir ortho_f; mkdir ortho_l; mkdir treegrafter; mkdir eggnog
-    mv $query_fasta "$query_fasta\.fasta"
+    mv $query_fasta $query_fasta_ext
     cd ortho_l 
     mkdir odbwork
     mkdir odbdata
     cd ..
     touch blank.txt
     mv blank.txt ./ortho_l/odbwork/
-    cp -r $ref_fastas/* ./ortho_f/; cp "$query_fasta".fasta ./ortho_f/
-    cp -r $ref_fastas/* ./ortho_l/odbdata/; cp "$query_fasta".fasta ./ortho_l/odbdata/
-    cp "$query_fasta".fasta ./treegrafter/ 
-    cp "$query_fasta".fasta ./eggnog/
+    cp -r $ref_fastas/* ./ortho_f/; cp $query_fasta_ext ./ortho_f/
+    cp -r $ref_fastas/* ./ortho_l/odbdata/; cp $query_fasta_ext ./ortho_l/odbdata/
+    cp $query_fasta_ext ./treegrafter/ 
+    cp $query_fasta_ext ./eggnog/
     """
 
     stub:
