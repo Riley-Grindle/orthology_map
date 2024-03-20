@@ -1,3 +1,4 @@
+
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     PRINT PARAMS SUMMARY
@@ -36,6 +37,7 @@ include { ORTHOFINDER } from '../modules/local/orthofinder.nf'
 include { EGGNOGMAPPER } from '../modules/local/eggnogmapper.nf'
 include { TREEGRAFTER } from "../modules/local/treegrafter.nf"
 include { ORTHOLOGER } from "../modules/local/orthologer.nf"
+include { PRE_PROC } from "../modules/local/pre_proc_refs.nf"
 include { PREP_INPUT } from "../modules/local/prep_input.nf"
 include { POST_PROC } from "../modules/local/post_proc.nf"
 include { STAGE_OUTS } from "../modules/local/stage_outs.nf"
@@ -62,7 +64,9 @@ workflow ORTHOLOGYMAP {
     ch_fasta = TRANSDECODER(params.query_transcriptome, params.gtf, params.pfam, params.project_id).peptide_fasta
     ch_ref_fastas = Channel.fromPath(params.aws_reference_ortho)
 
-    PREP_INPUT(ch_ref_fastas, ch_fasta,  params.project_id)
+    ch_formatted_refs = PRE_PROC( ch_ref_fastas )
+
+    PREP_INPUT(ch_formatted_refs, ch_fasta,  params.project_id)
 
     ch_ortho_f = ORTHOFINDER(PREP_INPUT.out.ortho_f.first(), params.project_id)
     ch_versions.mix(ORTHOFINDER.out.versions)    
@@ -72,7 +76,7 @@ workflow ORTHOLOGYMAP {
 
     ch_tree = TREEGRAFTER(PREP_INPUT.out.tree.first(), params.sup_data_panther, params.project_id)
    
-    ch_ortho_l = ORTHOLOGER(PREP_INPUT.out.ortho_l_data.first(), PREP_INPUT.out.ortho_l_work.first(), params.formatter_script, PREP_INPUT.out.ortho_l_work.first(), params.project_id)
+    ch_ortho_l = ORTHOLOGER(PREP_INPUT.out.ortho_l_data.first(), PREP_INPUT.out.ortho_l_work.first(), PREP_INPUT.out.ortho_l_work.first(), params.project_id)
     ch_versions.mix(ORTHOLOGER.out.versions)
 
     ch_panther = PANTHER_API(ch_tree.splitText(by: 10, file: 'chunk.out'))
@@ -85,7 +89,7 @@ workflow ORTHOLOGYMAP {
     
     ch_out_dir = STAGE_OUTS(ch_ortho_f.ortho_f, ch_ortho_l.loger, ch_egg.egg, COLLECT_CHUNKS.out.first())
 
-    ch_outs = POST_PROC(ch_out_dir, PREP_INPUT.out.ortho_l_data.first(), PREP_INPUT.out.egg.first())
+    ch_outs = POST_PROC(ch_out_dir, PREP_INPUT.out.ortho_l_data.first(), PREP_INPUT.out.egg.first(), params.sup_ensembl_data)
     
     CUSTOM_DUMPSOFTWAREVERSIONS (ch_versions.unique().collectFile(name: 'collated_versions.yml'))
 }
