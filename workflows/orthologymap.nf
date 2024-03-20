@@ -61,7 +61,7 @@ workflow ORTHOLOGYMAP {
     
     ch_versions = Channel.empty()
 
-    ch_fasta = TRANSDECODER(params.query_transcriptome, params.gtf, params.pfam, params.project_id).peptide_fasta
+    ch_fasta = TRANSDECODER(params.input, params.gtf, params.pfam, params.project_id).peptide_fasta
     ch_ref_fastas = Channel.fromPath(params.aws_reference_ortho)
 
     ch_formatted_refs = PRE_PROC( ch_ref_fastas )
