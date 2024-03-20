@@ -82,7 +82,7 @@ workflow ORTHOLOGYMAP {
     ch_panther = PANTHER_API(ch_tree.splitText(by: 10, file: 'chunk.out'))
     COLLECT_CHUNKS(ch_panther.collect())
   
-    ch_ortho_f = ch_ortho_f.ortho_f.ifEmpty(params.blank).branch { 
+    ch_ortho_f = ch_ortho_f.ortho_f.ifEmpty(PREP_INPUT.out.blank).branch { 
 									ortho_f: it    
 									na     : !it
 								 }

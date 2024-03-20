@@ -20,6 +20,7 @@ process PREP_INPUT {
     path "./ortho_l/odbdata", emit: ortho_l_data
     path "./eggnog/*", emit: egg
     path "./treegrafter/*", emit: tree
+    path "blank.txt", emit: blank
 
     
     script:
@@ -37,6 +38,7 @@ process PREP_INPUT {
     cp -r $ref_fastas/* ./ortho_l/odbdata/; cp $query_fasta_ext ./ortho_l/odbdata/
     cp $query_fasta_ext ./treegrafter/ 
     cp $query_fasta_ext ./eggnog/
+    touch blank.txt
     """
 
     stub:
