@@ -11,33 +11,14 @@ include { GUNZIP as GUNZIP_PFAM } from '../../modules/local/gunzip/main'
 workflow TRANSDECODER {
 
     take:
-    fasta                  // file: path/to/fasta
-    gtf                    // file: path/to/gtf
+    fasta
+    gtf
     pfam                   // file: path/to/pfam_hmm
     project_id             // val : "project_id"
 
     main:
     
     ch_versions = Channel.empty()
-    
-
-    // Unzip fasta
-   
-    if (fasta.endsWith('.gz')) {
-        ch_fasta    = GUNZIP_FASTA ( [ [:], fasta ] ).gunzip.map { it[1] }
-    } else {
-        ch_fasta = Channel.value(file(fasta))
-    }
-
-    // Unzip gtf 
-
-    if (gtf) {
-        if (gtf.endsWith('.gz')) {
-            ch_gtf      = GUNZIP_GTF ( [ [:], gtf ] ).gunzip.map { it[1] }
-        } else {
-            ch_gtf = Channel.value(file(gtf))
-    }
-    }
     
     // Unzip pfam hmm file
    
@@ -51,11 +32,11 @@ workflow TRANSDECODER {
 
     // Create gene to transcript map file to be used in LongOrfs
     
-    GTF_2_GENETX_MAP(ch_gtf)
+    GTF_2_GENETX_MAP(gtf)
 
     //Run Transdecoder.LongOrf
 
-    TRANSDECODER_LONGORF(ch_fasta, GTF_2_GENETX_MAP.out.genetx_map)
+    TRANSDECODER_LONGORF(fasta, GTF_2_GENETX_MAP.out.genetx_map)
     
     // Build Domain hit table from longest orfs
 
@@ -63,11 +44,12 @@ workflow TRANSDECODER {
     
     // Run Transdecoder predict while preserving protein domain hits from pfam db
 
-    ch_pep = TRANSDECODER_PREDICT(ch_fasta, HMMER_HMMSCAN.out.table, TRANSDECODER_LONGORF.out.out_dir, project_id).pep 
+    ch_pep = TRANSDECODER_PREDICT(fasta, HMMER_HMMSCAN.out.table, TRANSDECODER_LONGORF.out.out_dir, project_id).pep 
     
 
      emit:
-     peptide_fasta = ch_pep 
+     peptide_fasta = ch_pep
+     gtf           = gtf 
      versions      = ch_versions   
 
 

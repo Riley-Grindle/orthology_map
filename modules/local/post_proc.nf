@@ -13,6 +13,7 @@ process POST_PROC {
     path fastas
     val fasta_file
     path ensembl_data
+    path taxa_db
 
     output:
     path ("./std_outs/")
@@ -39,6 +40,16 @@ process POST_PROC {
     mv ./tree_std.csv input_tree.csv
     ensembl_id_2_gene_symbl.py ./input_tree.csv /sup_data/prefix_2_file.json $ensembl_data /sup_data/prefix_2_species.json
     paste -d"," input_tree.csv gene_symbols_ensembl.txt species_names.txt > tree_std.csv
+    cut -d, -f 4 tree_std.csv| sed 's/"//g' | while IFS= read line; do
+        if [ $line != "NA" ]; then
+            grep \$line $taxa_db| head -n 1| cut -f 1 >> taxa.tsv
+        else
+            echo "NA" >> taxa.tsv
+        fi
+    done
+    sed '1i\SPECIES' taxa.tsv | sed 's/^/"/' | sed 's/\$/"/' > taxa_col.tsv
+    cut -d, -f 1-3 tree_std.csv > editing_tree.csv
+    paste -d"," editing_tree.csv taxa_col.tsv > tree_std.csv 
     cut -d"," -f2 eggnog_std.csv | sed "s/^.//" | sed "s/.\$//" > match_ids.txt
     mv eggnog_std.csv input_eggnog.csv
     string_search.py /sup_data/string_db.json ./match_ids.txt

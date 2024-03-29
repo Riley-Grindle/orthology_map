@@ -44,9 +44,8 @@ include { STAGE_OUTS } from "../modules/local/stage_outs.nf"
 include { PANTHER_API } from "../modules/local/panther_api.nf"
 include { COLLECT_CHUNKS } from "../modules/local/collect_chunks.nf"
 include { CUSTOM_DUMPSOFTWAREVERSIONS } from "../modules/nf-core/custom/dumpsoftwareversions/main"
-include { GUNZIP as GUNZIP_REF } from "../modules/local/pullaws.nf"
-include { GUNZIP as GUNZIP_IN } from "../modules/local/pullaws.nf"
-include { GFFREAD } from "../modules/local/gffread/main"
+include { SPLIT_CH as SPLIT_REF } from "../modules/local/pullaws.nf"
+include { SPLIT_CH as SPLIT_IN } from "../modules/local/pullaws.nf"
 
 include { TRANSDECODER } from "../subworkflows/local/transdecoder.nf"
 include { TRANSDECODER as REF_TRANSDECODER } from "../subworkflows/local/transdecoder.nf"
@@ -67,48 +66,44 @@ workflow ORTHOLOGYMAP {
     ch_refs = Channel
                   .fromSamplesheet("sample_sheet")
     
-    ch_input_fa = Channel.of(params.input).map { [[id: params.project_id], it] } 
-    ch_input_gtf = Channel.of(params.gtf)map { [[id: params.project_id], it] }
-    ch_input = ch_input_gtf.join(ch_input_fa)
+    ch_input_fa = Channel.of(params.input)
+    ch_input_gtf = Channel.of(params.gtf)
+    ch_input = ch_input_fa.combine(ch_input_gtf).map { [[:], it] }
     
-    GUNZIP_REF( ch_refs )
-    GUNZIP_IN( ch_input )
+    SPLIT_REF( ch_refs )
+    SPLIT_IN( ch_input )                                 
 
-    GFFREAD(GUNZIP_REF.out.gtf.map { it[1] }, GUNZIP_REF.out.fasta)
+    ch_fasta = TRANSDECODER(SPLIT_IN.fasta, SPLIT_IN.gtf, params.pfam, params.project_id).peptide_fasta
+    ch_ref_fastas = REF_TRANSDECODER(SPLIT_REF.fasta, SPLIT_REF.gtf, params.pfam, params.project_id).peptide_fasta
 
-    ch_fasta = TRANSDECODER(GUNZIP_IN.out.fasta.map { it[1] }, GUNZIP_IN.out.gtf.map { it[1] }, params.pfam, params.project_id).peptide_fasta
-    REF_TRANSDECODER(GFFREAD.out.transcripts, GUNZIP_REF.out.gtf.map { it[1] }, params.pfam, params.project_id)
-
-    ch_formatted_refs = PRE_PROC( REF_TRANSDECODER.out.peptide_fasta.collect(), REF_TRANSDECODER.out.gtf.collect() )
+    ch_formatted_refs = PRE_PROC( ch_ref_fastas )
 
     PREP_INPUT(ch_formatted_refs, ch_fasta,  params.project_id)
 
     ch_ortho_f = ORTHOFINDER(PREP_INPUT.out.ortho_f.first(), params.project_id)
-    ch_versions.mix(ORTHOFINDER.out.versions)
+    ch_versions.mix(ORTHOFINDER.out.versions)    
 
     ch_egg = EGGNOGMAPPER(PREP_INPUT.out.egg.first(), params.project_id)
     ch_versions.mix(EGGNOGMAPPER.out.versions)
 
     ch_tree = TREEGRAFTER(PREP_INPUT.out.tree.first(), params.sup_data_panther, params.project_id)
-
+   
     ch_ortho_l = ORTHOLOGER(PREP_INPUT.out.ortho_l_data.first(), PREP_INPUT.out.ortho_l_work.first(), PREP_INPUT.out.ortho_l_work.first(), params.project_id)
     ch_versions.mix(ORTHOLOGER.out.versions)
 
     ch_panther = PANTHER_API(ch_tree.splitText(by: 10, file: 'chunk.out'))
     COLLECT_CHUNKS(ch_panther.collect())
-
-    ch_ortho_f = ch_ortho_f.ortho_f.ifEmpty(PREP_INPUT.out.blank).branch {
-                                                                        ortho_f: it
-                                                                        na     : !it
-                                                                 }
-
+  
+    ch_ortho_f = ch_ortho_f.ortho_f.ifEmpty(PREP_INPUT.out.blank).branch { 
+									ortho_f: it    
+									na     : !it
+								 }
+    
     ch_out_dir = STAGE_OUTS(ch_ortho_f.ortho_f, ch_ortho_l.loger, ch_egg.egg, COLLECT_CHUNKS.out.first())
 
-    ch_outs = POST_PROC(ch_out_dir, PREP_INPUT.out.ortho_l_data.first(), PREP_INPUT.out.egg.first(), 
-params.sup_ensembl_data, params.taxa_db)
-
+    ch_outs = POST_PROC(ch_out_dir, PREP_INPUT.out.ortho_l_data.first(), PREP_INPUT.out.egg.first(), params.sup_ensembl_data)
+    
     CUSTOM_DUMPSOFTWAREVERSIONS (ch_versions.unique().collectFile(name: 'collated_versions.yml'))
-
 }
 
 /*

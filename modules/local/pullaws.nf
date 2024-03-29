@@ -1,23 +1,28 @@
 
-process PULL_AWS {
-    tag "Pulling AWS reference fastas"
+process GUNZIP {
+    tag "Splitting inputs into channels"
     label "process_low"
+    
+    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+        'https://depot.galaxyproject.org/singularity/ubuntu:20.04' :
+        'biocontainers/python:3.9--1' }"
 
     input:
-    val refs
-    path fasta
+    tuple val(meta), path(gtf), path(fasta)
 
     output:
-    path fasta
+    tuple val(meta), path("*.gtf"), emit: gtf
+    tuple val(meta), path("*.fa"), emit: fasta
 
     script:
     """
-    aws s3 sync $refs $fasta
-    echo $fasta
+    cp $gtf ${meta.id}.gtf
+    cp $fasta ${meta.id}.fa
     """
 
     stub:
     """
+    touch $gtf
     touch $fasta
     """
 

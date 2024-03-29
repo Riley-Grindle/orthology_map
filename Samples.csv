@@ -1,0 +1,3 @@
+tax_id,gtf_file,fasta_file
+10090,s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/gencode.vM34.annotation.gtf,s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/gencode.vM34.transcripts.fa
+7955,s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.111.gtf,s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.111.gtf

@@ -1,5 +1,3 @@
-params.refs = ""
-
 
 process PRE_PROC {
     tag "Formatting Uniprot Reference Headers"
@@ -11,27 +9,20 @@ process PRE_PROC {
         'rgrindle/pre_proc' }"
 
     input:
-    path references
+    path fasta
+    path gtf
 
     output:
     path ("fasta_dir")
 
     script:
     """
-    for file in "$references"/*; do
-        FILE_NAME="\$(basename "\$file" | cut -d. -f1)"
-        fasta_header_format.py \$file "\$FILE_NAME".formatted.fasta
-    done
+    
+    FILE_NAME="\$(basename $gtf | cut -d. -f1)"
+    fasta_header_format.py $fasta $gtf "\$FILE_NAME".formatted.fasta
+    
     mkdir fasta_dir
     cp *.formatted.fasta fasta_dir/
     """
-
-}
-
-
-workflow {
-
-    ch_refs = PRE_PROC{ params.refs } 
-    ch_refs.view()
 
 }
