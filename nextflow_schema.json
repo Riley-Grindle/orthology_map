@@ -243,6 +243,10 @@
         },
         "gtf": {
             "type": "string"
+        },
+        "taxa_db": {
+            "type": "string",
+            "default": null
         }
     }
 }
