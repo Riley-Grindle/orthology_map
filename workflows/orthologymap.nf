@@ -47,6 +47,7 @@ include { CUSTOM_DUMPSOFTWAREVERSIONS } from "../modules/nf-core/custom/dumpsoft
 include { GUNZIP as GUNZIP_REF } from "../modules/local/pullaws.nf"
 include { GUNZIP as GUNZIP_IN } from "../modules/local/pullaws.nf"
 include { GFFREAD } from "../modules/local/gffread/main"
+include { BLASTP } from "../modules/local/blastp.nf"
 
 include { TRANSDECODER } from "../subworkflows/local/transdecoder.nf"
 include { TRANSDECODER as REF_TRANSDECODER } from "../subworkflows/local/transdecoder.nf"
@@ -79,7 +80,7 @@ workflow ORTHOLOGYMAP {
     ch_fasta = TRANSDECODER(GUNZIP_IN.out.fasta.map { it[1] }, GUNZIP_IN.out.gtf.map { it[1] }, params.pfam, params.project_id).peptide_fasta
     REF_TRANSDECODER(GFFREAD.out.transcripts, GUNZIP_REF.out.gtf.map { it[1] }, params.pfam, params.project_id)
 
-    ch_formatted_refs = PRE_PROC( REF_TRANSDECODER.out.peptide_fasta.collect(), REF_TRANSDECODER.out.gtf.collect() )
+    ch_formatted_refs = PRE_PROC( REF_TRANSDECODER.out.peptide_fasta, REF_TRANSDECODER.out.gtf )
 
     PREP_INPUT(ch_formatted_refs, ch_fasta,  params.project_id)
 
@@ -97,6 +98,8 @@ workflow ORTHOLOGYMAP {
     ch_panther = PANTHER_API(ch_tree.splitText(by: 10, file: 'chunk.out'))
     COLLECT_CHUNKS(ch_panther.collect())
 
+    //ch_blastp = BLASTP(ch_fasta, ch_formatted_refs)
+
     ch_ortho_f = ch_ortho_f.ortho_f.ifEmpty(PREP_INPUT.out.blank).branch {
                                                                         ortho_f: it
                                                                         na     : !it
@@ -104,8 +107,7 @@ workflow ORTHOLOGYMAP {
 
     ch_out_dir = STAGE_OUTS(ch_ortho_f.ortho_f, ch_ortho_l.loger, ch_egg.egg, COLLECT_CHUNKS.out.first())
 
-    ch_outs = POST_PROC(ch_out_dir, PREP_INPUT.out.ortho_l_data.first(), PREP_INPUT.out.egg.first(), 
-params.sup_ensembl_data, params.taxa_db)
+    ch_outs = POST_PROC(ch_out_dir, PREP_INPUT.out.ortho_l_data.first(), PREP_INPUT.out.egg.first(), params.sup_ensembl_data, params.taxa_db)
 
     CUSTOM_DUMPSOFTWAREVERSIONS (ch_versions.unique().collectFile(name: 'collated_versions.yml'))
 
