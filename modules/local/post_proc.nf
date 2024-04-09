@@ -9,8 +9,8 @@ process POST_PROC {
         'rgrindle/post_proc' }"
 
     input:
-    path outs
-    path fastas
+    tuple val(meta), path (outs)
+    tuple val(meta), path (fastas)
     val fasta_file
     path ensembl_data
     path taxa_db
@@ -26,7 +26,7 @@ process POST_PROC {
     if ! [[ -e "./outs/ortho_f/blank.txt" ]]; then
         Rscript /rscripts/ortho_f_post.R ./outs/ortho_f/*/Orthologues/Orthologues_\${PREFIX}
     fi
-    
+        
     ORTHO_L_PREFIX="\$(echo "\$FILE" | cut -d. -f1)"
     Rscript /rscripts/ortho_l_post.R ./outs/ortho_l/ "\${ORTHO_L_PREFIX}"
     Rscript /rscripts/eggnog_post.R ./outs/egg
@@ -40,14 +40,10 @@ process POST_PROC {
     mv ./tree_std.csv input_tree.csv
     ensembl_id_2_gene_symbl.py ./input_tree.csv /sup_data/prefix_2_file.json $ensembl_data /sup_data/prefix_2_species.json
     paste -d"," input_tree.csv gene_symbols_ensembl.txt species_names.txt > tree_std.csv
-    cut -d, -f 4 tree_std.csv| sed 's/"//g' | while IFS= read line; do
-        if [ $line != "NA" ]; then
-            grep \$line $taxa_db| head -n 1| cut -f 1 >> taxa.tsv
-        else
-            echo "NA" >> taxa.tsv
-        fi
-    done
-    sed '1i\SPECIES' taxa.tsv | sed 's/^/"/' | sed 's/\$/"/' > taxa_col.tsv
+    search_taxa.sh tree_std.csv $taxa_db
+    echo "SPECIES" >> tmp.tsv
+    cat taxa.tsv >> tmp.tsv
+    sed 's/^/"/' tmp.tsv | sed 's/\$/"/' > taxa_col.tsv
     cut -d, -f 1-3 tree_std.csv > editing_tree.csv
     paste -d"," editing_tree.csv taxa_col.tsv > tree_std.csv 
     cut -d"," -f2 eggnog_std.csv | sed "s/^.//" | sed "s/.\$//" > match_ids.txt
@@ -57,7 +53,10 @@ process POST_PROC {
     sed 's/^/"/' taxa_ids.txt | sed 's/\$/"/' > taxa_ids_01.txt
     paste -d "," input_eggnog.csv gene_symbols_01.txt taxa_ids_01.txt > eggnog_std.csv
     mkdir std_outs
-    mv *std.csv std_outs/
+    for file in *std.csv; do
+        mv "\$file" ${meta.id}.\${file}
+    done 
+    mv *std.csv std_outs/ 
     """
 
 }

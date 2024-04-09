@@ -1,6 +1,6 @@
 
 process GTF_2_GENETX_MAP {
-    tag "Mapping input transcripts to gene names"
+    tag "${meta.id}"
     label "process_medium"
 
     conda "conda-forge::python=3.9.5"
@@ -9,10 +9,10 @@ process GTF_2_GENETX_MAP {
         'rgrindle/gtf_2_genetx_map' }"
 
     input:
-    path gtf
+    tuple val(meta), path(gtf)
 
     output:
-    path ("output_mapping.txt"), emit: genetx_map
+    tuple val(meta), path ("output_mapping.txt"), emit: genetx_map
 
     script:
     """

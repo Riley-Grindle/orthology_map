@@ -1,6 +1,6 @@
 
 process PRE_PROC {
-    tag "Formatting Uniprot Reference Headers"
+    tag "${meta.id}"
     label "process_medium"
 
     conda "conda-forge::python=3.9.5"
@@ -9,11 +9,11 @@ process PRE_PROC {
         'rgrindle/pre_proc' }"
 
     input:
-    path fasta
-    path gtf
+    tuple val(meta), path(fasta)
+    tuple val(meta), path(gtf)
 
     output:
-    path ("fasta_dir")
+    tuple val(meta), path ("fasta_dir")
 
     script:
     """

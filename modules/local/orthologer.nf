@@ -13,13 +13,13 @@ process ORTHOLOGER {
     
 
     input:
-    path odbdata
-    path odbwork
+    tuple val(meta), path (odbdata)
+    tuple val(meta), path (odbwork)
     val path_to_work
     val project_id 
 
     output:
-    path ("$odbwork/Cluster/odbproj.og"), emit: loger
+    tuple val(meta), path ("$odbwork/Cluster/odbproj.og"), emit: loger
     path ("$odbwork/versions.yml")               , emit: versions
 
     when:

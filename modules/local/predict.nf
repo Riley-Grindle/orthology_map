@@ -1,6 +1,6 @@
 
 process TRANSDECODER_PREDICT {
-    
+    tag '${meta.id}'
     label 'process_medium'
 
     conda "bioconda::transdecoder=5.5.0"
@@ -9,14 +9,14 @@ process TRANSDECODER_PREDICT {
         'rgrindle/transdecoder' }"
 
     input:
-    path(fasta)
-    path(pfam)
-    path(long_orf_dir)
+    tuple val(meta), path(fasta)
+    tuple val(meta), path(pfam)
+    tuple val(meta), path(long_orf_dir)
     val(project_id)
 
     output:
     path("*.initial.transdecoder.pep") , emit: orig
-    path("*.final.transdecoder.pep")  , emit: pep
+    tuple val(meta), path("*.final.transdecoder.pep")  , emit: pep
     path("*.transdecoder.gff3") , emit: gff3
     path("*.transdecoder.cds")  , emit: cds
     path("*.transdecoder.bed")  , emit: bed
@@ -36,8 +36,8 @@ process TRANSDECODER_PREDICT {
         --retain_pfam_hits $pfam \\
         ${args}
 
-    mv *.transdecoder.pep "$project_id".initial.transdecoder.pep
-    sed 's/>[^ ]*//' *.initial.transdecoder.pep | sed 's/^ />/'  > "$project_id".final.transdecoder.pep
+    mv *.transdecoder.pep ${meta.id}.initial.transdecoder.pep
+    sed 's/>[^ ]*//' *.initial.transdecoder.pep | sed 's/^ />/'  > ${meta.id}.final.transdecoder.pep
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

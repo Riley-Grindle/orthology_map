@@ -1,6 +1,7 @@
 
 process HMMER_HMMSCAN {
     
+    tag '${meta.id}'
     beforeScript = 'ulimit -Ss'
     label 'process_high'
 
@@ -11,10 +12,10 @@ process HMMER_HMMSCAN {
 
     input:
     path(hmmfile)
-    path(longest_orfs)
+    tuple val(meta), path(longest_orfs)
 
     output:
-    path("*.domtblout"), emit: table
+    tuple val(meta), path("*.domtblout"), emit: table
     path "versions.yml"
 
     when:

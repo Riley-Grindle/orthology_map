@@ -1,5 +1,5 @@
 process GFFREAD {
-    tag "$gff"
+    tag "${meta.id}"
     label 'process_low'
 
     conda "${moduleDir}/environment.yml"
@@ -14,7 +14,7 @@ process GFFREAD {
     output:
     path "*.gtf"        , emit: gtf         , optional: true
     path "*.gff3"       , emit: gffread_gff , optional: true
-    path "*.tx.fa"      , emit: transcripts
+    tuple val(meta), path("*.tx.fa")      , emit: transcripts
     path "versions.yml" , emit: versions
 
     when:

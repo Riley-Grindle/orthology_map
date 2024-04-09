@@ -2,7 +2,7 @@
 
 
 process PREP_INPUT {
-    tag "Staging input fastas for $project_id processes"
+    tag "Staging ${meta.id}"
     label 'process_single'
 
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
@@ -10,14 +10,14 @@ process PREP_INPUT {
         'biocontainers/python:3.9--1' }"
 
     input:
-    path ref_fastas
-    path query_fasta
+    tuple val(meta), path(ref_fastas)
+    tuple val(meta_1), path(query_fasta)
     val project_id
 
     output:
-    path "./ortho_f", emit: ortho_f
-    path "./ortho_l/odbwork", emit: ortho_l_work
-    path "./ortho_l/odbdata", emit: ortho_l_data
+    tuple val(meta), path ("./ortho_f"), emit: ortho_f
+    tuple val(meta), path ("./ortho_l/odbwork"), emit: ortho_l_work
+    tuple val(meta), path ("./ortho_l/odbdata"), emit: ortho_l_data
     path "./eggnog/*", emit: egg
     path "./treegrafter/*", emit: tree
     path "blank.txt", emit: blank

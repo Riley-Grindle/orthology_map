@@ -8,13 +8,13 @@ process STAGE_OUTS {
         'biocontainers/python:3.9--1' }"
 
     input:
-    path ortho_f
-    path ortho_l
+    tuple val(meta), path (ortho_f)
+    tuple val(meta), path (ortho_l)
     path egg 
     path tree
 
     output:
-    path "./outs", emit: all_outs
+    tuple val(meta), path ("./outs"), emit: all_outs
 
     script: 
     """
