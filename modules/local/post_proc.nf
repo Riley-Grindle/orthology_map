@@ -54,10 +54,9 @@ process POST_PROC {
     paste -d "," input_eggnog.csv gene_symbols_01.txt taxa_ids_01.txt > eggnog_std.csv
     mkdir std_outs
     for file in *std.csv; do
-        sed -i.bak 's/^.//' \${file} | sed -i.bak 's/","/\t/g' | sed -i.bak 's/.$//'
-        mv "\$file" ${meta.id}.\${file::-3}.tsv
+        sed 's/^.//' \${file} | sed 's/","/\t/g' | sed 's/.\$//' > ${meta.id}.\${file::-4}.tsv
     done 
-    mv *std.csv std_outs/ 
+    mv *std.tsv std_outs/ 
     """
 
 }
