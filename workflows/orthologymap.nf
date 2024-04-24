@@ -107,7 +107,7 @@ workflow ORTHOLOGYMAP {
 
     ch_formatted_refs = Channel.empty()
 
-    REF_TRANSDECODER.out.peptide_fasta.view()    
+        
     PRE_PROC( 
         REF_TRANSDECODER.out.peptide_fasta.map { [it[0], it[1]] }, 
         REF_TRANSDECODER.out.peptide_fasta.map { [it[0], it[2]] } 
@@ -153,8 +153,9 @@ workflow ORTHOLOGYMAP {
     ch_versions.mix(ORTHOLOGER.out.versions)
 
 
+    
     ch_blastp  = BLASTP(
-                     ch_fasta.first(),
+                     ch_fasta.first().map { [it[0], it[1]] },
                      PRE_PROC.out
                  )
   
