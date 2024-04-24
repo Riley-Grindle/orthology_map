@@ -154,13 +154,13 @@ workflow ORTHOLOGYMAP {
 
 
     ch_blastp  = BLASTP(
-                     ch_fasta,
+                     ch_fasta.first(),
                      PRE_PROC.out
                  )
   
     ch_dag     = DAGCHAINER(
                      ch_blastp.tbl,
-                     ch_query_gtf,
+                     ch_query_gtf.first(),
                      ch_ref_gtf, 
                      params.project_id
                  )

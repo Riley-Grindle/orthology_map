@@ -1,6 +1,6 @@
 
 process BLASTP {
-
+    
     label 'process_medium'
 
     conda "bioconda::transdecoder=5.5.0"
@@ -9,8 +9,8 @@ process BLASTP {
     'biocontainers/blast:v2.2.31_cv2' }"
 
     input:
-    path(query_fasta)
-    path(reference_fasta)    
+    tuple val(meta), path(query_fasta)
+    tuple val(meta), path(reference_fasta)    
 
     output:
     path "all_v_all.tsv"             , emit: tbl
