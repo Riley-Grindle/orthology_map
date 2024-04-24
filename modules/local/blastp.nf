@@ -6,7 +6,7 @@ process BLASTP {
     conda "bioconda::transdecoder=5.5.0"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
     'https://depot.galaxyproject.org/singularity/transdecoder:5.5.0--pl5262hdfd78af_4' :
-    'biocontainers/blast:v2.2.31_cv2' }"
+    'biocontainers/blast:v2.2.31' }"
 
     input:
     tuple val(meta), path(query_fasta)
