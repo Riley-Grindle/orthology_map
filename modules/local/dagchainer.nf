@@ -12,8 +12,8 @@ process DAGCHAINER {
 
     input:
     path(blast_tbl)
-    path(query_gtf)
-    path(ref_gtf)
+    tuple val(meta), path(query_gtf)
+    tuple val(meta), path(ref_gtf)
     val(project_id)
 
     output:
