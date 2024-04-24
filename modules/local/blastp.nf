@@ -22,7 +22,7 @@ process BLASTP {
     script:
     def args = task.ext.args ?: ''
     """
-    makeblastdb -in $reference_fasta \\
+    makeblastdb -in ${reference_fasta}/* \\
         -dbtype prot \\
         -out reference_db \\
         ${args}

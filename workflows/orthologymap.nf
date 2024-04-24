@@ -153,8 +153,17 @@ workflow ORTHOLOGYMAP {
     ch_versions.mix(ORTHOLOGER.out.versions)
 
 
-    //ch_blastp  = BLASTP(ch_fasta, ch_formatted_refs)
-    //ch_dag     = DAGCHAINER(ch_blastp.tbl, params.project_id)
+    ch_blastp  = BLASTP(
+                     ch_fasta,
+                     PRE_PROC.out
+                 )
+  
+    ch_dag     = DAGCHAINER(
+                     ch_blastp.tbl,
+                     ch_query_gtf,
+                     ch_ref_gtf, 
+                     params.project_id
+                 )
 
     ch_ortho_f   = ch_ortho_f.ortho_f.ifEmpty(PREP_INPUT.out.blank).branch {
                                                                         ortho_f: it

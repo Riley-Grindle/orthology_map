@@ -32,6 +32,7 @@ process DAGCHAINER {
     
     run_DAG_chainer.pl -i dagchainer.db.filtered.tsv -s -I
 
+
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
        
