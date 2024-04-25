@@ -16,8 +16,23 @@ process GUNZIP {
 
     script:
     """
-    cp $gtf ${meta.id}.gtf
-    cp $fasta ${meta.id}.fa
+    gtf_name=$gtf
+    fasta_name=$fasta
+    ext="\${fasta_name##*.}"
+   
+    if [[ "\$gtf_name" == *".gz"* ]]; then
+        gunzip $gtf
+        cp *.gtf ${meta.id}.gtf
+    else
+        cp $gtf ${meta.id}.gtf
+    fi
+
+    if [[ "\$fasta_name" == *".gz"* ]]; then
+        gunzip $fasta
+        cp *.\$ext ${meta.id}.fa
+    else
+        cp *.\$ext ${meta.id}.fa
+    fi
     """
 
     stub:
