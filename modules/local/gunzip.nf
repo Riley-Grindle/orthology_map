@@ -21,15 +21,13 @@ process GUNZIP {
     ext="\${fasta_name##*.}"
    
     if [[ "\$gtf_name" == *".gz"* ]]; then
-        gunzip $gtf
-        cp *.gtf ${meta.id}.gtf
+        gunzip $gtf > ${meta.id}.gtf
     else
         cp $gtf ${meta.id}.gtf
     fi
 
     if [[ "\$fasta_name" == *".gz"* ]]; then
-        gunzip $fasta
-        cp *.\$ext ${meta.id}.fa
+        gunzip $fasta > ${meta.id}.fa
     else
         cp *.\$ext ${meta.id}.fa
     fi
