@@ -24,13 +24,14 @@ process DAGCHAINER {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args  ?: ''
+    def args  = task.ext.args  ?: ''
+    def args2 = task.ext.args2 ?: ''
     """
     blast_2_dag.py $query_gtf $ref_gtf $blast_tbl    
 
     filter_repetitive_matches.pl ${args} < dagchainer.db.tsv > dagchainer.db.filtered.tsv
     
-    run_DAG_chainer.pl -i dagchainer.db.filtered.tsv -s -I
+    run_DAG_chainer.pl -i dagchainer.db.filtered.tsv -s -I ${args2}
 
 
     cat <<-END_VERSIONS > versions.yml

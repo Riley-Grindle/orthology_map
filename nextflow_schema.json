@@ -245,8 +245,12 @@
             "type": "string"
         },
         "taxa_db": {
-            "type": "string",
-            "default": null
+            "type": "string"
+        },
+        "dup_match_interval": {
+            "type": "integer",
+            "default": 50000,
+            "description": "Interval that dagchainer uses to filter repetitive matches from matched transcripts to a given query (Ex: any match from WNT1A within 50kb will be removed with exception to the top e-value hit)"
         }
     }
 }
