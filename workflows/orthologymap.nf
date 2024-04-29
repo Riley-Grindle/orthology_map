@@ -186,8 +186,16 @@ workflow ORTHOLOGYMAP {
                        params.sup_ensembl_data, 
                        params.taxa_db
                    )
-
-    CUSTOM_DUMPSOFTWAREVERSIONS (ch_versions.unique().collectFile(name: 'collated_versions.yml'))
+    
+    ch_vote      = CONCENSUS_VOTE(
+                       POST_PROC.out.ortho_l,
+                       POST_PROC.out.ortho_f,
+                       POST_PROC.out.eggnog.first(),
+                       POST_PROC.out.tree.first()
+                   )
+                    
+    
+    CUSTOM_DUMPSOFTWAREVERSIONS(ch_versions.unique().collectFile(name: 'collated_versions.yml'))
 
 }
 
