@@ -15,6 +15,7 @@ workflow CONCENSUS_VOTE {
      main:
      
      ch_1v1_tools = Channel.empty()
+     ch_1vm_tools = Channel.empty()
 
      ch_ortho_l.map { meta, file -> [ meta + [ tool: "ortho_l" ], file ] }
      .set { ch_ortho_l_comb }
@@ -35,18 +36,17 @@ workflow CONCENSUS_VOTE {
      //COMBINE_JSON(TBL_2_JSON_1V1.out.collect())
      
      //VOTE_BEST_MATCH(
-           COMBINE_JSON.out.ortho_f,
-           COMBINE_JSON.out.ortho_l,
-           TBL_2_JSON_1VM.eggnog,
-           TBL_2_JSON_1VM.tree
-       )
+             //COMBINE_JSON.out.ortho_f,
+            //COMBINE_JSON.out.ortho_l,
+           //TBL_2_JSON_1VM.out.eggnog,
+          // TBL_2_JSON_1VM.out.tree
+         // )
      
     
      
 
      emit:
-     peptide_fasta = ch_combined 
-     versions      = ch_versions   
+     peptide_fasta = TBL_2_JSON_1V1.out   
 
 
 

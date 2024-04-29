@@ -1,6 +1,6 @@
 
 
-process ORTHOFINDER {
+process COMBINE_JSON {
     
     tag "${project_id}:${meta.id}"
     label 'process_medium'

@@ -52,6 +52,7 @@ include { DAGCHAINER } from "../modules/local/dagchainer.nf"
 
 include { TRANSDECODER } from "../subworkflows/local/transdecoder.nf"
 include { TRANSDECODER as REF_TRANSDECODER } from "../subworkflows/local/transdecoder.nf"
+include { CONCENSUS_VOTE } from "../subworkflows/local/concensus_vote.nf"
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

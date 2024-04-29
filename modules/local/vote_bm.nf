@@ -1,6 +1,6 @@
 
 
-process ORTHOFINDER {
+process VOTE_BEST_MATCH {
     
     tag "${project_id}:${meta.id}"
     label 'process_medium'
