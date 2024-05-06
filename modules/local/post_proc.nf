@@ -50,7 +50,7 @@ process POST_PROC {
     sed 's/^/"/' tmp.tsv | sed 's/\$/"/' > taxa_col.tsv
     cut -d, -f 1-3 tree_std.csv > editing_tree.csv
     paste -d"," editing_tree.csv taxa_col.tsv > tree_std.csv
-    sed  -i.bak 's/\\|\\|/~~/' tree_std.csv; sed -i.bak 's/\|/./g' tree_std.csv 
+    sed  -i.bak 's/||/~~/' tree_std.csv; sed -i.bak 's/|/./g' tree_std.csv 
     
     cut -d"," -f2 eggnog_std.csv | sed "s/^.//" | sed "s/.\$//" > match_ids.txt
     mv eggnog_std.csv input_eggnog.csv
@@ -58,7 +58,7 @@ process POST_PROC {
     sed 's/^/"/' gene_symbols.txt | sed 's/\$/"/' > gene_symbols_01.txt
     sed 's/^/"/' taxa_ids.txt | sed 's/\$/"/' > taxa_ids_01.txt
     paste -d "," input_eggnog.csv gene_symbols_01.txt taxa_ids_01.txt > eggnog_std.csv
-
+    
     for file in *std.csv; do
         sed 's/^.//' \${file} | sed 's/","/\t/g' | sed 's/.\$//' > ${meta.id}.\${file::-4}.tsv
     done 

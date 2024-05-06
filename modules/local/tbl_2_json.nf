@@ -8,13 +8,13 @@ process TBL_2_JSON {
     conda "conda-forge::python=3.9.5"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/python:3.9--1' :
-        'rgrindle/' }"
+        'rgrindle/tool_vote:latest' }"
 
     input:
     tuple val(meta), path (outfile)
 
     output:
-    tuple val(meta), path (".query_2_matches.json"), emit: json
+    tuple val(meta), path ("*.query_2_matches.json"), emit: json
     //path ("versions.yml")                , emit: versions
 
     when:

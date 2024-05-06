@@ -52,7 +52,7 @@ include { DAGCHAINER } from "../modules/local/dagchainer.nf"
 
 include { TRANSDECODER } from "../subworkflows/local/transdecoder.nf"
 include { TRANSDECODER as REF_TRANSDECODER } from "../subworkflows/local/transdecoder.nf"
-include { CONCENSUS_VOTE } from "../subworkflows/local/concensus_vote.nf"
+include { CONSENSUS_VOTE } from "../subworkflows/local/consensus_vote.nf"
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -87,7 +87,8 @@ workflow ORTHOLOGYMAP {
     ch_query_tx  = GUNZIP_IN.out.fasta
     ch_query_gtf = GUNZIP_IN.out.gtf
     ch_query_tx.join(ch_query_gtf).set { ch_query_tx_gtf } 
-
+    
+    
     TRANSDECODER(
         ch_query_tx_gtf,
         params.pfam, 
@@ -155,17 +156,17 @@ workflow ORTHOLOGYMAP {
 
 
     
-    ch_blastp  = BLASTP(
-                     ch_fasta.first().map { [it[0], it[1]] },
-                     PRE_PROC.out
-                 )
+    //ch_blastp  = BLASTP(
+    //                 ch_fasta.first().map { [it[0], it[1]] },
+    //                 PRE_PROC.out
+    //             )
   
-    ch_dag     = DAGCHAINER(
-                     ch_blastp.tbl,
-                     ch_query_gtf.first(),
-                     ch_ref_gtf, 
-                     params.project_id
-                 )
+    //ch_dag     = DAGCHAINER(
+    //                 ch_blastp.tbl,
+    //                 ch_query_gtf.first(),
+    //                 ch_ref_gtf, 
+    //                 params.project_id
+    //             )
 
     ch_ortho_f   = ch_ortho_f.ortho_f.ifEmpty(PREP_INPUT.out.blank).branch {
                                                                         ortho_f: it
@@ -180,20 +181,21 @@ workflow ORTHOLOGYMAP {
                    )
 
     
-    ch_outs      = POST_PROC(
-                       ch_out_dir, 
-                       PREP_INPUT.out.ortho_l_data, 
-                       PREP_INPUT.out.egg.first(), 
-                       params.sup_ensembl_data, 
-                       params.taxa_db
-                   )
+    POST_PROC(
+        ch_out_dir, 
+        PREP_INPUT.out.ortho_l_data, 
+        PREP_INPUT.out.egg.first(), 
+        params.sup_ensembl_data, 
+        params.taxa_db
+    )
     
-    ch_vote      = CONCENSUS_VOTE(
-                       POST_PROC.out.ortho_l,
-                       POST_PROC.out.ortho_f,
-                       POST_PROC.out.eggnog.first(),
-                       POST_PROC.out.tree.first()
-                   )
+    
+    CONSENSUS_VOTE(
+        POST_PROC.out.ortho_l,
+        POST_PROC.out.ortho_f,
+        POST_PROC.out.eggnog.first(),
+        POST_PROC.out.tree.first()
+    )
                     
     
     CUSTOM_DUMPSOFTWAREVERSIONS(ch_versions.unique().collectFile(name: 'collated_versions.yml'))

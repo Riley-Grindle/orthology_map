@@ -11,8 +11,8 @@ process GUNZIP {
     tuple val(meta), path(gtf), path(fasta)
 
     output:
-    tuple val(meta), path("*.gtf"), emit: gtf
-    tuple val(meta), path("*.fa"), emit: fasta
+    tuple val(meta), path("${meta.id}.gtf"), emit: gtf
+    tuple val(meta), path("${meta.id}.fa"), emit: fasta
 
     script:
     """
@@ -21,13 +21,17 @@ process GUNZIP {
     ext="\${fasta_name##*.}"
    
     if [[ "\$gtf_name" == *".gz"* ]]; then
-        gunzip $gtf > ${meta.id}.gtf
+        gunzip $gtf
+        cp *.gtf ${meta.id}.gtf
     else
         cp $gtf ${meta.id}.gtf
     fi
 
     if [[ "\$fasta_name" == *".gz"* ]]; then
-        gunzip $fasta > ${meta.id}.fa
+        gunzip $fasta
+        base=\$(basename "\$fasta_name" .gz)
+        ext="\${base##*.}"
+        cp *.\$ext ${meta.id}.fa 
     else
         cp *.\$ext ${meta.id}.fa
     fi

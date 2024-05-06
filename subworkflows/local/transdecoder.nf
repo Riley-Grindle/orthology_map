@@ -46,7 +46,7 @@ workflow TRANSDECODER {
     GTF_2_GENETX_MAP(ch_gtf)
 
     //Run Transdecoder.LongOrf
-
+    
     TRANSDECODER_LONGORF(ch_fasta, GTF_2_GENETX_MAP.out.genetx_map)
     
     // Build Domain hit table from longest orfs
