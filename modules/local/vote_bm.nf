@@ -2,21 +2,20 @@
 
 process VOTE_BEST_MATCH {
     
-    tag "${project_id}:${meta.id}"
     label 'process_medium'
 
     conda "conda-forge::python=3.9.5"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/python:3.9--1' :
-        'rgrindle/orthofinder' }"
+        'rgrindle/tool_vote:latest' }"
 
     input:
-    tuple val(meta), path (fasta)
-    val project_id
+    path jsons
+    path query_fasta
 
     output:
-    tuple val(meta), path ("$fasta/OrthoFinder/Results_*"), emit: ortho_f
-    path ("versions.yml")                , emit: versions
+    path ("voted_orthologs.json"), emit: combined_orthologs
+    //path ("versions.yml")                , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -24,22 +23,19 @@ process VOTE_BEST_MATCH {
     script:
     def args = task.ext.args  ?: ''
     """
-    orthofinder \\
-        -f $fasta \\
-        ${args}
+    touch voted_orthologs.json
+    grep ">" $query_fasta > queries.txt
 
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        orthofinder: \$(echo \$(orthofinder version) | sed "s/orthofinder, version //g" )
-    END_VERSIONS
+    for file in *query_2_matches.json; do
+        vote.py queries.txt voted_orthologs.json \$file
+    done
+   
+    species_layer.py voted_orthologs.json    
     """
 
     stub:
     """
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        orthofinder: \$(echo \$(orthofinder --version) | sed "s/orthofinder, version //g" )
-    END_VERSIONS
+    
     """
 }
 

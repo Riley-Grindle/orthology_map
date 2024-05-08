@@ -194,7 +194,8 @@ workflow ORTHOLOGYMAP {
         POST_PROC.out.ortho_l,
         POST_PROC.out.ortho_f,
         POST_PROC.out.eggnog.first(),
-        POST_PROC.out.tree.first()
+        POST_PROC.out.tree.first(),
+        ch_fasta.first().map { it[1] }
     )
                     
     

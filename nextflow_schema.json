@@ -232,9 +232,6 @@
             "type": "string",
             "default": "./work"
         },
-        "reference_tx_omes": {
-            "type": "string"
-        },
         "sup_ensembl_data": {
             "type": "string"
         },
@@ -251,6 +248,15 @@
             "type": "integer",
             "default": 50000,
             "description": "Interval that dagchainer uses to filter repetitive matches from matched transcripts to a given query (Ex: any match from WNT1A within 50kb will be removed with exception to the top e-value hit)"
+        },
+        "save_tool_outs": {
+            "type": "boolean"
+        },
+        "save_transcripts": {
+            "type": "boolean"
+        },
+        "save_proteins": {
+            "type": "boolean"
         }
     }
 }
