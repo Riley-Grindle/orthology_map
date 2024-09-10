@@ -3,14 +3,15 @@
     "project_id": "gene_species",
     "input": "s3://mdibl-rgrindle/orthology_pipe/inputs/less_sequences_AmexT_v47.fa",
     "gtf": "s3://mdibl-rgrindle/orthology_pipe/inputs/AmexT_v47-AmexG_v6.0-DD.gtf",
-    
+
     "reference_tx_omes": "s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/",
-    "sample_sheet: "./Samples.csv"
-    
+    "sample_sheet": "./Samples.csv",
+
+    "diamond_custom": true,
     "sup_data_panther": "s3://mdibl-rgrindle/orthology_pipe/suplementary_files/panther_db_data/",
-    "sup_ensembl_data": "s3://mdibl-rgrindle/orthology_pipe/suplementary_files/ensembl_json_data/",  
+    "sup_ensembl_data": "s3://mdibl-rgrindle/orthology_pipe/suplementary_files/ensembl_json_data/",
     "pfam": "s3://mdibl-rgrindle/orthology_pipe/suplementary_files/Pfam-A.hmm",
-    
+
     "outdir": "s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_species/"
 
 }

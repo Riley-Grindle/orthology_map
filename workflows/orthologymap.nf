@@ -35,6 +35,7 @@ log.info logo + paramsSummaryLog(workflow) + citation
 
 include { ORTHOFINDER } from '../modules/local/orthofinder.nf'
 include { EGGNOGMAPPER } from '../modules/local/eggnogmapper.nf'
+include { DIAMOND } from '../modules/local/diamond.nf'
 include { TREEGRAFTER } from "../modules/local/treegrafter.nf"
 include { ORTHOLOGER } from "../modules/local/orthologer.nf"
 include { PRE_PROC } from "../modules/local/pre_proc_refs.nf"
@@ -132,10 +133,16 @@ workflow ORTHOLOGYMAP {
                     )
     ch_versions.mix(ORTHOFINDER.out.versions)
 
+    if (params.diamond_custom){
+        DIAMOND(
+            REF_TRANSDECODER.out.peptide_fasta.map { [it[0], it[1]] }
+            )
+    }
 
     ch_egg       = EGGNOGMAPPER(
                         PREP_INPUT.out.egg.first(),
-                        params.project_id
+                        params.project_id,
+                        DIAMOND.out.ifEmpty([])
                     )
     ch_versions.mix(EGGNOGMAPPER.out.versions)
 

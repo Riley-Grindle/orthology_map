@@ -3,8 +3,8 @@
 
 process EGGNOGMAPPER {
     tag "Eggnogging $project_id using: $fasta"
-    label "process_high"    
-    
+    label "process_high"
+
     conda "conda-forge::python=3.9.5"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/python:3.9--1' :
@@ -13,6 +13,7 @@ process EGGNOGMAPPER {
     input:
     path fasta
     val project_id
+    path dmnd
 
     output:
     path ("*.emapper.seed_orthologs"), emit: egg
@@ -20,20 +21,38 @@ process EGGNOGMAPPER {
 
     script:
     def args = task.ext.args  ?: ''
-    """
-    emapper.py \\
-        -i $fasta/ \\
-        -m diamond \\
-        -o $project_id \\
-        --itype proteins \\
-        --cpu ${task.cpus} \\
-        ${args}
+    if (dmnd instanceof java.util.ArrayList){
+        """
+        emapper.py \\
+            -i $fasta/ \\
+            -m diamond \\
+            -o $project_id \\
+            --itype proteins \\
+            --cpu ${task.cpus} \\
+            ${args}
 
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        eggnog_mapper: \$(emapper.py --version)
-    END_VERSIONS
-    """
+        cat <<-END_VERSIONS > versions.yml
+        "${task.process}":
+            eggnog_mapper: \$(emapper.py --version)
+        END_VERSIONS
+        """
+    } else {
+        """
+        emapper.py \\
+            -i $fasta/ \\
+            -m diamond \\
+            -o $project_id \\
+            --itype proteins \\
+            --cpu ${task.cpus} \\
+            -d $dmnd \\
+            ${args}
+
+        cat <<-END_VERSIONS > versions.yml
+        "${task.process}":
+            eggnog_mapper: \$(emapper.py --version)
+        END_VERSIONS
+        """
+    }
 
     stub:
     """
