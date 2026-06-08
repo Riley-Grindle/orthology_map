@@ -12,8 +12,8 @@ process POST_PROC {
     tuple val(meta), path (outs)
     tuple val(meta), path (fastas)
     val fasta_file
-    path ensembl_data
-    path taxa_db
+    val ensembl_data    // absolute path or null — not staged, accessed directly on shared fs
+    val taxa_db         // absolute path or null — not staged, accessed directly on shared fs
 
     output:
     tuple val(meta), path ("*ortho_f_std.tsv"), emit: ortho_f
@@ -42,15 +42,21 @@ process POST_PROC {
     Rscript /rscripts/hexadecimal_correction.R ./odbdata /headers/ ./
     
     mv ./tree_std.csv input_tree.csv
-    ensembl_id_2_gene_symbl.py ./input_tree.csv /sup_data/prefix_2_file.json $ensembl_data /sup_data/prefix_2_species.json
-    paste -d"," input_tree.csv gene_symbols_ensembl.txt species_names.txt > tree_std.csv
-    search_taxa.sh tree_std.csv $taxa_db
-    echo "SPECIES" >> tmp.tsv
-    cat taxa.tsv >> tmp.tsv
-    sed 's/^/"/' tmp.tsv | sed 's/\$/"/' > taxa_col.tsv
-    cut -d, -f 1-3 tree_std.csv > editing_tree.csv
-    paste -d"," editing_tree.csv taxa_col.tsv > tree_std.csv
-    sed  -i.bak 's/||/~~/' tree_std.csv; sed -i.bak 's/|/./g' tree_std.csv 
+    if [ -n "$ensembl_data" ]; then
+        ensembl_id_2_gene_symbl.py ./input_tree.csv /sup_data/prefix_2_file.json $ensembl_data /sup_data/prefix_2_species.json
+        paste -d"," input_tree.csv gene_symbols_ensembl.txt species_names.txt > tree_std.csv
+    else
+        cp input_tree.csv tree_std.csv
+    fi
+    if [ -n "$taxa_db" ]; then
+        search_taxa.sh tree_std.csv $taxa_db
+        echo "SPECIES" >> tmp.tsv
+        cat taxa.tsv >> tmp.tsv
+        sed 's/^/"/' tmp.tsv | sed 's/\$/"/' > taxa_col.tsv
+        cut -d, -f 1-3 tree_std.csv > editing_tree.csv
+        paste -d"," editing_tree.csv taxa_col.tsv > tree_std.csv
+    fi
+    sed  -i.bak 's/||/~~/' tree_std.csv; sed -i.bak 's/|/./g' tree_std.csv
     
     cut -d"," -f2 eggnog_std.csv | sed "s/^.//" | sed "s/.\$//" > match_ids.txt
     mv eggnog_std.csv input_eggnog.csv

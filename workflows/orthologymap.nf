@@ -8,12 +8,8 @@
 
 include { paramsSummaryLog; paramsSummaryMap; fromSamplesheet } from 'plugin/nf-validation'
 
-def logo = NfcoreTemplate.logo(workflow, params.monochrome_logs)
-def citation = '\n' + WorkflowMain.citation(workflow) + '\n'
 def summary_params = paramsSummaryMap(workflow)
 
-//Print parameter summary log to screen
-log.info logo + paramsSummaryLog(workflow) + citation
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -48,8 +44,10 @@ include { CUSTOM_DUMPSOFTWAREVERSIONS } from "../modules/nf-core/custom/dumpsoft
 include { GUNZIP as GUNZIP_REF } from "../modules/local/gunzip.nf"
 include { GUNZIP as GUNZIP_IN } from "../modules/local/gunzip.nf"
 include { GFFREAD } from "../modules/local/gffread/main"
-include { BLASTP } from "../modules/local/blastp.nf"
-include { DAGCHAINER } from "../modules/local/dagchainer.nf"
+include { GTF_TO_GENELISTS as GTF_TO_GENELISTS_QUERY } from "../modules/local/gtf_to_genelists.nf"
+include { GTF_TO_GENELISTS as GTF_TO_GENELISTS_REF   } from "../modules/local/gtf_to_genelists.nf"
+include { DIAMOND_BLASTP } from "../modules/local/diamond_blastp.nf"
+include { IADHORE } from "../modules/local/iadhore.nf"
 
 include { TRANSDECODER } from "../subworkflows/local/transdecoder.nf"
 include { TRANSDECODER as REF_TRANSDECODER } from "../subworkflows/local/transdecoder.nf"
@@ -131,20 +129,22 @@ workflow ORTHOLOGYMAP {
                         PREP_INPUT.out.ortho_f,
                         params.project_id
                     )
-    ch_versions.mix(ORTHOFINDER.out.versions)
+    ch_versions = ch_versions.mix(ORTHOFINDER.out.versions)
 
+    ch_diamond = Channel.empty()
     if (params.diamond_custom){
         DIAMOND(
             REF_TRANSDECODER.out.peptide_fasta.map { [it[0], it[1]] }
-            )
+        )
+        ch_diamond = DIAMOND.out.egg
     }
 
     ch_egg       = EGGNOGMAPPER(
                         PREP_INPUT.out.egg.first(),
                         params.project_id,
-                        DIAMOND.out.ifEmpty([])
+                        ch_diamond.ifEmpty([])
                     )
-    ch_versions.mix(EGGNOGMAPPER.out.versions)
+    ch_versions = ch_versions.mix(EGGNOGMAPPER.out.versions)
 
 
     ch_tree      = TREEGRAFTER(
@@ -163,21 +163,47 @@ workflow ORTHOLOGYMAP {
                         PREP_INPUT.out.ortho_l_work.first().map { it[1] },
                         params.project_id
                     )
-    ch_versions.mix(ORTHOLOGER.out.versions)
+    ch_versions = ch_versions.mix(ORTHOLOGER.out.versions)
 
 
 
-    //ch_blastp  = BLASTP(
-    //                 ch_fasta.first().map { [it[0], it[1]] },
-    //                 PRE_PROC.out
-    //             )
+    // -------------------------------------------------------------------------
+    // SYNTENY (i-ADHoRe) — runs once per reference species; feeds into
+    // consensus voting as the 5th evidence source.  Disable with --run_synteny false.
+    // -------------------------------------------------------------------------
 
-    //ch_dag     = DAGCHAINER(
-    //                 ch_blastp.tbl,
-    //                 ch_query_gtf.first(),
-    //                 ch_ref_gtf,
-    //                 params.project_id
-    //             )
+    ch_synteny = Channel.empty()
+    if (params.run_synteny) {
+        // Build per-scaffold gene-order list files for query and each reference
+        GTF_TO_GENELISTS_QUERY(
+            TRANSDECODER.out.peptide_fasta.map { meta, pep, gtf -> [ meta, gtf ] }
+        )
+        GTF_TO_GENELISTS_REF(
+            REF_TRANSDECODER.out.peptide_fasta.map { meta, pep, gtf -> [ meta, gtf ] }
+        )
+
+        // DIAMOND all-vs-all blast table: query proteins vs each reference (one job per ref)
+        ch_query_pep = TRANSDECODER.out.peptide_fasta.map { meta, pep, gtf -> [ meta, pep ] }
+        ch_ref_pep   = REF_TRANSDECODER.out.peptide_fasta.map { meta, pep, gtf -> [ meta, pep ] }
+        DIAMOND_BLASTP(ch_query_pep.first(), ch_ref_pep)
+
+        // Join reference genelists with their blast table (both keyed by ref_meta)
+        ch_ref_iadhore = GTF_TO_GENELISTS_REF.out.genelists
+            .join(DIAMOND_BLASTP.out.blast)
+        // shape: [ ref_meta, genelists_dir, blast_table ]
+
+        // Broadcast single query genelists against every reference
+        IADHORE(
+            GTF_TO_GENELISTS_QUERY.out.genelists.first(),
+            ch_ref_iadhore
+        )
+        ch_synteny  = IADHORE.out.synteny
+        ch_versions = ch_versions.mix(IADHORE.out.versions)
+        ch_versions = ch_versions.mix(DIAMOND_BLASTP.out.versions.first())
+        ch_versions = ch_versions.mix(GTF_TO_GENELISTS_QUERY.out.versions.first())
+    }
+
+    // -------------------------------------------------------------------------
 
     ch_ortho_f   = ch_ortho_f.ortho_f.ifEmpty(PREP_INPUT.out.blank)
                                     .branch {
@@ -207,6 +233,7 @@ workflow ORTHOLOGYMAP {
         POST_PROC.out.ortho_f,
         POST_PROC.out.eggnog.first(),
         POST_PROC.out.tree.first(),
+        ch_synteny,
         ch_fasta.first().map { it[1] }
     )
 

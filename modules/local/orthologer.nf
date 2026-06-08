@@ -28,6 +28,8 @@ process ORTHOLOGER {
     script:
     def args = task.ext.args  ?: ''
     """
+    WORKDIR=\$(pwd)
+
     cp -r $odbdata/* /odbdata
     cd /odbwork
     setup_odb.sh
@@ -38,13 +40,15 @@ process ORTHOLOGER {
     orthologer \\
         -c run \\
         ${args}
-    cp -r Cluster/ /tmp/*/odbwork/ 
 
-    cat <<-END_VERSIONS > versions.yml
+    # Copy results back into the Nextflow work directory so outputs are properly staged
+    mkdir -p \${WORKDIR}/${odbwork}/Cluster
+    cp -r Cluster/. \${WORKDIR}/${odbwork}/Cluster/
+
+    cat <<-END_VERSIONS > \${WORKDIR}/${odbwork}/versions.yml
     "${task.process}":
         orthologer: \$(./orthologer.sh -v)
     END_VERSIONS
-    cp versions.yml /tmp/*/odbwork/
     """
 
     stub:
