@@ -1,6 +1,6 @@
 
 process TRANSDECODER_PREDICT {
-    tag '${meta.id}'
+    tag "${meta.id}"
     label 'process_medium'
 
     conda "bioconda::transdecoder=5.5.0"
@@ -10,7 +10,7 @@ process TRANSDECODER_PREDICT {
 
     input:
     tuple val(meta), path(fasta)
-    tuple val(meta), path(pfam)
+    tuple val(meta), path(pfam)       // *.domtblout from HMMER_HMMSCAN, or [] when pfam DB not supplied
     tuple val(meta), path(long_orf_dir)
     val(project_id)
 
@@ -26,15 +26,15 @@ process TRANSDECODER_PREDICT {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args ?: ''
+    def args      = task.ext.args ?: ''
+    def pfam_arg  = pfam instanceof List ? '' : "--retain_pfam_hits $pfam"
 
     """
     TransDecoder.Predict \\
         $args \\
         -t \\
         $fasta \\
-        --retain_pfam_hits $pfam \\
-        ${args}
+        $pfam_arg
 
     mv *.transdecoder.pep ${meta.id}.initial.transdecoder.pep
     sed 's/>[^ ]*//' *.initial.transdecoder.pep | sed 's/^ />/'  > ${meta.id}.final.transdecoder.pep
@@ -43,6 +43,5 @@ process TRANSDECODER_PREDICT {
     "${task.process}":
         transdecoder: \$(echo \$(TransDecoder.Predict --version) | sed -e "s/TransDecoder.Predict //g")
     END_VERSIONS
-    
     """
 }

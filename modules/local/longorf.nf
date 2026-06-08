@@ -1,7 +1,7 @@
 
 process TRANSDECODER_LONGORF {
     
-    tag '${meta.id}'
+    tag "${meta.id}"
     label 'process_medium'
 
     conda "bioconda::transdecoder=5.5.0"

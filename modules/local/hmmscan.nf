@@ -1,7 +1,7 @@
 
 process HMMER_HMMSCAN {
     
-    tag '${meta.id}'
+    tag "${meta.id}"
     beforeScript = 'ulimit -Ss'
     label 'process_high'
 

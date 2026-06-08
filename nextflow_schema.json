@@ -260,6 +260,11 @@
         },
         "diamond_custom": {
             "type": "boolean"
+        },
+        "run_synteny": {
+            "type": "boolean",
+            "default": true,
+            "description": "Run i-ADHoRe pairwise synteny between the query and each reference species (one job per reference), adding collinear block evidence as the fifth input to consensus voting."
         }
     }
 }

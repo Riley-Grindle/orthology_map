@@ -1,44 +1,32 @@
 //
-// Check input samplesheet and get read channels
+// Validate the reference samplesheet and emit [ meta, gtf, fasta ] channels.
+// Expected columns: taxa_id, gtf_file, fasta_file
 //
-
-include { SAMPLESHEET_CHECK } from '../../modules/local/samplesheet_check'
 
 workflow INPUT_CHECK {
     take:
     samplesheet // file: /path/to/samplesheet.csv
 
     main:
-    SAMPLESHEET_CHECK ( samplesheet )
-        .csv
-        .splitCsv ( header:true, sep:',' )
-        .map { create_fastq_channel(it) }
-        .set { reads }
+    Channel.fromPath(samplesheet)
+        .splitCsv(header: true, sep: ',')
+        .map { create_ref_channel(it) }
+        .set { refs }
 
     emit:
-    reads                                     // channel: [ val(meta), [ reads ] ]
-    versions = SAMPLESHEET_CHECK.out.versions // channel: [ versions.yml ]
+    refs  // channel: [ val(meta), path(gtf), path(fasta) ]
 }
 
-// Function to get list of [ meta, [ fastq_1, fastq_2 ] ]
-def create_fastq_channel(LinkedHashMap row) {
-    // create meta map
-    def meta = [:]
-    meta.id         = row.sample
-    meta.single_end = row.single_end.toBoolean()
+def create_ref_channel(LinkedHashMap row) {
+    if (!row.taxa_id) {
+        error "ERROR: samplesheet -> 'taxa_id' column is missing or empty."
+    }
+    if (!file(row.gtf_file).exists()) {
+        error "ERROR: samplesheet -> GTF file does not exist!\n${row.gtf_file}"
+    }
+    if (!file(row.fasta_file).exists()) {
+        error "ERROR: samplesheet -> FASTA file does not exist!\n${row.fasta_file}"
+    }
 
-    // add path(s) of the fastq file(s) to the meta map
-    def fastq_meta = []
-    if (!file(row.fastq_1).exists()) {
-        exit 1, "ERROR: Please check input samplesheet -> Read 1 FastQ file does not exist!\n${row.fastq_1}"
-    }
-    if (meta.single_end) {
-        fastq_meta = [ meta, [ file(row.fastq_1) ] ]
-    } else {
-        if (!file(row.fastq_2).exists()) {
-            exit 1, "ERROR: Please check input samplesheet -> Read 2 FastQ file does not exist!\n${row.fastq_2}"
-        }
-        fastq_meta = [ meta, [ file(row.fastq_1), file(row.fastq_2) ] ]
-    }
-    return fastq_meta
+    return [ [ id: row.taxa_id ], file(row.gtf_file), file(row.fasta_file) ]
 }
