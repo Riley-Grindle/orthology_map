@@ -2,7 +2,7 @@
 
 
 process DIAMOND {
-    tag "Making Diamond db for $project_id using: $fasta"
+    tag "Making Diamond db using: $fasta"
     label "process_high"
 
     conda "conda-forge::python=3.9.5"
@@ -21,7 +21,7 @@ process DIAMOND {
     script:
     def args = task.ext.args  ?: ''
     """
-    diamond makedb --in $fasta -d $meta
+    diamond makedb --in $fasta -d ${meta.id}
 
     """
 

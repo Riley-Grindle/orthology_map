@@ -8,3 +8,14 @@
 2026-06-05 15:04:50	4.9s	nostalgic_goldstine	ERR	b3ee66df97db928dfd5e46cfd8f01351	d3a0e222-018b-4d22-82f8-9e3fde96a797	nextflow run main.nf -params-file parameters.json -profile docker
 2026-06-05 15:05:39	-	gigantic_yalow	-	b3ee66df97db928dfd5e46cfd8f01351	ac5a30c3-dbd3-4d82-8089-02e4312c7320	nextflow run main.nf -params-file parameters.json -profile docker
 2026-06-05 15:06:07	1m 46s	ecstatic_keller	ERR	b3ee66df97db928dfd5e46cfd8f01351	0f2726a6-c6be-463e-9250-b7ecb6a82d93	nextflow run main.nf -params-file parameters.json -profile docker
+2026-06-08 09:38:47	10h 11m 17s	confident_gates	ERR	b3ee66df97db928dfd5e46cfd8f01351	ccb0c129-0af9-4fcb-a426-ac98da89297b	nextflow run main.nf -params-file parameters.json -profile docker
+2026-07-16 13:25:31	-	suspicious_keller	-	b3ee66df97db928dfd5e46cfd8f01351	ccb0c129-0af9-4fcb-a426-ac98da89297b	nextflow run main.nf -params-file parameters.json -profile docker -resume
+2026-07-16 17:26:46	16h 11m 3s	disturbed_gilbert	ERR	b3ee66df97db928dfd5e46cfd8f01351	ccb0c129-0af9-4fcb-a426-ac98da89297b	nextflow run main.nf -params-file parameters.json -profile docker -resume
+2026-07-20 14:23:18	-	agitated_carson	-	b3ee66df97db928dfd5e46cfd8f01351	ccb0c129-0af9-4fcb-a426-ac98da89297b	nextflow run main.nf -params-file parameters.json -profile docker -resume
+2026-07-20 14:23:55	16h 11m 8s	pedantic_wilson	ERR	b3ee66df97db928dfd5e46cfd8f01351	936e6adb-851a-434a-a610-da0cd2b4c2b5	nextflow run main.nf -params-file parameters.json -profile docker
+2026-07-27 15:17:05	-	infallible_stallman	-	b3ee66df97db928dfd5e46cfd8f01351	936e6adb-851a-434a-a610-da0cd2b4c2b5	nextflow run main.nf -params-file parameters.json -profile docker -resume
+2026-07-27 15:34:35	16h 9m 44s	maniac_waddington	ERR	b3ee66df97db928dfd5e46cfd8f01351	936e6adb-851a-434a-a610-da0cd2b4c2b5	nextflow run main.nf -params-file parameters.json -profile docker -resume
+2026-07-28 13:47:58	-	compassionate_williams	-	b3ee66df97db928dfd5e46cfd8f01351	936e6adb-851a-434a-a610-da0cd2b4c2b5	nextflow run main.nf -params-file parameters.json -profile docker -resume
+2026-07-28 14:08:55	16h 9m 56s	fabulous_mayer	ERR	b3ee66df97db928dfd5e46cfd8f01351	d1828b33-6dc2-489d-85bf-a908e436d98c	nextflow run main.nf -params-file parameters.json -profile docker
+2026-07-29 13:29:20	53m 9s	sick_almeida	ERR	b3ee66df97db928dfd5e46cfd8f01351	d1828b33-6dc2-489d-85bf-a908e436d98c	nextflow run main.nf -params-file parameters.json -profile docker -resume
+2026-07-29 14:33:57	-	infallible_hopper	-	b3ee66df97db928dfd5e46cfd8f01351	d1828b33-6dc2-489d-85bf-a908e436d98c	nextflow run main.nf -params-file parameters.json -profile docker -resume

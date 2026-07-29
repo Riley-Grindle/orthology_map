@@ -16,8 +16,8 @@ process IADHORE {
 
     conda "bioconda::i-adhore=3.0.01"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'vibpsb/i-adhore:latest' :
-        'vibpsb/i-adhore:latest' }"
+        'rgrindle/i-adhore:latest' :
+        'rgrindle/i-adhore:latest' }"
 
     input:
     tuple val(query_meta), path(query_genelists)

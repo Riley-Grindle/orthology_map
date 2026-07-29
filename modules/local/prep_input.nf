@@ -18,8 +18,8 @@ process PREP_INPUT {
     tuple val(meta), path ("./ortho_f"), emit: ortho_f
     tuple val(meta), path ("./ortho_l/odbwork"), emit: ortho_l_work
     tuple val(meta), path ("./ortho_l/odbdata"), emit: ortho_l_data
-    path "./eggnog/*", emit: egg
-    path "./treegrafter/*", emit: tree
+    path "eggnog/*.fasta", emit: egg
+    path "treegrafter/*.fasta", emit: tree
     path "blank.txt", emit: blank
 
     

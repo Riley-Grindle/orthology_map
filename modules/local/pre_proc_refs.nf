@@ -19,7 +19,8 @@ process PRE_PROC {
     """
     
     FILE_NAME="\$(basename $gtf | cut -d. -f1)"
-    fasta_header_format.py $fasta $gtf "\$FILE_NAME".formatted.fasta
+    grep -v "#" $gtf > processed.gtf
+    fasta_header_format.py $fasta processed.gtf "\$FILE_NAME".formatted.fasta
     
     mkdir fasta_dir
     cp *.formatted.fasta fasta_dir/

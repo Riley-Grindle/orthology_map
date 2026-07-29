@@ -30,6 +30,19 @@ process TRANSDECODER_PREDICT {
     def pfam_arg  = pfam instanceof List ? '' : "--retain_pfam_hits $pfam"
 
     """
+    # long_orf_dir is staged as a symlink into LONGORF's cached work directory.
+    # TransDecoder.Predict writes its own resume checkpoints into that same
+    # directory, so a stale checkpoint from a previous Predict attempt would
+    # leak in here and cause this run to skip steps that never actually ran
+    # in this task's work dir. Materialize a private copy and strip any
+    # inherited Predict checkpoints so this run always starts clean.
+    if [ -L $long_orf_dir ]; then
+        real_dir="\$(readlink -f $long_orf_dir)"
+        rm -f $long_orf_dir
+        cp -r "\$real_dir" $long_orf_dir
+    fi
+    rm -rf $long_orf_dir/__checkpoints_TDpredict
+
     TransDecoder.Predict \\
         $args \\
         -t \\

@@ -22,7 +22,15 @@ workflow TRANSDECODER {
 
     GTF_2_GENETX_MAP(ch_gtf)
 
-    TRANSDECODER_LONGORF(ch_fasta, GTF_2_GENETX_MAP.out.genetx_map)
+    ch_fasta
+        .join(GTF_2_GENETX_MAP.out.genetx_map)
+        .multiMap { meta, fasta, genetx_map ->
+            fasta_ch: [ meta, fasta ]
+            map_ch:   [ meta, genetx_map ]
+        }
+        .set { ch_longorf_in }
+
+    TRANSDECODER_LONGORF(ch_longorf_in.fasta_ch, ch_longorf_in.map_ch)
     ch_versions = ch_versions.mix(TRANSDECODER_LONGORF.out.versions)
 
     // Build domain-hit table only when a Pfam HMM database is supplied
