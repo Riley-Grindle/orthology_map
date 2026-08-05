@@ -1,63 +1,1025 @@
-Jul-27 15:34:06.579 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -params-file parameters.json -profile docker -resume
-Jul-27 15:34:06.812 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 26.04.1
-Jul-27 15:34:06.891 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/rgrindle/.nextflow/plugins; core-plugins: nf-amazon@3.9.1,nf-azure@1.22.3,nf-cloudcache@0.6.0,nf-codecommit@0.5.2,nf-console@1.3.0,nf-google@1.27.2,nf-k8s@1.5.2,nf-seqera@0.19.1,nf-tower@1.27.0,nf-wave@1.20.0
-Jul-27 15:34:06.942 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Jul-27 15:34:06.944 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Jul-27 15:34:06.949 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.14.1 in 'deployment' mode
-Jul-27 15:34:06.972 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
-Jul-27 15:34:07.165 [main] DEBUG nextflow.plugin.PluginUpdater - Using plugin repository: HttpPluginRepository [registry]; url=https://registry.nextflow.io/api
-Jul-27 15:34:07.174 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Jul-27 15:34:07.260 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /compbio/scratch/rgrindle/orthology_map/nextflow.config
-Jul-27 15:34:07.264 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /compbio/scratch/rgrindle/orthology_map/nextflow.config
-Jul-27 15:34:07.270 [main] DEBUG nextflow.config.ConfigParserFactory - Using config parser v2
-Jul-27 15:34:07.293 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
-Jul-27 15:34:07.731 [main] ERROR nextflow.cli.Launcher - Config parsing failed
-nextflow.exception.ConfigParseException: Config parsing failed
-	at nextflow.config.parser.v2.ConfigParserV2.parse(ConfigParserV2.groovy:162)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.config.parser.v2.ConfigParserV2.parse(ConfigParserV2.groovy:192)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.config.ConfigBuilder.parse0(ConfigBuilder.groovy:456)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.config.ConfigBuilder.merge0(ConfigBuilder.groovy:441)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.config.ConfigBuilder.buildConfig0(ConfigBuilder.groovy:397)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.config.ConfigBuilder.buildGivenFiles(ConfigBuilder.groovy:336)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.config.ConfigBuilder.buildConfigObject(ConfigBuilder.groovy:808)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.config.ConfigBuilder.build(ConfigBuilder.groovy:821)
-	at nextflow.cli.CmdRun.run(CmdRun.groovy:368)
-	at nextflow.cli.Launcher.run(Launcher.groovy:526)
-	at nextflow.cli.Launcher.main(Launcher.groovy:686)
-Caused by: org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
-_nf_config_efa4f6dd2a66f822: 266: Unexpected input: '(' @ line 266, column 14.
-   def check_max(obj, type) {
-                ^
+Jul-27 15:34:30.839 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -params-file parameters.json -profile docker -resume
+Jul-27 15:34:30.982 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.4
+Jul-27 15:34:31.022 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/rgrindle/.nextflow/plugins; core-plugins: nf-amazon@3.4.4,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.5,nf-k8s@1.2.2,nf-tower@1.17.5,nf-wave@1.16.1
+Jul-27 15:34:31.074 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jul-27 15:34:31.075 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jul-27 15:34:31.080 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Jul-27 15:34:31.102 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Jul-27 15:34:31.358 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jul-27 15:34:31.434 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /compbio/scratch/rgrindle/orthology_map/nextflow.config
+Jul-27 15:34:31.439 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /compbio/scratch/rgrindle/orthology_map/nextflow.config
+Jul-27 15:34:31.481 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Jul-27 15:34:33.745 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [bih, cfc_dev, uzl_omics, ifb_core, embl_hd, mcw_rcc, denbi_qbic, alice, mjolnir_globe, uppmax, giga, incliva, ilifu, ki_luria, uge, icr_alma, rosalind_uge, lugh, mccleary, unibe_ibu, vai, czbiohub_aws, jax, roslin, iris, tes, unc_longleaf, tigem, tubingen_apg, apollo, ipop_up, vsc_calcua, pdc_kth, ceci_nic5, ccga_cau, humantechnopole, stjude, daisybio, eddie, medair, biowulf, mahuika, apptainer, bi, bigpurple, adcra, cedars, pawsey_setonix, vsc_kul_uhasselt, purdue_gautschi, rki, ucl_myriad, charliecloud, fred_hutch, seattlechildrens, ceres, purdue_negishi, munin, arm, rosalind, hasta, cfc, uzh, shu_bmrc, ebi_codon_slurm, ebc, ccga_dx, crick, ku_sund_danhead, marvin, lrz_cm4, purdue_bell, biohpc_gen, shifter, kelvin2, mana, mamba, york_viking, unc_lccc, wehi, awsbatch, arcc, ceci_dragon2, imperial, maestro, cannon, genotoul, nci_gadi, abims, eva_grace, janelia, nu_genomics, googlebatch, oist, sahmri, kaust, alliance_canada, mpcdf, leicester, vsc_ugent, create, sage, cambridge, jex, podman, ebi_codon, cheaha, xanadu, nyu_hpc, test, marjorie, computerome, ucd_sonic, seg_globe, mssm, sanger, dkfz, bluebear, pasteur, einstein, ethz_euler, m3c, test_full, imb, ucl_cscluster, tuos_stanage, azurebatch, seadragon, crukmi, csiro_petrichor, qmul_apocrita, docker, engaging, gis, hypatia, psmn, eva, unity, cropdiversityhpc, nygc, fgcz, conda, crg, singularity, mpcdf_viper, dirac, self_hosted_runner, tufts, uw_hyak_pedslabs, binac2, hki_genie, debug, genouest, cbe, unsw_katana, utd_juno, hazel, phoenix, gitpod, seawulf, uod_hpc, fub_curta, lovelace, uct_hpc, aws_tower, fsu_draco]
+Jul-27 15:34:33.827 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins declared=[nf-validation]
+Jul-27 15:34:33.829 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jul-27 15:34:33.829 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[nf-validation]
+Jul-27 15:34:34.497 [main] DEBUG n.plugin.HttpPluginRepository - Registry request: https://registry.nextflow.io/api/v1/plugins/dependencies?plugins=nf-validation&nextflowVersion=25.10.4
+- code: 200
+- body: {"plugins":[{"id":"nf-validation","releases":[{"version":"1.1.4","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/1.1.4/download/nf-validation-1.1.4.zip","date":"2024-08-07T15:06:44.318431Z","sha512sum":"4528eb0676b3132c688831e13859939d64ef685f09e53652e858892e14e38d541e895a1fd7a398ea88de3cdcc239dca3c8d0a6dbcd85889811d8e83286ebf9e6","requires":">=22.10.0","dependsOn":[],"status":"PUBLISHED"},{"version":"1.1.3","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/1.1.3/download/nf-validation-1.1.3.zip","date":"2023-11-21T10:34:48.682432Z","sha512sum":"673e998b83f21315b1f465d3d1609806428518955c174155a1e14a1c410ed9e7c84034b849780567a1a6254f8e6b9bdbb87b1939e5a8f754ff2268e5809bf77e","requires":">=22.10.0","dependsOn":[],"status":"PUBLISHED"},{"version":"1.1.2","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/1.1.2/download/nf-validation-1.1.2.zip","date":"2023-11-16T12:24:24.89153Z","sha512sum":"e42d9465e2e127fc73070cc41a19e22c4299039915fc1d09cfcd5466727d5614d808e196ee8e16f183eccc84c8978995bc5e0234021ec9cc398e8265f060ef69","requires":">=22.10.0","dependsOn":[],"status":"PUBLISHED"},{"version":"1.1.1","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/1.1.1/download/nf-validation-1.1.1.zip","date":"2023-10-23T11:36:47.660915Z","sha512sum":"ea85d16ec3d707d4d8bc5e0d36c9e0c6f6b8cc96da803d00d95b0532ae9a3c146f011ae70955fc945a4ddb5ae901524285bbc7821b4069fa0dea32f0c7a56a07","requires":">=22.10.0","dependsOn":[],"status":"PUBLISHED"},{"version":"1.1.0","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/1.1.0/download/nf-validation-1.1.0.zip","date":"2023-10-18T09:42:16.30148Z","sha512sum":"f1ad3b09ca39cf8b0f738fda3e82dacaf9dfceafa771063f5db8d08d4a78f1b9a2c22a045a0ed5d71b9d9fcf9626921672ca1ec621eec78e6a5ec9281cd10012","requires":">=22.10.0","dependsOn":[],"status":"PUBLISHED"},{"version":"1.0.0","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/1.0.0/download/nf-validation-1.0.0.zip","date":"2023-10-12T08:52:42Z","sha512sum":"d947754cf20a750e3e94c9b6d9631bb894e3b94a3acfb846ab632997957c950e5adccd8061b8d9e12701c6cf8405c81edb5b93460afbc75abfcfe63c30786840","requires":">=22.10.0","dependsOn":[],"status":"PUBLISHED"},{"version":"0.3.3","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/0.3.3/download/nf-validation-0.3.3.zip","date":"2023-10-10T10:35:43Z","sha512sum":"94804d119de5b25bea620494d575c16426ec601b858013bc0097e45d5e67f820ed41a2cc74ca42f3a4a5b9257169ffb03a61cce9b730ad1f9dd2bb0759c493b9","requires":">=22.10.0","dependsOn":[],"status":"PUBLISHED"},{"version":"0.3.2","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/0.3.2/download/nf-validation-0.3.2.zip","date":"2023-09-19T08:38:31.330492Z","sha512sum":"29aacfd66f9455eed5607701c0348dcc2ff90d988882618acbee7423740c6bb5ef17826ea690c7588ae006ca82afdbc3f0370fb9dc7d285b354bb39e06460b58","requires":">=22.10.0","dependsOn":[],"status":"PUBLISHED"},{"version":"0.3.1","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/0.3.1/download/nf-validation-0.3.1.zip","date":"2023-07-12T09:07:50Z","sha512sum":"004f8e02c385daf95ebaf59b7f0613a99170893f69e0ad9bdcc262ffbcdc1b12470f679a7b60343031dfccbe75e85fce0c340974a4b98ffd2ad32fc3f3ae54e8","requires":">=22.10.0","dependsOn":[],"status":"PUBLISHED"},{"version":"0.3.0","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/0.3.0/download/nf-validation-0.3.0.zip","date":"2023-07-10T12:50:17Z","sha512sum":"8a42ea8e6a0d9d61548bf55a22ffacd2f42d6e72e77b484a8d5fa532e50d225b04b9c5520a0503c4024df4989476a08f73bd3162f65bf9199d09db787fcfbbeb","requires":">=22.10.0","dependsOn":[],"status":"PUBLISHED"},{"version":"0.2.1","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/0.2.1/download/nf-validation-0.2.1.zip","date":"2023-06-06T12:53:28.728085Z","sha512sum":"01166b10ddc69802ab4f528b149b78e5fded88ae6b1ee9355bf11d85571a568b061a7b2ecbd4256e2bb0e97c667ab295b89d9d2705a8c115b6ca772d1bb27844","requires":">=22.10.0","dependsOn":[],"status":"PUBLISHED"},{"version":"0.2.0","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/0.2.0/download/nf-validation-0.2.0.zip","date":"2023-06-06T08:03:06.923251Z","sha512sum":"304916efae3853bfb9ff422faa2124ba2ba6e38d90d7e46417b3b6951bf7477d64885a6aafcb31d55ed39b8d37b1cde009e12fa6aba2897cd1776f419f47d17c","requires":">=22.10.0","dependsOn":[],"status":"PUBLISHED"},{"version":"0.1.0","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/0.1.0/download/nf-validation-0.1.0.zip","date":"2023-05-05T13:06:08.481Z","sha512sum":"b258fce687f8f977c5cc075a9bfcd98dcddf2fb64ea590517f3267fa9778afeac5311c8e0359c0cb9717df5378c0420b0eaad3d1bac3c95c6925f35e31310f4d","requires":">=21.02.0-edge","dependsOn":[],"status":"PUBLISHED"}],"projectUrl":"https://github.com/nextflow-io/nf-validation","provider":"nextflow"}]}
+Jul-27 15:34:34.680 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-validation version: latest
+Jul-27 15:34:34.706 [main] DEBUG nextflow.plugin.PluginUpdater - Plugin nf-validation version null resolved to: 1.1.4
+Jul-27 15:34:34.727 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-validation@1.1.4' resolved
+Jul-27 15:34:34.728 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-validation@1.1.4'
+Jul-27 15:34:34.748 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-validation@1.1.4
+Jul-27 15:34:34.772 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/rgrindle/.nextflow/secrets/store.json
+Jul-27 15:34:34.778 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@18cf5c52] - activable => nextflow.secret.LocalSecretsProvider@18cf5c52
+Jul-27 15:34:34.782 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Jul-27 15:34:34.832 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [maniac_waddington] DSL2 - revision: b3ee66df97
+Jul-27 15:34:35.094 [main] DEBUG nextflow.Session - Session UUID: 936e6adb-851a-434a-a610-da0cd2b4c2b5
+Jul-27 15:34:35.095 [main] DEBUG nextflow.Session - Run name: maniac_waddington
+Jul-27 15:34:35.096 [main] DEBUG nextflow.Session - Executor pool size: 32
+Jul-27 15:34:35.115 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Jul-27 15:34:35.124 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=96; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-27 15:34:35.152 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.10.4 build 11173
+  Created: 10-02-2026 15:17 UTC 
+  System: Linux 6.8.0-63-generic
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.10+7
+  Encoding: UTF-8 (UTF-8)
+  Process: 1091399@grace.mdibl.net [209.222.195.83]
+  CPUs: 32 - Mem: 251.6 GB (6.5 GB) - Swap: 16 GB (16 GB)
+Jul-27 15:34:35.198 [main] DEBUG nextflow.Session - Work-dir: /compbio/scratch/rgrindle/orthology_map/work [nfs]
+Jul-27 15:34:35.242 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jul-27 15:34:35.255 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Jul-27 15:34:35.259 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Jul-27 15:34:35.353 [main] DEBUG n.plugin.HttpPluginRepository - Registry request: https://registry.nextflow.io/api/v1/plugins/dependencies?plugins=nf-amazon%403.4.4&nextflowVersion=25.10.4
+- code: 200
+- body: {"plugins":[{"id":"nf-amazon","releases":[{"version":"3.4.4","url":"https://registry.nextflow.io/api/v1/plugins/nf-amazon/3.4.4/download/nf-amazon-3.4.4.zip","date":"2026-02-10T15:21:20.535204Z","sha512sum":"76c37dc3b526e6d06b7fb5c171cd0679da4a5f7c6545eb16fba4ca5e7d812c60f555fb7a71718955a93aa02a22fec73b0e220ca0998725a0dbda0333b0f106ac","requires":">=25.09.2-edge","dependsOn":[],"status":"PUBLISHED"}],"projectUrl":"https://github.com/nextflow-io/nf-amazon","provider":"nextflow-io"}]}
+Jul-27 15:34:35.355 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-amazon version: 3.4.4
+Jul-27 15:34:35.360 [main] INFO  nextflow.plugin.PluginUpdater - Downloading plugin nf-amazon@3.4.4
+Jul-27 15:34:37.946 [main] INFO  org.pf4j.util.FileUtils - Expanded plugin zip 'nf-amazon-3.4.4.zip' in 'nf-amazon-3.4.4'
+Jul-27 15:34:37.951 [main] DEBUG nextflow.plugin.PluginUpdater - Failed atomic move for plugin /tmp/pf4j-update-downloader7700349772704885965/nf-amazon-3.4.4 -> /home/rgrindle/.nextflow/plugins/nf-amazon-3.4.4 - Reason: /tmp/pf4j-update-downloader7700349772704885965/nf-amazon-3.4.4 -> /home/rgrindle/.nextflow/plugins/nf-amazon-3.4.4: Invalid cross-device link - Fallback on safe move
+Jul-27 15:34:38.937 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-amazon@3.4.4' resolved
+Jul-27 15:34:38.937 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-amazon@3.4.4'
+Jul-27 15:34:39.013 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-amazon@3.4.4
+Jul-27 15:34:39.045 [main] DEBUG nextflow.file.FileHelper - > Added 'S3FileSystemProvider' to list of installed providers [s3]
+Jul-27 15:34:39.045 [main] DEBUG nextflow.file.FileHelper - Started plugin 'nf-amazon' required to handle file: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/pipeline_info/pipeline_dag_2026-07-27_15-34-33.html
+Jul-27 15:34:39.068 [main] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider; config=[:]
+Jul-27 15:34:39.106 [main] DEBUG nextflow.cloud.aws.config.AwsConfig - AWS S3 config properties: {max_error_retry=5}
+Jul-27 15:34:40.435 [main] WARN  nextflow.container.DockerConfig - Config setting `docker.userEmulation` is not supported anymore
+Jul-27 15:34:40.470 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jul-27 15:34:40.488 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 33; maxThreads: 1000
+Jul-27 15:34:40.706 [main] DEBUG nextflow.Session - Session start
+Jul-27 15:34:40.991 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/pipeline_info/execution_trace_2026-07-27_15-34-33.txt
+Jul-27 15:34:41.217 [main] DEBUG nextflow.Session - Using default localLib path: /compbio/scratch/rgrindle/orthology_map/lib
+Jul-27 15:34:41.228 [main] DEBUG nextflow.Session - Adding to the classpath library: /compbio/scratch/rgrindle/orthology_map/lib
+Jul-27 15:34:41.229 [main] DEBUG nextflow.Session - Adding to the classpath library: /compbio/scratch/rgrindle/orthology_map/lib/nfcore_external_java_deps.jar
+Jul-27 15:34:41.803 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jul-27 15:34:41.812 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [validateParameters:validateParameters, paramsHelp:paramsHelp]; plugin Id: nf-validation
+Jul-27 15:34:41.837 [main] DEBUG nextflow.validation.SchemaValidator - Starting parameters validation
+Jul-27 15:34:41.951 [main] WARN  nextflow.validation.SchemaValidator - The following invalid input values have been detected:
 
-1 error
+* --reference_tx_omes: s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/
 
-	at org.codehaus.groovy.control.ErrorCollector.failIfErrors(ErrorCollector.java:292)
-	at org.codehaus.groovy.control.ErrorCollector.addFatalError(ErrorCollector.java:148)
-	at nextflow.config.parser.ConfigAstBuilder.collectSyntaxError(ConfigAstBuilder.java:1407)
-	at nextflow.config.parser.ConfigAstBuilder$1.syntaxError(ConfigAstBuilder.java:1428)
-	at org.antlr.v4.runtime.ProxyErrorListener.syntaxError(ProxyErrorListener.java:44)
-	at org.antlr.v4.runtime.Parser.notifyErrorListeners(Parser.java:543)
-	at nextflow.script.parser.DescriptiveErrorStrategy.notifyErrorListeners(DescriptiveErrorStrategy.java:121)
-	at nextflow.script.parser.DescriptiveErrorStrategy.reportNoViableAlternative(DescriptiveErrorStrategy.java:94)
-	at nextflow.script.parser.DescriptiveErrorStrategy.recover(DescriptiveErrorStrategy.java:51)
-	at nextflow.config.parser.ConfigParser.compilationUnit(ConfigParser.java:286)
-	at nextflow.config.parser.ConfigAstBuilder.buildCST(ConfigAstBuilder.java:163)
-	at nextflow.config.parser.ConfigAstBuilder.buildCST(ConfigAstBuilder.java:148)
-	at nextflow.config.parser.ConfigAstBuilder.buildAST(ConfigAstBuilder.java:177)
-	at nextflow.config.parser.ConfigParserPlugin.buildAST(ConfigParserPlugin.java:51)
-	at org.codehaus.groovy.control.SourceUnit.buildAST(SourceUnit.java:256)
-	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
-	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
-	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
-	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:631)
-	at nextflow.config.parser.v2.ConfigCompiler.compile0(ConfigCompiler.java:112)
-	at nextflow.config.parser.v2.ConfigCompiler.compile(ConfigCompiler.java:97)
-	at nextflow.config.parser.v2.ConfigParserV2.parse(ConfigParserV2.groovy:141)
-	... 17 common frames omitted
+
+Jul-27 15:34:41.962 [main] DEBUG n.validation.DirectoryPathValidator - Cloud storage paths are not supported by 'DirectoryPathValidator': 's3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26'
+Jul-27 15:34:41.980 [main] DEBUG nextflow.validation.SchemaValidator - Starting validation: 'sample_sheet': '/compbio/scratch/rgrindle/orthology_map/Samples.csv' with 'assets/schema_input.json'
+Jul-27 15:34:42.025 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.111.gtf'
+Jul-27 15:34:42.026 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.dna.primary_assembly.fa'
+Jul-27 15:34:42.027 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Mus_musculus.GRCm39.111.gtf'
+Jul-27 15:34:42.027 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Mus_musculus.GRCm39.dna.primary_assembly.fa'
+Jul-27 15:34:42.027 [main] DEBUG nextflow.validation.SchemaValidator - Validation passed: 'sample_sheet': '/compbio/scratch/rgrindle/orthology_map/Samples.csv' with 'assets/schema_input.json'
+Jul-27 15:34:42.027 [main] DEBUG nextflow.validation.SchemaValidator - Finishing parameters validation
+Jul-27 15:34:42.371 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [paramsSummaryLog:paramsSummaryLog, paramsSummaryMap:paramsSummaryMap, fromSamplesheet:fromSamplesheet]; plugin Id: nf-validation
+Jul-27 15:34:44.232 [main] DEBUG nextflow.validation.SchemaValidator - Starting validation: './Samples.csv' with 'assets/schema_input.json'
+Jul-27 15:34:44.236 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.111.gtf'
+Jul-27 15:34:44.237 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.dna.primary_assembly.fa'
+Jul-27 15:34:44.237 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Mus_musculus.GRCm39.111.gtf'
+Jul-27 15:34:44.237 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Mus_musculus.GRCm39.dna.primary_assembly.fa'
+Jul-27 15:34:44.237 [main] DEBUG nextflow.validation.SchemaValidator - Validation passed: './Samples.csv' with 'assets/schema_input.json'
+Jul-27 15:34:44.324 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF
+Jul-27 15:34:44.331 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.332 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.344 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Jul-27 15:34:44.353 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=32; memory=251.6 GB; capacity=32; pollInterval=100ms; dumpInterval=5m
+Jul-27 15:34:44.357 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Jul-27 15:34:44.389 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.424 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_IN
+Jul-27 15:34:44.428 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.429 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.430 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_IN': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.438 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD
+Jul-27 15:34:44.440 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:GFFREAD` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD
+Jul-27 15:34:44.444 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.444 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.445 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.468 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:GTF_2_GENETX_MAP
+Jul-27 15:34:44.473 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.473 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.474 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:GTF_2_GENETX_MAP': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.481 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_LONGORF
+Jul-27 15:34:44.482 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:TRANSDECODER_LONGORF` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_LONGORF
+Jul-27 15:34:44.488 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.489 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.490 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_LONGORF': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.504 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:HMMER_HMMSCAN
+Jul-27 15:34:44.506 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:HMMER_HMMSCAN` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:HMMER_HMMSCAN
+Jul-27 15:34:44.508 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.508 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.510 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:HMMER_HMMSCAN': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.518 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT
+Jul-27 15:34:44.519 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:TRANSDECODER_PREDICT` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT
+Jul-27 15:34:44.522 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.522 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.523 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.544 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP
+Jul-27 15:34:44.547 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.547 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.549 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.555 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF
+Jul-27 15:34:44.556 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:TRANSDECODER_LONGORF` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF
+Jul-27 15:34:44.558 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.558 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.559 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.570 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN
+Jul-27 15:34:44.571 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:HMMER_HMMSCAN` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN
+Jul-27 15:34:44.573 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.573 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.574 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.580 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT
+Jul-27 15:34:44.581 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:TRANSDECODER_PREDICT` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT
+Jul-27 15:34:44.583 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.584 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.585 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.599 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PRE_PROC
+Jul-27 15:34:44.602 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.602 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.603 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PRE_PROC': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.616 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PREP_INPUT
+Jul-27 15:34:44.619 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.619 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.620 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PREP_INPUT': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.628 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOFINDER
+Jul-27 15:34:44.629 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:ORTHOFINDER` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOFINDER
+Jul-27 15:34:44.632 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.632 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.633 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOFINDER': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.645 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND
+Jul-27 15:34:44.648 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.648 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.649 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.658 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:EGGNOGMAPPER
+Jul-27 15:34:44.661 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:EGGNOGMAPPER` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:EGGNOGMAPPER
+Jul-27 15:34:44.663 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.663 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.664 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:EGGNOGMAPPER': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.675 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TREEGRAFTER
+Jul-27 15:34:44.676 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:TREEGRAFTER` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TREEGRAFTER
+Jul-27 15:34:44.678 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.678 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.679 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TREEGRAFTER': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.696 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PANTHER_API
+Jul-27 15:34:44.698 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.698 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.699 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PANTHER_API': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.710 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:COLLECT_CHUNKS
+Jul-27 15:34:44.714 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.714 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.715 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:COLLECT_CHUNKS': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.724 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOLOGER
+Jul-27 15:34:44.724 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:ORTHOLOGER` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOLOGER
+Jul-27 15:34:44.727 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.727 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.727 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOLOGER': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.737 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_QUERY
+Jul-27 15:34:44.738 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:GTF_TO_GENELISTS` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_QUERY
+Jul-27 15:34:44.740 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.740 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.741 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_QUERY': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.747 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_REF
+Jul-27 15:34:44.749 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:GTF_TO_GENELISTS` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_REF
+Jul-27 15:34:44.752 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.752 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.753 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_REF': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.766 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND_BLASTP
+Jul-27 15:34:44.767 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:DIAMOND_BLASTP` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND_BLASTP
+Jul-27 15:34:44.769 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.770 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.771 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND_BLASTP': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.782 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE
+Jul-27 15:34:44.783 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:IADHORE` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE
+Jul-27 15:34:44.785 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.785 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.786 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.810 [main] WARN  nextflow.extension.OperatorImpl - The operator `first` is useless when applied to a value channel which returns a single value by definition
+Jul-27 15:34:44.816 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:STAGE_OUTS
+Jul-27 15:34:44.818 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.818 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.819 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:STAGE_OUTS': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.831 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:POST_PROC` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:POST_PROC
+Jul-27 15:34:44.834 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.834 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.835 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:POST_PROC': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.878 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1V1
+Jul-27 15:34:44.880 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:TBL_2_JSON_1V1` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1V1
+Jul-27 15:34:44.882 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.882 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.883 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1V1': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.886 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1VM
+Jul-27 15:34:44.889 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.889 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.890 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1VM': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.908 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:COMBINE_JSON
+Jul-27 15:34:44.910 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.911 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.911 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:COMBINE_JSON': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.921 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:VOTE_BEST_MATCH
+Jul-27 15:34:44.922 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:VOTE_BEST_MATCH` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:VOTE_BEST_MATCH
+Jul-27 15:34:44.924 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.924 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.925 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:VOTE_BEST_MATCH': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.951 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CUSTOM_DUMPSOFTWAREVERSIONS
+Jul-27 15:34:44.952 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:CUSTOM_DUMPSOFTWAREVERSIONS` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CUSTOM_DUMPSOFTWAREVERSIONS
+Jul-27 15:34:44.954 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jul-27 15:34:44.954 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jul-27 15:34:44.955 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CUSTOM_DUMPSOFTWAREVERSIONS': maxForks=0; fair=false; array=0
+Jul-27 15:34:44.958 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: TBL_2_JSON_1V1, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:STAGE_OUTS, GTF_TO_GENELISTS_QUERY, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD, GFFREAD, GTF_2_GENETX_MAP, TBL_2_JSON_1VM, GUNZIP, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:VOTE_BEST_MATCH, GUNZIP_PFAM, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_LONGORF, TBL_2_JSON, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PREP_INPUT, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOFINDER, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF, TRANSDECODER_LONGORF, PRE_PROC, POST_PROC, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CUSTOM_DUMPSOFTWAREVERSIONS, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1VM, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1V1, VOTE_BEST_MATCH, ORTHOFINDER, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:EGGNOGMAPPER, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_REF, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN, DIAMOND_BLASTP, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PRE_PROC, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PANTHER_API, DIAMOND, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND, COMBINE_JSON, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:COLLECT_CHUNKS, STAGE_OUTS, PREP_INPUT, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:HMMER_HMMSCAN, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:COMBINE_JSON, PANTHER_API, IADHORE, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOLOGER, TRANSDECODER_PREDICT, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_QUERY, HMMER_HMMSCAN, GUNZIP_REF, EGGNOGMAPPER, GUNZIP_IN, ORTHOLOGER, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT, TREEGRAFTER, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:POST_PROC, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_IN, COLLECT_CHUNKS, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TREEGRAFTER, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:GTF_2_GENETX_MAP, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND_BLASTP, CUSTOM_DUMPSOFTWAREVERSIONS, GTF_TO_GENELISTS, GTF_TO_GENELISTS_REF
+Jul-27 15:34:44.967 [main] DEBUG nextflow.Session - Igniting dataflow network (46)
+Jul-27 15:34:44.968 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF
+Jul-27 15:34:44.969 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_IN
+Jul-27 15:34:44.969 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD
+Jul-27 15:34:44.969 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:GTF_2_GENETX_MAP
+Jul-27 15:34:44.969 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_LONGORF
+Jul-27 15:34:44.969 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:HMMER_HMMSCAN
+Jul-27 15:34:44.969 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT
+Jul-27 15:34:44.969 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP
+Jul-27 15:34:44.969 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF
+Jul-27 15:34:44.970 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN
+Jul-27 15:34:44.970 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT
+Jul-27 15:34:44.970 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PRE_PROC
+Jul-27 15:34:44.970 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PREP_INPUT
+Jul-27 15:34:44.970 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOFINDER
+Jul-27 15:34:44.971 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND
+Jul-27 15:34:44.972 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:EGGNOGMAPPER
+Jul-27 15:34:44.972 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TREEGRAFTER
+Jul-27 15:34:44.972 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PANTHER_API
+Jul-27 15:34:44.972 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:COLLECT_CHUNKS
+Jul-27 15:34:44.972 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOLOGER
+Jul-27 15:34:44.972 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_QUERY
+Jul-27 15:34:44.972 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_REF
+Jul-27 15:34:44.973 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND_BLASTP
+Jul-27 15:34:44.973 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE
+Jul-27 15:34:44.973 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:STAGE_OUTS
+Jul-27 15:34:44.973 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:POST_PROC
+Jul-27 15:34:44.973 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1V1
+Jul-27 15:34:44.973 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1VM
+Jul-27 15:34:44.973 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:COMBINE_JSON
+Jul-27 15:34:44.973 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:VOTE_BEST_MATCH
+Jul-27 15:34:44.973 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CUSTOM_DUMPSOFTWAREVERSIONS
+Jul-27 15:34:44.975 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_815fabe9234c542a: /compbio/scratch/rgrindle/orthology_map/modules/local/orthofinder.nf
+  Script_67d92974f36161e9: /compbio/scratch/rgrindle/orthology_map/modules/local/hmmscan.nf
+  Script_611acdb0daa056e9: /compbio/scratch/rgrindle/orthology_map/main.nf
+  Script_5eed1bd2a42f5dd7: /compbio/scratch/rgrindle/orthology_map/modules/local/tbl_2_json.nf
+  Script_858ff3bc367f090d: /compbio/scratch/rgrindle/orthology_map/modules/local/panther_api.nf
+  Script_b58f3fa238a3972e: /compbio/scratch/rgrindle/orthology_map/modules/local/gffread/main.nf
+  Script_3bb526306c27bb9b: /compbio/scratch/rgrindle/orthology_map/workflows/orthologymap.nf
+  Script_355b0c28ae5d7caa: /compbio/scratch/rgrindle/orthology_map/modules/local/vote_bm.nf
+  Script_7c32d290e92ecb38: /compbio/scratch/rgrindle/orthology_map/modules/local/stage_outs.nf
+  Script_cbd0ce580c9050ff: /compbio/scratch/rgrindle/orthology_map/subworkflows/local/transdecoder.nf
+  Script_81f0ff777a478180: /compbio/scratch/rgrindle/orthology_map/modules/local/orthologer.nf
+  Script_10ba468881880d81: /compbio/scratch/rgrindle/orthology_map/modules/local/gtf_to_genelists.nf
+  Script_bb8b77478692954d: /compbio/scratch/rgrindle/orthology_map/modules/local/collect_chunks.nf
+  Script_13768c8fee03b0e0: /compbio/scratch/rgrindle/orthology_map/modules/local/gunzip/main.nf
+  Script_962e7d092e463c46: /compbio/scratch/rgrindle/orthology_map/modules/nf-core/custom/dumpsoftwareversions/main.nf
+  Script_90325f83eeb569c8: /compbio/scratch/rgrindle/orthology_map/modules/local/post_proc.nf
+  Script_a7688c43b58086da: /compbio/scratch/rgrindle/orthology_map/modules/local/predict.nf
+  Script_a1299af5c139af10: /compbio/scratch/rgrindle/orthology_map/modules/local/treegrafter.nf
+  Script_20c2ac31da6934bc: /compbio/scratch/rgrindle/orthology_map/modules/local/pre_proc_refs.nf
+  Script_2e1a9c1acc9e048c: /compbio/scratch/rgrindle/orthology_map/modules/local/gunzip.nf
+  Script_02e06108c10208d6: /compbio/scratch/rgrindle/orthology_map/modules/local/diamond_blastp.nf
+  Script_d0063fa51bbe47fc: /compbio/scratch/rgrindle/orthology_map/modules/local/eggnogmapper.nf
+  Script_16ce6dd88d3f5cd3: /compbio/scratch/rgrindle/orthology_map/modules/local/combine_json.nf
+  Script_2972c8166c5eebac: /compbio/scratch/rgrindle/orthology_map/modules/local/prep_input.nf
+  Script_ab0481a8075bb195: /compbio/scratch/rgrindle/orthology_map/modules/local/iadhore.nf
+  Script_b1c7a7c58be9b724: /compbio/scratch/rgrindle/orthology_map/subworkflows/local/consensus_vote.nf
+  Script_fc4c1a84f628bda9: /compbio/scratch/rgrindle/orthology_map/modules/local/longorf.nf
+  Script_19df9c7ba0ca983e: /compbio/scratch/rgrindle/orthology_map/modules/local/gtf_2_genetx_map.nf
+  Script_0071bc02a47a90f7: /compbio/scratch/rgrindle/orthology_map/modules/local/diamond.nf
+Jul-27 15:34:44.975 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jul-27 15:34:44.975 [main] DEBUG nextflow.Session - Session await
+Jul-27 15:34:45.851 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Mus_musculus.GRCm39.111.gtf at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/76/82a4268b1cc48cabeb16d8fc552e8b/Mus_musculus.GRCm39.111.gtf
+Jul-27 15:34:45.851 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Mus_musculus.GRCm39.dna.primary_assembly.fa at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/6d/614b90491535435b04e9f052511419/Mus_musculus.GRCm39.dna.primary_assembly.fa
+Jul-27 15:34:45.853 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.111.gtf at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/e0/8ae8624ac7803367669ca5e6694fcd/Danio_rerio.GRCz11.111.gtf
+Jul-27 15:34:45.853 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.dna.primary_assembly.fa at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/4f/c4c282911b555be92edc535e855f9f/Danio_rerio.GRCz11.dna.primary_assembly.fa
+Jul-27 15:34:45.854 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/inputs/AmexT_v47-AmexG_v6.0-DD.gtf at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/12/afcf7d9fe18658493163fb02e6ba67/AmexT_v47-AmexG_v6.0-DD.gtf
+Jul-27 15:34:45.855 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/inputs/less_sequences_AmexT_v47.fa at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/91/bfae49900016a8a43ddf8b94598e0b/less_sequences_AmexT_v47.fa
+Jul-27 15:34:46.172 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:34:46.174 [Task submitter] INFO  nextflow.Session - [ac/e00784] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF (Splitting inputs into channels)
+Jul-27 15:34:46.201 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:34:46.204 [Task submitter] INFO  nextflow.Session - [5d/007b68] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_IN (Splitting inputs into channels)
+Jul-27 15:34:46.218 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:34:46.219 [Task submitter] INFO  nextflow.Session - [7d/f442ea] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF (Splitting inputs into channels)
+Jul-27 15:34:53.411 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_IN (Splitting inputs into channels); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/5d/007b68213536f1360fd7edfdba8ca4]
+Jul-27 15:34:53.417 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=96; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-27 15:34:53.542 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:34:53.543 [Task submitter] INFO  nextflow.Session - [8e/403cd5] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:GTF_2_GENETX_MAP (test_orthology.001)
+Jul-27 15:34:58.528 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF (Splitting inputs into channels); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/ac/e00784cccedd931465cebe08eb4468]
+Jul-27 15:35:00.568 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:35:00.570 [Task submitter] INFO  nextflow.Session - [dc/04d248] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD (7955)
+Jul-27 15:35:06.116 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF (Splitting inputs into channels); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/7d/f442ea893c6424ecc84eb20a7a90c8]
+Jul-27 15:35:06.173 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:35:06.174 [Task submitter] INFO  nextflow.Session - [be/9f7995] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD (10090)
+Jul-27 15:35:37.343 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:GTF_2_GENETX_MAP (test_orthology.001); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/8e/403cd5ccb68259ba20dbc003e6c0fa]
+Jul-27 15:35:37.385 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:35:37.385 [Task submitter] INFO  nextflow.Session - [10/6c3fa1] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_LONGORF (test_orthology.001)
+Jul-27 15:35:38.579 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD (7955); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/dc/04d24847779efd24e12e05e2b7dac1]
+Jul-27 15:35:38.682 [TaskFinalizer-5] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD > Skipping output binding because one or more optional files are missing: fileoutparam<0>
+Jul-27 15:35:38.683 [TaskFinalizer-5] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD > Skipping output binding because one or more optional files are missing: fileoutparam<1>
+Jul-27 15:35:38.739 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:35:38.739 [Task submitter] INFO  nextflow.Session - [ed/aecb78] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP (7955)
+Jul-27 15:35:38.865 [TaskFinalizer-5] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=96; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-27 15:35:39.172 [PublishDir-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/dc/04d24847779efd24e12e05e2b7dac1/versions.yml to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/gffread/versions.yml
+Jul-27 15:35:39.175 [PublishDir-2] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'S3TransferManager' minSize=10; maxSize=96; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-27 15:35:39.287 [PublishDir-1] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/dc/04d24847779efd24e12e05e2b7dac1/7955.tx.fa to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/gffread/7955.tx.fa
+Jul-27 15:35:41.854 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_LONGORF (test_orthology.001); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/10/6c3fa1c62fca6055315a0ed7a1e7d0]
+Jul-27 15:35:41.965 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/suplementary_files/Pfam-A.hmm at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/a8/ccdd88635894a7a16758b9d72d11b5/Pfam-A.hmm
+Jul-27 15:35:42.124 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:35:42.124 [Task submitter] INFO  nextflow.Session - [9b/d5b377] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:HMMER_HMMSCAN (test_orthology.001)
+Jul-27 15:35:42.253 [PublishDir-5] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/10/6c3fa1c62fca6055315a0ed7a1e7d0/versions.yml to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/versions.yml
+Jul-27 15:35:42.270 [PublishDir-4] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/10/6c3fa1c62fca6055315a0ed7a1e7d0/test_orthology.001.transcripts.fa to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/test_orthology.001.transcripts.fa
+Jul-27 15:35:44.123 [PublishDir-3] DEBUG nextflow.processor.PublishDir - Failed to publish file: /compbio/scratch/rgrindle/orthology_map/work/10/6c3fa1c62fca6055315a0ed7a1e7d0/test_orthology.001.transcripts.fa.transdecoder_dir; to: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/test_orthology.001.transcripts.fa.transdecoder_dir [copy] -- attempt: 1; reason: the path: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_longorfs does not exist
+Jul-27 15:35:44.163 [PublishDir-3] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload directory from=/compbio/scratch/rgrindle/orthology_map/work/10/6c3fa1c62fca6055315a0ed7a1e7d0/test_orthology.001.transcripts.fa.transdecoder_dir to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/test_orthology.001.transcripts.fa.transdecoder_dir
+Jul-27 15:36:06.032 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD (10090); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/be/9f79950e7675cc411101a0f546f6ce]
+Jul-27 15:36:06.040 [TaskFinalizer-7] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD > Skipping output binding because one or more optional files are missing: fileoutparam<0>
+Jul-27 15:36:06.040 [TaskFinalizer-7] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD > Skipping output binding because one or more optional files are missing: fileoutparam<1>
+Jul-27 15:36:06.084 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:36:06.085 [Task submitter] INFO  nextflow.Session - [91/a66cad] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP (10090)
+Jul-27 15:36:06.518 [PublishDir-7] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/be/9f79950e7675cc411101a0f546f6ce/versions.yml to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/gffread/versions.yml
+Jul-27 15:36:06.554 [PublishDir-6] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/be/9f79950e7675cc411101a0f546f6ce/10090.tx.fa to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/gffread/10090.tx.fa
+Jul-27 15:36:13.965 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP (7955); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/ed/aecb78ac8c6979de0d7cc558145397]
+Jul-27 15:36:14.004 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:36:14.005 [Task submitter] INFO  nextflow.Session - [d4/9350be] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF (7955)
+Jul-27 15:36:50.021 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP (10090); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/91/a66cad4e206b59d6167ececc1ff48d]
+Jul-27 15:36:50.059 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:36:50.060 [Task submitter] INFO  nextflow.Session - [12/15427f] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF (10090)
+Jul-27 15:37:23.893 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:HMMER_HMMSCAN (test_orthology.001); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/9b/d5b377f3933fde4a9eea4691829ec0]
+Jul-27 15:37:23.951 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:37:23.952 [Task submitter] INFO  nextflow.Session - [5c/eb7eba] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT (test_orthology.001)
+Jul-27 15:37:24.363 [PublishDir-9] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/9b/d5b377f3933fde4a9eea4691829ec0/versions.yml to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/hmmscan/versions.yml
+Jul-27 15:37:24.427 [PublishDir-8] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/9b/d5b377f3933fde4a9eea4691829ec0/Pfam.domtblout to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/hmmscan/Pfam.domtblout
+Jul-27 15:38:25.673 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT (test_orthology.001); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/5c/eb7eba28474d1e6c3bf4261274d310]
+Jul-27 15:38:25.745 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:38:25.745 [Task submitter] INFO  nextflow.Session - [06/2a1579] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_QUERY (test_orthology.001)
+Jul-27 15:38:26.125 [PublishDir-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/5c/eb7eba28474d1e6c3bf4261274d310/test_orthology.001.final.transdecoder.pep to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_predict/test_orthology.001.final.transdecoder.pep
+Jul-27 15:38:26.188 [PublishDir-10] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/5c/eb7eba28474d1e6c3bf4261274d310/test_orthology.001.initial.transdecoder.pep to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_predict/test_orthology.001.initial.transdecoder.pep
+Jul-27 15:38:26.196 [PublishDir-3] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/5c/eb7eba28474d1e6c3bf4261274d310/versions.yml to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_predict/versions.yml
+Jul-27 15:38:26.196 [PublishDir-5] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/5c/eb7eba28474d1e6c3bf4261274d310/test_orthology.001.transcripts.fa.transdecoder.cds to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_predict/test_orthology.001.transcripts.fa.transdecoder.cds
+Jul-27 15:38:26.213 [PublishDir-4] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/5c/eb7eba28474d1e6c3bf4261274d310/test_orthology.001.transcripts.fa.transdecoder.bed to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_predict/test_orthology.001.transcripts.fa.transdecoder.bed
+Jul-27 15:38:26.220 [PublishDir-1] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/5c/eb7eba28474d1e6c3bf4261274d310/test_orthology.001.transcripts.fa.transdecoder.gff3 to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_predict/test_orthology.001.transcripts.fa.transdecoder.gff3
+Jul-27 15:38:57.573 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_QUERY (test_orthology.001); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/06/2a15798e8b9af3193ce87397946c56]
+Jul-27 15:38:58.026 [PublishDir-6] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/06/2a15798e8b9af3193ce87397946c56/versions.yml to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/synteny/genelists/versions.yml
+Jul-27 15:39:44.527 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 11; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/d4/9350be8250b59d90417aa81b9a277f]
+~> TaskHandler[id: 12; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/12/15427fd472f8dff50b63a696150308]
+Jul-27 15:40:02.557 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF (7955); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/d4/9350be8250b59d90417aa81b9a277f]
+Jul-27 15:40:02.766 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:40:02.768 [Task submitter] INFO  nextflow.Session - [aa/492fab] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955)
+Jul-27 15:40:03.018 [PublishDir-8] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/d4/9350be8250b59d90417aa81b9a277f/7955.transcripts.fa to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/7955.transcripts.fa
+Jul-27 15:40:03.076 [PublishDir-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/d4/9350be8250b59d90417aa81b9a277f/versions.yml to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/versions.yml
+Jul-27 15:40:04.750 [PublishDir-9] DEBUG nextflow.processor.PublishDir - Failed to publish file: /compbio/scratch/rgrindle/orthology_map/work/d4/9350be8250b59d90417aa81b9a277f/7955.transcripts.fa.transdecoder_dir; to: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/7955.transcripts.fa.transdecoder_dir [copy] -- attempt: 1; reason: the path: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/7955.transcripts.fa.transdecoder_dir/__checkpoints_longorfs does not exist
+Jul-27 15:40:04.787 [PublishDir-9] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload directory from=/compbio/scratch/rgrindle/orthology_map/work/d4/9350be8250b59d90417aa81b9a277f/7955.transcripts.fa.transdecoder_dir to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/7955.transcripts.fa.transdecoder_dir
+Jul-27 15:44:16.086 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF (10090); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/12/15427fd472f8dff50b63a696150308]
+Jul-27 15:44:16.280 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-27 15:44:16.280 [Task submitter] INFO  nextflow.Session - [6b/662599] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090)
+Jul-27 15:44:16.554 [PublishDir-4] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/12/15427fd472f8dff50b63a696150308/versions.yml to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/versions.yml
+Jul-27 15:44:16.572 [PublishDir-3] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/12/15427fd472f8dff50b63a696150308/10090.transcripts.fa to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/10090.transcripts.fa
+Jul-27 15:44:17.964 [PublishDir-10] DEBUG nextflow.processor.PublishDir - Failed to publish file: /compbio/scratch/rgrindle/orthology_map/work/12/15427fd472f8dff50b63a696150308/10090.transcripts.fa.transdecoder_dir; to: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/10090.transcripts.fa.transdecoder_dir [copy] -- attempt: 1; reason: the path: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/10090.transcripts.fa.transdecoder_dir/__checkpoints_longorfs does not exist
+Jul-27 15:44:17.999 [PublishDir-10] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload directory from=/compbio/scratch/rgrindle/orthology_map/work/12/15427fd472f8dff50b63a696150308/10090.transcripts.fa.transdecoder_dir to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_longorf/10090.transcripts.fa.transdecoder_dir
+Jul-27 15:44:44.539 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 15:49:44.572 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 15:54:44.667 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 15:59:44.698 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 16:04:44.715 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 16:09:44.760 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 16:14:44.789 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 16:19:44.813 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 16:24:44.833 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 16:26:15.670 [PublishDir-7] DEBUG nextflow.processor.PublishDir - Failed to publish file: /compbio/scratch/rgrindle/orthology_map/work/06/2a15798e8b9af3193ce87397946c56/test_orthology.001; to: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/synteny/genelists/test_orthology.001 [copy] -- attempt: 1; reason: the path: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/synteny/genelists/test_orthology.001 does not exist
+Jul-27 16:26:15.708 [PublishDir-7] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload directory from=/compbio/scratch/rgrindle/orthology_map/work/06/2a15798e8b9af3193ce87397946c56/test_orthology.001 to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/synteny/genelists/test_orthology.001
+Jul-27 16:29:44.856 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 16:34:44.891 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 16:39:44.922 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 16:44:44.962 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 16:49:45.020 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 16:54:45.048 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 16:59:45.071 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 17:04:45.100 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 17:09:45.120 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 17:14:45.142 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 17:19:45.168 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 17:24:45.260 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 17:29:45.297 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 17:34:45.312 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 17:39:45.327 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 17:44:45.331 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 17:49:45.346 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 17:54:45.363 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 17:59:45.371 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 18:04:45.465 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 18:09:45.556 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 18:14:45.656 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 18:19:45.658 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 18:24:45.757 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 18:29:45.783 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 18:34:45.792 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 18:39:45.804 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 18:44:45.898 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 18:49:45.906 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 18:54:45.909 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 18:59:46.007 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 19:04:46.017 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 19:09:46.027 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 19:14:46.037 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 19:19:46.048 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 19:24:46.147 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 19:29:46.155 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 19:34:46.251 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 19:39:46.263 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 19:44:46.282 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 19:49:46.373 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 19:54:46.468 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 19:59:46.475 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 20:04:46.478 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 20:09:46.482 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 20:14:46.581 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 20:19:46.585 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 20:24:46.589 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 20:29:46.591 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 20:34:46.595 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 20:39:46.596 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 20:44:46.696 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 20:49:46.702 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 20:54:46.707 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 20:59:46.806 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 21:04:46.902 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 21:09:46.907 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 21:14:46.913 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 21:19:46.924 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 21:24:46.941 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 21:29:46.943 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 21:34:46.952 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 21:39:46.961 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 21:44:46.977 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 21:49:46.994 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 21:54:46.997 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 21:59:46.998 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 22:04:47.001 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 22:09:47.100 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 22:14:47.199 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 22:19:47.298 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 22:24:47.396 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 22:29:47.494 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 22:34:47.581 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 22:39:47.678 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 22:44:47.681 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 22:49:47.775 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 22:54:47.874 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 22:59:47.965 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 23:04:48.062 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 23:09:48.159 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 23:14:48.260 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 23:19:48.359 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 23:24:48.370 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 23:29:48.451 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 23:34:48.552 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 23:39:48.642 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 23:44:48.741 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 23:49:48.743 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 23:54:48.748 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-27 23:59:48.845 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 00:04:48.940 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 00:09:48.943 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 00:14:48.952 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 00:19:49.050 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 00:22:04.680 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (7955); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900]
+Jul-28 00:22:04.725 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-28 00:22:04.726 [Task submitter] INFO  nextflow.Session - [ac/0758be] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT (7955)
+Jul-28 00:22:05.225 [PublishDir-5] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900/Pfam.domtblout to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/hmmscan/Pfam.domtblout
+Jul-28 00:22:05.226 [PublishDir-1] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/aa/492fabaa21181fed0359a2d4ec6900/versions.yml to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/hmmscan/versions.yml
+Jul-28 00:24:49.112 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+~> TaskHandler[id: 17; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/ac/0758be11d54dfe14fbabdab78330b4]
+Jul-28 00:29:49.132 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+~> TaskHandler[id: 17; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/ac/0758be11d54dfe14fbabdab78330b4]
+Jul-28 00:34:49.152 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+~> TaskHandler[id: 17; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT (7955); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/ac/0758be11d54dfe14fbabdab78330b4]
+Jul-28 00:34:53.071 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 17; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT (7955); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/ac/0758be11d54dfe14fbabdab78330b4]
+Jul-28 00:34:53.142 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-28 00:34:53.143 [Task submitter] INFO  nextflow.Session - [ca/c0333e] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PRE_PROC (7955)
+Jul-28 00:34:53.157 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-28 00:34:53.157 [Task submitter] INFO  nextflow.Session - [a8/9c23e9] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND (Making Diamond db using: 7955.final.transdecoder.pep)
+Jul-28 00:34:53.173 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-28 00:34:53.174 [Task submitter] INFO  nextflow.Session - [99/8c9e69] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_REF (7955)
+Jul-28 00:34:53.550 [PublishDir-8] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/ac/0758be11d54dfe14fbabdab78330b4/7955.transcripts.fa.transdecoder.gff3 to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_predict/7955.transcripts.fa.transdecoder.gff3
+Jul-28 00:34:53.611 [PublishDir-3] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/ac/0758be11d54dfe14fbabdab78330b4/versions.yml to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_predict/versions.yml
+Jul-28 00:34:53.643 [PublishDir-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/ac/0758be11d54dfe14fbabdab78330b4/7955.final.transdecoder.pep to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_predict/7955.final.transdecoder.pep
+Jul-28 00:34:53.656 [PublishDir-9] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/ac/0758be11d54dfe14fbabdab78330b4/7955.transcripts.fa.transdecoder.cds to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_predict/7955.transcripts.fa.transdecoder.cds
+Jul-28 00:34:53.663 [PublishDir-6] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/ac/0758be11d54dfe14fbabdab78330b4/7955.initial.transdecoder.pep to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_predict/7955.initial.transdecoder.pep
+Jul-28 00:34:53.696 [PublishDir-4] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/ac/0758be11d54dfe14fbabdab78330b4/7955.transcripts.fa.transdecoder.bed to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/transdecoder/t_predict/7955.transcripts.fa.transdecoder.bed
+Jul-28 00:34:56.679 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 20; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND (Making Diamond db using: 7955.final.transdecoder.pep); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/a8/9c23e96d0dd777f33ffb19b1b43da4]
+Jul-28 00:34:56.704 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-28 00:34:56.704 [Task submitter] INFO  nextflow.Session - [23/c36658] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND_BLASTP (test_orthology.001:7955)
+Jul-28 00:35:02.820 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 18; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND_BLASTP (test_orthology.001:7955); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/23/c36658a54b3ab4fc763fe383090c4e]
+Jul-28 00:35:03.221 [PublishDir-7] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/23/c36658a54b3ab4fc763fe383090c4e/versions.yml to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/synteny/blast/versions.yml
+Jul-28 00:35:03.290 [PublishDir-10] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/23/c36658a54b3ab4fc763fe383090c4e/test_orthology.001.7955.blast to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/synteny/blast/test_orthology.001.7955.blast
+Jul-28 00:35:10.689 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 19; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_REF (7955); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/99/8c9e69e9f06955c84b1adcab263f7e]
+Jul-28 00:35:10.745 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jul-28 00:35:10.745 [Task submitter] INFO  nextflow.Session - [b1/f42d22] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE (test_orthology.001:7955)
+Jul-28 00:35:11.156 [PublishDir-5] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload file from=/compbio/scratch/rgrindle/orthology_map/work/99/8c9e69e9f06955c84b1adcab263f7e/versions.yml to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/synteny/genelists/versions.yml
+Jul-28 00:35:11.655 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 22; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE (test_orthology.001:7955); status: COMPLETED; exit: 125; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/b1/f42d22b2bf504db7fcd47be5d3a732]
+Jul-28 00:35:11.684 [TaskFinalizer-10] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE (test_orthology.001:7955); work-dir=/compbio/scratch/rgrindle/orthology_map/work/b1/f42d22b2bf504db7fcd47be5d3a732
+  error [nextflow.exception.ProcessFailedException]: Process `NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE (test_orthology.001:7955)` terminated with an error exit status (125)
+Jul-28 00:35:11.764 [TaskFinalizer-10] ERROR nextflow.processor.TaskProcessor - Error executing process > 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE (test_orthology.001:7955)'
+
+Caused by:
+  Process `NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE (test_orthology.001:7955)` terminated with an error exit status (125)
+
+
+Command executed:
+
+  mkdir -p output
+  
+      # ------------------------------------------------------------------
+      # Build i-ADHoRe settings file
+      # ------------------------------------------------------------------
+      {
+          echo "genome= test_orthology.001"
+          for f in $(ls test_orthology.001/*.lst | sort); do
+              echo "  $f"
+          done
+          echo ""
+          echo "genome= 7955"
+          for f in $(ls 7955/*.lst | sort); do
+              echo "  $f"
+          done
+          echo ""
+          echo "blast_table= test_orthology.001.7955.blast"
+          echo "output_path= output/"
+          echo ""
+          echo "number_of_anchors= 3"
+          echo "gap_size= 30"
+          echo "cluster_gap= 35"
+          echo "q_value= 0.75"
+          echo "prob_cutoff= 0.001"
+          echo "anchor_points= 3"
+          echo "alignment_method= gg2"
+          echo "level_2_only= false"
+          echo "table_type= family"
+          echo "multiplicon_inheritance= true"
+          echo "number_of_threads= 12"
+      } > iadhore.ini
+  
+      # ------------------------------------------------------------------
+      # Run i-ADHoRe
+      # ------------------------------------------------------------------
+      i-adhore iadhore.ini 
+  
+      # ------------------------------------------------------------------
+      # Convert anchorpoints to voting-compatible TSV.
+      # anchorpoints.txt columns: id  multiplicon  gene_x  coord_x  gene_y  coord_y  is_tandem
+      # gene_x = query (first genome in settings), gene_y = reference (second genome)
+      # ------------------------------------------------------------------
+      printf 'QUERY_ID	REF_ID	SCORE
+  ' > test_orthology.001.7955.synteny_std.tsv
+      if [ -f output/anchorpoints.txt ]; then
+          tail -n +2 output/anchorpoints.txt | \
+              awk 'BEGIN{OFS="	"} NF>=5 {print $3, $5, 1.0}' \
+              >> test_orthology.001.7955.synteny_std.tsv
+      fi
+  
+      cat <<-END_VERSIONS > versions.yml
+      "NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE":
+          i-adhore: $(i-adhore --version 2>&1 | grep -oP '[0-9]+\.[0-9]+\.[0-9]+' | head -1)
+      END_VERSIONS
+
+Command exit status:
+  125
+
+Command output:
+  (empty)
+
+Command error:
+  Unable to find image 'quay.io/vibpsb/i-adhore:latest' locally
+  docker: Error response from daemon: unauthorized: access to the requested resource is not authorized
+  
+  Run 'docker run --help' for more information
+
+Work dir:
+  /compbio/scratch/rgrindle/orthology_map/work/b1/f42d22b2bf504db7fcd47be5d3a732
+
+Container:
+  quay.io/vibpsb/i-adhore:latest
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+Jul-28 00:35:11.772 [TaskFinalizer-10] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Jul-28 00:35:11.785 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jul-28 00:35:11.817 [Actor Thread 19] DEBUG nextflow.sort.BigSort - Sort completed -- entries: 2; slices: 1; internal sort time: 0.023 s; external sort time: 0.003 s; total time: 0.026 s
+Jul-28 00:35:11.833 [Actor Thread 19] DEBUG nextflow.file.FileCollector - >> temp file exists? false
+Jul-28 00:35:11.834 [Actor Thread 19] DEBUG nextflow.file.FileCollector - Missed collect-file cache -- cause: java.nio.file.NoSuchFileException: /compbio/scratch/rgrindle/orthology_map/work/collect-file/51fbcc7138bc3ed384e42e3f45100655
+Jul-28 00:35:11.873 [Actor Thread 19] DEBUG nextflow.file.FileCollector - Saved collect-files list to: /compbio/scratch/rgrindle/orthology_map/work/collect-file/51fbcc7138bc3ed384e42e3f45100655
+Jul-28 00:35:11.884 [Actor Thread 19] DEBUG nextflow.file.FileCollector - Deleting file collector temp dir: /tmp/nxf-18444670777561558983
+Jul-28 00:35:19.929 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 21; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PRE_PROC (7955); status: COMPLETED; exit: 0; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/ca/c0333e5790bf994f4a1d490a37541d]
+Jul-28 00:36:04.236 [PublishDir-1] DEBUG nextflow.processor.PublishDir - Failed to publish file: /compbio/scratch/rgrindle/orthology_map/work/99/8c9e69e9f06955c84b1adcab263f7e/7955; to: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/synteny/genelists/7955 [copy] -- attempt: 1; reason: the path: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/synteny/genelists/7955 does not exist
+Jul-28 00:36:04.269 [PublishDir-1] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 upload directory from=/compbio/scratch/rgrindle/orthology_map/work/99/8c9e69e9f06955c84b1adcab263f7e/7955 to=s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/synteny/genelists/7955
+Jul-28 00:39:49.233 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 00:44:49.258 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 00:49:49.276 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 00:54:49.296 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 00:59:49.327 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 01:04:49.344 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 01:09:49.362 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 01:14:49.437 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 01:19:49.523 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 01:24:49.611 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 01:29:49.702 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 01:34:49.787 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 01:39:49.881 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 01:44:49.974 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 01:49:50.062 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 01:54:50.153 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 01:59:50.201 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 02:04:50.238 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 02:09:50.282 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 02:14:50.305 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 02:19:50.321 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 02:24:50.344 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 02:29:50.366 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 02:34:50.393 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 02:39:50.413 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 02:44:50.434 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 02:49:50.471 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 02:54:50.492 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 02:59:50.515 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 03:04:50.544 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 03:09:50.575 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 03:14:50.595 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 03:19:50.635 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 03:24:50.663 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 03:29:50.687 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 03:34:50.712 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 03:39:50.730 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 03:44:50.757 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 03:49:50.803 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 03:54:50.818 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 03:59:50.852 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 04:04:50.875 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 04:09:50.892 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 04:14:50.906 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 04:19:50.919 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 04:24:50.944 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 04:29:50.965 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 04:34:50.986 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 04:39:51.009 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 04:44:51.031 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 04:49:51.064 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 04:54:51.095 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 04:59:51.116 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 05:04:51.143 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 05:09:51.166 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 05:14:51.181 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 05:19:51.213 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 05:24:51.238 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 05:29:51.295 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 05:34:51.326 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 05:39:51.347 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 05:44:51.376 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 05:49:51.415 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 05:54:51.452 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 05:59:51.472 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 06:04:51.500 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 06:09:51.536 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 06:14:51.567 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 06:19:51.596 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 06:24:51.623 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 06:29:51.656 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 06:34:51.674 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 06:39:51.698 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 06:44:51.728 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 06:49:51.759 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 06:54:51.796 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 06:59:51.840 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 07:04:51.873 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 07:09:51.897 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 07:14:51.931 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 07:19:51.963 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 07:24:51.994 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 07:29:52.022 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 07:34:52.042 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 07:39:52.061 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: RUNNING; exit: -; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 07:44:16.365 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 16; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); status: COMPLETED; exit: -; error: nextflow.exception.ProcessException: Process exceeded running time limit (16h); workDir: /compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020]
+Jul-28 07:44:16.368 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Jul-28 07:44:16.368 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jul-28 07:44:16.372 [TaskFinalizer-2] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090); work-dir=/compbio/scratch/rgrindle/orthology_map/work/6b/6625996aee17f02e21d56132253020
+  error [nextflow.exception.ProcessFailedException]: Process `NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN (10090)` failed
+Jul-28 07:44:16.380 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Jul-28 07:44:16.381 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Jul-28 07:44:16.416 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=20; failedCount=2; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=4d 11h 34m 1s; failedDuration=8d 11s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=5; peakCpus=37; peakMemory=222 GB; ]
+Jul-28 07:44:16.984 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Jul-28 07:44:18.236 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Jul-28 07:44:18.547 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Jul-28 07:44:18.668 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jul-28 07:44:18.758 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-amazon@3.4.4'
+Jul-28 07:44:18.758 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-amazon
+Jul-28 07:44:18.759 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-validation@1.1.4'
+Jul-28 07:44:18.759 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-validation
+Jul-28 07:44:18.761 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Jul-28 07:44:18.763 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'S3TransferManager' shutdown completed (hard=false)
+Jul-28 07:44:18.763 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

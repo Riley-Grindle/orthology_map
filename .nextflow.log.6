@@ -1,392 +1,63 @@
-Jul-27 15:17:01.992 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -params-file parameters.json -profile docker -resume
-Jul-27 15:17:02.431 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.7
-Jul-27 15:17:02.479 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/rgrindle/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch1,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.0,nf-tower@1.11.4-patch1,nf-wave@1.12.1
-Jul-27 15:17:02.520 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Jul-27 15:17:02.522 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Jul-27 15:17:02.526 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Jul-27 15:17:02.544 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Jul-27 15:17:02.575 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /compbio/scratch/rgrindle/orthology_map/nextflow.config
-Jul-27 15:17:02.579 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /compbio/scratch/rgrindle/orthology_map/nextflow.config
-Jul-27 15:17:02.620 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/rgrindle/.nextflow/secrets/store.json
-Jul-27 15:17:02.625 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@23eee4b8] - activable => nextflow.secret.LocalSecretsProvider@23eee4b8
-Jul-27 15:17:02.674 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
-Jul-27 15:17:04.804 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [bih, cfc_dev, uzl_omics, ifb_core, embl_hd, mcw_rcc, denbi_qbic, alice, mjolnir_globe, uppmax, giga, incliva, ilifu, ki_luria, uge, icr_alma, rosalind_uge, lugh, mccleary, unibe_ibu, vai, czbiohub_aws, jax, roslin, iris, tes, unc_longleaf, tigem, tubingen_apg, apollo, ipop_up, vsc_calcua, pdc_kth, ceci_nic5, ccga_cau, humantechnopole, stjude, daisybio, eddie, medair, biowulf, mahuika, apptainer, bi, bigpurple, adcra, cedars, pawsey_setonix, vsc_kul_uhasselt, purdue_gautschi, rki, ucl_myriad, charliecloud, fred_hutch, seattlechildrens, ceres, purdue_negishi, munin, arm, rosalind, hasta, cfc, uzh, shu_bmrc, ebi_codon_slurm, ebc, ccga_dx, crick, ku_sund_danhead, marvin, lrz_cm4, purdue_bell, biohpc_gen, shifter, kelvin2, mana, mamba, york_viking, unc_lccc, wehi, awsbatch, arcc, ceci_dragon2, imperial, maestro, cannon, genotoul, nci_gadi, abims, eva_grace, janelia, nu_genomics, googlebatch, oist, sahmri, kaust, alliance_canada, mpcdf, leicester, vsc_ugent, create, sage, cambridge, jex, podman, ebi_codon, cheaha, xanadu, nyu_hpc, test, marjorie, computerome, ucd_sonic, seg_globe, mssm, sanger, dkfz, bluebear, pasteur, einstein, ethz_euler, m3c, test_full, imb, ucl_cscluster, tuos_stanage, azurebatch, seadragon, crukmi, csiro_petrichor, qmul_apocrita, docker, engaging, gis, hypatia, psmn, eva, unity, cropdiversityhpc, nygc, fgcz, conda, crg, singularity, mpcdf_viper, dirac, self_hosted_runner, tufts, uw_hyak_pedslabs, binac2, hki_genie, debug, genouest, cbe, unsw_katana, utd_juno, hazel, phoenix, gitpod, seawulf, uod_hpc, fub_curta, lovelace, uct_hpc, aws_tower, fsu_draco]
-Jul-27 15:17:04.870 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Jul-27 15:17:04.891 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [infallible_stallman] DSL2 - revision: b3ee66df97
-Jul-27 15:17:04.894 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins declared=[nf-validation]
-Jul-27 15:17:04.894 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Jul-27 15:17:04.895 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[nf-validation]
-Jul-27 15:17:04.897 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-validation version: latest
-Jul-27 15:17:05.078 [main] DEBUG nextflow.plugin.PluginUpdater - Plugin nf-validation version null resolved to: 1.1.4
-Jul-27 15:17:05.092 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-validation@1.1.4' resolved
-Jul-27 15:17:05.092 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-validation@1.1.4'
-Jul-27 15:17:05.104 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-validation@1.1.4
-Jul-27 15:17:05.170 [main] DEBUG nextflow.Session - Session UUID: 936e6adb-851a-434a-a610-da0cd2b4c2b5
-Jul-27 15:17:05.170 [main] DEBUG nextflow.Session - Run name: infallible_stallman
-Jul-27 15:17:05.171 [main] DEBUG nextflow.Session - Executor pool size: 32
-Jul-27 15:17:05.181 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Jul-27 15:17:05.188 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=96; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Jul-27 15:17:05.213 [main] DEBUG nextflow.cli.CmdRun - 
-  Version: 25.04.7 build 5955
-  Created: 08-09-2025 13:29 UTC 
-  System: Linux 6.8.0-63-generic
-  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 17.0.10+7
-  Encoding: UTF-8 (UTF-8)
-  Process: 1083663@grace.mdibl.net [209.222.195.83]
-  CPUs: 32 - Mem: 251.6 GB (7.5 GB) - Swap: 16 GB (16 GB)
-Jul-27 15:17:05.249 [main] DEBUG nextflow.Session - Work-dir: /compbio/scratch/rgrindle/orthology_map/work [nfs]
-Jul-27 15:17:05.296 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Jul-27 15:17:05.309 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Jul-27 15:17:05.311 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-amazon version: 2.15.0-patch1
-Jul-27 15:17:05.339 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-amazon@2.15.0-patch1' resolved
-Jul-27 15:17:05.339 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-amazon@2.15.0-patch1'
-Jul-27 15:17:05.380 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-amazon@2.15.0-patch1
-Jul-27 15:17:05.405 [main] DEBUG nextflow.file.FileHelper - > Added 'S3FileSystemProvider' to list of installed providers [s3]
-Jul-27 15:17:05.405 [main] DEBUG nextflow.file.FileHelper - Started plugin 'nf-amazon' required to handle file: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/pipeline_info/execution_trace_2026-07-27_15-17-04.txt
-Jul-27 15:17:05.420 [main] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider
-Jul-27 15:17:05.450 [main] DEBUG nextflow.cloud.aws.config.AwsConfig - AWS S3 config properties: {max_error_retry=5}
-Jul-27 15:17:05.766 [main] DEBUG nextflow.cloud.aws.AwsClientFactory - Merging AWS credentials file '/home/rgrindle/.aws/credentials' and config file '/home/rgrindle/.aws/config'
-Jul-27 15:17:06.038 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Jul-27 15:17:06.063 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Jul-27 15:17:06.072 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 33; maxThreads: 1000
-Jul-27 15:17:06.244 [main] DEBUG nextflow.Session - Session start
-Jul-27 15:17:06.249 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: s3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26/pipeline_info/execution_trace_2026-07-27_15-17-04.txt
-Jul-27 15:17:06.808 [main] DEBUG nextflow.Session - Using default localLib path: /compbio/scratch/rgrindle/orthology_map/lib
-Jul-27 15:17:06.816 [main] DEBUG nextflow.Session - Adding to the classpath library: /compbio/scratch/rgrindle/orthology_map/lib
-Jul-27 15:17:06.818 [main] DEBUG nextflow.Session - Adding to the classpath library: /compbio/scratch/rgrindle/orthology_map/lib/nfcore_external_java_deps.jar
-Jul-27 15:17:07.372 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Jul-27 15:17:07.385 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [validateParameters:validateParameters, paramsHelp:paramsHelp]; plugin Id: nf-validation
-Jul-27 15:17:07.407 [main] DEBUG nextflow.validation.SchemaValidator - Starting parameters validation
-Jul-27 15:17:07.515 [main] WARN  nextflow.validation.SchemaValidator - The following invalid input values have been detected:
+Jul-27 15:34:06.579 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -params-file parameters.json -profile docker -resume
+Jul-27 15:34:06.812 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 26.04.1
+Jul-27 15:34:06.891 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/rgrindle/.nextflow/plugins; core-plugins: nf-amazon@3.9.1,nf-azure@1.22.3,nf-cloudcache@0.6.0,nf-codecommit@0.5.2,nf-console@1.3.0,nf-google@1.27.2,nf-k8s@1.5.2,nf-seqera@0.19.1,nf-tower@1.27.0,nf-wave@1.20.0
+Jul-27 15:34:06.942 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jul-27 15:34:06.944 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jul-27 15:34:06.949 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.14.1 in 'deployment' mode
+Jul-27 15:34:06.972 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Jul-27 15:34:07.165 [main] DEBUG nextflow.plugin.PluginUpdater - Using plugin repository: HttpPluginRepository [registry]; url=https://registry.nextflow.io/api
+Jul-27 15:34:07.174 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jul-27 15:34:07.260 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /compbio/scratch/rgrindle/orthology_map/nextflow.config
+Jul-27 15:34:07.264 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /compbio/scratch/rgrindle/orthology_map/nextflow.config
+Jul-27 15:34:07.270 [main] DEBUG nextflow.config.ConfigParserFactory - Using config parser v2
+Jul-27 15:34:07.293 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Jul-27 15:34:07.731 [main] ERROR nextflow.cli.Launcher - Config parsing failed
+nextflow.exception.ConfigParseException: Config parsing failed
+	at nextflow.config.parser.v2.ConfigParserV2.parse(ConfigParserV2.groovy:162)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.parser.v2.ConfigParserV2.parse(ConfigParserV2.groovy:192)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.parse0(ConfigBuilder.groovy:456)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.merge0(ConfigBuilder.groovy:441)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.buildConfig0(ConfigBuilder.groovy:397)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.buildGivenFiles(ConfigBuilder.groovy:336)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.buildConfigObject(ConfigBuilder.groovy:808)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.config.ConfigBuilder.build(ConfigBuilder.groovy:821)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:368)
+	at nextflow.cli.Launcher.run(Launcher.groovy:526)
+	at nextflow.cli.Launcher.main(Launcher.groovy:686)
+Caused by: org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
+_nf_config_efa4f6dd2a66f822: 266: Unexpected input: '(' @ line 266, column 14.
+   def check_max(obj, type) {
+                ^
 
-* --reference_tx_omes: s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/
+1 error
 
-
-Jul-27 15:17:07.526 [main] DEBUG n.validation.DirectoryPathValidator - Cloud storage paths are not supported by 'DirectoryPathValidator': 's3://mdibl-rgrindle/orthology_pipe/out_dirs/test_6-5-26'
-Jul-27 15:17:07.541 [main] DEBUG nextflow.validation.SchemaValidator - Starting validation: 'sample_sheet': '/compbio/scratch/rgrindle/orthology_map/Samples.csv' with 'assets/schema_input.json'
-Jul-27 15:17:07.590 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.111.gtf'
-Jul-27 15:17:07.591 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.dna.primary_assembly.fa'
-Jul-27 15:17:07.591 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Mus_musculus.GRCm39.111.gtf'
-Jul-27 15:17:07.591 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Mus_musculus.GRCm39.dna.primary_assembly.fa'
-Jul-27 15:17:07.592 [main] DEBUG nextflow.validation.SchemaValidator - Validation passed: 'sample_sheet': '/compbio/scratch/rgrindle/orthology_map/Samples.csv' with 'assets/schema_input.json'
-Jul-27 15:17:07.592 [main] DEBUG nextflow.validation.SchemaValidator - Finishing parameters validation
-Jul-27 15:17:07.903 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [paramsSummaryLog:paramsSummaryLog, paramsSummaryMap:paramsSummaryMap, fromSamplesheet:fromSamplesheet]; plugin Id: nf-validation
-Jul-27 15:17:09.605 [main] DEBUG nextflow.validation.SchemaValidator - Starting validation: './Samples.csv' with 'assets/schema_input.json'
-Jul-27 15:17:09.609 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.111.gtf'
-Jul-27 15:17:09.610 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.dna.primary_assembly.fa'
-Jul-27 15:17:09.610 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Mus_musculus.GRCm39.111.gtf'
-Jul-27 15:17:09.610 [main] DEBUG n.validation.FilePathValidator - Cloud storage paths are not supported by 'FilePathValidator': 's3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Mus_musculus.GRCm39.dna.primary_assembly.fa'
-Jul-27 15:17:09.610 [main] DEBUG nextflow.validation.SchemaValidator - Validation passed: './Samples.csv' with 'assets/schema_input.json'
-Jul-27 15:17:09.764 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF
-Jul-27 15:17:09.786 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:09.787 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:09.794 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Jul-27 15:17:09.800 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=32; memory=251.6 GB; capacity=32; pollInterval=100ms; dumpInterval=5m
-Jul-27 15:17:09.802 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Jul-27 15:17:09.829 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF': maxForks=0; fair=false; array=0
-Jul-27 15:17:09.866 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_IN
-Jul-27 15:17:09.871 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:09.871 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:09.872 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_IN': maxForks=0; fair=false; array=0
-Jul-27 15:17:09.886 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD
-Jul-27 15:17:09.888 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:GFFREAD` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD
-Jul-27 15:17:09.894 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:09.894 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:09.895 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD': maxForks=0; fair=false; array=0
-Jul-27 15:17:09.919 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:GTF_2_GENETX_MAP
-Jul-27 15:17:09.925 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:09.925 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:09.927 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:GTF_2_GENETX_MAP': maxForks=0; fair=false; array=0
-Jul-27 15:17:09.937 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_LONGORF
-Jul-27 15:17:09.939 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:TRANSDECODER_LONGORF` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_LONGORF
-Jul-27 15:17:09.945 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:09.945 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:09.946 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_LONGORF': maxForks=0; fair=false; array=0
-Jul-27 15:17:09.963 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:HMMER_HMMSCAN
-Jul-27 15:17:09.964 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:HMMER_HMMSCAN` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:HMMER_HMMSCAN
-Jul-27 15:17:09.969 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:09.969 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:09.970 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:HMMER_HMMSCAN': maxForks=0; fair=false; array=0
-Jul-27 15:17:09.984 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT
-Jul-27 15:17:09.985 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:TRANSDECODER_PREDICT` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT
-Jul-27 15:17:09.989 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:09.989 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:09.990 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.013 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP
-Jul-27 15:17:10.017 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.017 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.019 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.025 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF
-Jul-27 15:17:10.026 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:TRANSDECODER_LONGORF` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF
-Jul-27 15:17:10.031 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.031 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.032 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.044 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN
-Jul-27 15:17:10.045 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:HMMER_HMMSCAN` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN
-Jul-27 15:17:10.049 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.049 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.050 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.059 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT
-Jul-27 15:17:10.060 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:TRANSDECODER_PREDICT` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT
-Jul-27 15:17:10.063 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.064 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.064 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.082 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PRE_PROC
-Jul-27 15:17:10.088 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.088 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.089 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PRE_PROC': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.110 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PREP_INPUT
-Jul-27 15:17:10.118 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.119 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.120 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PREP_INPUT': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.132 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOFINDER
-Jul-27 15:17:10.133 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:ORTHOFINDER` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOFINDER
-Jul-27 15:17:10.138 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.138 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.139 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOFINDER': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.159 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND
-Jul-27 15:17:10.163 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.163 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.164 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.177 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:EGGNOGMAPPER
-Jul-27 15:17:10.181 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:EGGNOGMAPPER` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:EGGNOGMAPPER
-Jul-27 15:17:10.184 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.185 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.186 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:EGGNOGMAPPER': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.202 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TREEGRAFTER
-Jul-27 15:17:10.203 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:TREEGRAFTER` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TREEGRAFTER
-Jul-27 15:17:10.206 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.206 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.207 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TREEGRAFTER': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.223 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PANTHER_API
-Jul-27 15:17:10.227 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.227 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.228 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PANTHER_API': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.241 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:COLLECT_CHUNKS
-Jul-27 15:17:10.246 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.246 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.247 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:COLLECT_CHUNKS': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.263 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOLOGER
-Jul-27 15:17:10.264 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:ORTHOLOGER` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOLOGER
-Jul-27 15:17:10.268 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.268 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.269 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOLOGER': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.284 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_QUERY
-Jul-27 15:17:10.285 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:GTF_TO_GENELISTS` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_QUERY
-Jul-27 15:17:10.288 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.288 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.290 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_QUERY': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.296 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_REF
-Jul-27 15:17:10.298 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:GTF_TO_GENELISTS` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_REF
-Jul-27 15:17:10.301 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.301 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.302 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_REF': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.319 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND_BLASTP
-Jul-27 15:17:10.320 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:DIAMOND_BLASTP` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND_BLASTP
-Jul-27 15:17:10.323 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.323 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.325 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND_BLASTP': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.340 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE
-Jul-27 15:17:10.341 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:IADHORE` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE
-Jul-27 15:17:10.345 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.345 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.346 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.378 [main] WARN  nextflow.extension.OperatorImpl - The operator `first` is useless when applied to a value channel which returns a single value by definition
-Jul-27 15:17:10.387 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:STAGE_OUTS
-Jul-27 15:17:10.391 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.391 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.392 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:STAGE_OUTS': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.406 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:POST_PROC` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:POST_PROC
-Jul-27 15:17:10.410 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.410 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.410 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:POST_PROC': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.457 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1V1
-Jul-27 15:17:10.459 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:TBL_2_JSON_1V1` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1V1
-Jul-27 15:17:10.462 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.462 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.463 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1V1': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.467 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1VM
-Jul-27 15:17:10.470 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.470 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.471 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1VM': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.494 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:COMBINE_JSON
-Jul-27 15:17:10.497 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.497 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.498 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:COMBINE_JSON': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.510 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:VOTE_BEST_MATCH
-Jul-27 15:17:10.511 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:VOTE_BEST_MATCH` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:VOTE_BEST_MATCH
-Jul-27 15:17:10.514 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.514 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.514 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:VOTE_BEST_MATCH': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.566 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CUSTOM_DUMPSOFTWAREVERSIONS
-Jul-27 15:17:10.567 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:CUSTOM_DUMPSOFTWAREVERSIONS` matches process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CUSTOM_DUMPSOFTWAREVERSIONS
-Jul-27 15:17:10.570 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jul-27 15:17:10.570 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jul-27 15:17:10.571 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CUSTOM_DUMPSOFTWAREVERSIONS': maxForks=0; fair=false; array=0
-Jul-27 15:17:10.574 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: TBL_2_JSON_1V1, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:STAGE_OUTS, GTF_TO_GENELISTS_QUERY, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD, GFFREAD, GTF_2_GENETX_MAP, TBL_2_JSON_1VM, GUNZIP, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:VOTE_BEST_MATCH, GUNZIP_PFAM, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_LONGORF, TBL_2_JSON, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PREP_INPUT, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOFINDER, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF, TRANSDECODER_LONGORF, POST_PROC, PRE_PROC, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CUSTOM_DUMPSOFTWAREVERSIONS, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1VM, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1V1, VOTE_BEST_MATCH, ORTHOFINDER, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:EGGNOGMAPPER, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_REF, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN, DIAMOND_BLASTP, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PRE_PROC, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PANTHER_API, DIAMOND, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND, COMBINE_JSON, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:COLLECT_CHUNKS, STAGE_OUTS, PREP_INPUT, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:HMMER_HMMSCAN, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:COMBINE_JSON, PANTHER_API, IADHORE, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOLOGER, TRANSDECODER_PREDICT, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_QUERY, HMMER_HMMSCAN, GUNZIP_REF, EGGNOGMAPPER, GUNZIP_IN, ORTHOLOGER, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT, TREEGRAFTER, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:POST_PROC, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_IN, COLLECT_CHUNKS, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TREEGRAFTER, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:GTF_2_GENETX_MAP, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE, NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND_BLASTP, CUSTOM_DUMPSOFTWAREVERSIONS, GTF_TO_GENELISTS, GTF_TO_GENELISTS_REF
-Jul-27 15:17:10.585 [main] DEBUG nextflow.Session - Igniting dataflow network (46)
-Jul-27 15:17:10.587 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF
-Jul-27 15:17:10.587 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_IN
-Jul-27 15:17:10.587 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD
-Jul-27 15:17:10.587 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:GTF_2_GENETX_MAP
-Jul-27 15:17:10.587 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_LONGORF
-Jul-27 15:17:10.587 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:HMMER_HMMSCAN
-Jul-27 15:17:10.587 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT
-Jul-27 15:17:10.588 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP
-Jul-27 15:17:10.588 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF
-Jul-27 15:17:10.588 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:HMMER_HMMSCAN
-Jul-27 15:17:10.588 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_PREDICT
-Jul-27 15:17:10.588 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PRE_PROC
-Jul-27 15:17:10.588 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PREP_INPUT
-Jul-27 15:17:10.588 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOFINDER
-Jul-27 15:17:10.588 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND
-Jul-27 15:17:10.589 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:EGGNOGMAPPER
-Jul-27 15:17:10.589 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TREEGRAFTER
-Jul-27 15:17:10.589 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:PANTHER_API
-Jul-27 15:17:10.589 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:COLLECT_CHUNKS
-Jul-27 15:17:10.589 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:ORTHOLOGER
-Jul-27 15:17:10.589 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_QUERY
-Jul-27 15:17:10.589 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GTF_TO_GENELISTS_REF
-Jul-27 15:17:10.590 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:DIAMOND_BLASTP
-Jul-27 15:17:10.590 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:IADHORE
-Jul-27 15:17:10.590 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:STAGE_OUTS
-Jul-27 15:17:10.590 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:POST_PROC
-Jul-27 15:17:10.590 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1V1
-Jul-27 15:17:10.590 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:TBL_2_JSON_1VM
-Jul-27 15:17:10.590 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:COMBINE_JSON
-Jul-27 15:17:10.590 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CONSENSUS_VOTE:VOTE_BEST_MATCH
-Jul-27 15:17:10.591 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:CUSTOM_DUMPSOFTWAREVERSIONS
-Jul-27 15:17:10.593 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-  Script_815fabe9234c542a: /compbio/scratch/rgrindle/orthology_map/modules/local/orthofinder.nf
-  Script_67d92974f36161e9: /compbio/scratch/rgrindle/orthology_map/modules/local/hmmscan.nf
-  Script_611acdb0daa056e9: /compbio/scratch/rgrindle/orthology_map/main.nf
-  Script_5eed1bd2a42f5dd7: /compbio/scratch/rgrindle/orthology_map/modules/local/tbl_2_json.nf
-  Script_858ff3bc367f090d: /compbio/scratch/rgrindle/orthology_map/modules/local/panther_api.nf
-  Script_b58f3fa238a3972e: /compbio/scratch/rgrindle/orthology_map/modules/local/gffread/main.nf
-  Script_3bb526306c27bb9b: /compbio/scratch/rgrindle/orthology_map/workflows/orthologymap.nf
-  Script_7c32d290e92ecb38: /compbio/scratch/rgrindle/orthology_map/modules/local/stage_outs.nf
-  Script_355b0c28ae5d7caa: /compbio/scratch/rgrindle/orthology_map/modules/local/vote_bm.nf
-  Script_cbd0ce580c9050ff: /compbio/scratch/rgrindle/orthology_map/subworkflows/local/transdecoder.nf
-  Script_81f0ff777a478180: /compbio/scratch/rgrindle/orthology_map/modules/local/orthologer.nf
-  Script_10ba468881880d81: /compbio/scratch/rgrindle/orthology_map/modules/local/gtf_to_genelists.nf
-  Script_bb8b77478692954d: /compbio/scratch/rgrindle/orthology_map/modules/local/collect_chunks.nf
-  Script_13768c8fee03b0e0: /compbio/scratch/rgrindle/orthology_map/modules/local/gunzip/main.nf
-  Script_962e7d092e463c46: /compbio/scratch/rgrindle/orthology_map/modules/nf-core/custom/dumpsoftwareversions/main.nf
-  Script_90325f83eeb569c8: /compbio/scratch/rgrindle/orthology_map/modules/local/post_proc.nf
-  Script_a1299af5c139af10: /compbio/scratch/rgrindle/orthology_map/modules/local/treegrafter.nf
-  Script_20c2ac31da6934bc: /compbio/scratch/rgrindle/orthology_map/modules/local/pre_proc_refs.nf
-  Script_dfa6d137949aecd7: /compbio/scratch/rgrindle/orthology_map/modules/local/predict.nf
-  Script_2e1a9c1acc9e048c: /compbio/scratch/rgrindle/orthology_map/modules/local/gunzip.nf
-  Script_02e06108c10208d6: /compbio/scratch/rgrindle/orthology_map/modules/local/diamond_blastp.nf
-  Script_d0063fa51bbe47fc: /compbio/scratch/rgrindle/orthology_map/modules/local/eggnogmapper.nf
-  Script_16ce6dd88d3f5cd3: /compbio/scratch/rgrindle/orthology_map/modules/local/combine_json.nf
-  Script_2972c8166c5eebac: /compbio/scratch/rgrindle/orthology_map/modules/local/prep_input.nf
-  Script_ab0481a8075bb195: /compbio/scratch/rgrindle/orthology_map/modules/local/iadhore.nf
-  Script_b1c7a7c58be9b724: /compbio/scratch/rgrindle/orthology_map/subworkflows/local/consensus_vote.nf
-  Script_fc4c1a84f628bda9: /compbio/scratch/rgrindle/orthology_map/modules/local/longorf.nf
-  Script_19df9c7ba0ca983e: /compbio/scratch/rgrindle/orthology_map/modules/local/gtf_2_genetx_map.nf
-  Script_0071bc02a47a90f7: /compbio/scratch/rgrindle/orthology_map/modules/local/diamond.nf
-Jul-27 15:17:10.593 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Jul-27 15:17:10.593 [main] DEBUG nextflow.Session - Session await
-Jul-27 15:17:11.369 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.111.gtf at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/e0/8ae8624ac7803367669ca5e6694fcd/Danio_rerio.GRCz11.111.gtf
-Jul-27 15:17:11.369 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Danio_rerio.GRCz11.dna.primary_assembly.fa at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/4f/c4c282911b555be92edc535e855f9f/Danio_rerio.GRCz11.dna.primary_assembly.fa
-Jul-27 15:17:11.370 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Mus_musculus.GRCm39.111.gtf at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/76/82a4268b1cc48cabeb16d8fc552e8b/Mus_musculus.GRCm39.111.gtf
-Jul-27 15:17:11.371 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/orthofinder_refs/Mus_musculus.GRCm39.dna.primary_assembly.fa at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/6d/614b90491535435b04e9f052511419/Mus_musculus.GRCm39.dna.primary_assembly.fa
-Jul-27 15:17:11.372 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/inputs/AmexT_v47-AmexG_v6.0-DD.gtf at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/12/afcf7d9fe18658493163fb02e6ba67/AmexT_v47-AmexG_v6.0-DD.gtf
-Jul-27 15:17:11.373 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/inputs/less_sequences_AmexT_v47.fa at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/91/bfae49900016a8a43ddf8b94598e0b/less_sequences_AmexT_v47.fa
-Jul-27 15:17:11.519 [Actor Thread 16] INFO  nextflow.processor.TaskProcessor - [ef/ac8129] Cached process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF (Splitting inputs into channels)
-Jul-27 15:17:11.519 [Actor Thread 30] INFO  nextflow.processor.TaskProcessor - [7f/7aa254] Cached process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_IN (Splitting inputs into channels)
-Jul-27 15:17:11.519 [Actor Thread 18] INFO  nextflow.processor.TaskProcessor - [cd/6d2714] Cached process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GUNZIP_REF (Splitting inputs into channels)
-Jul-27 15:17:11.569 [Actor Thread 30] INFO  nextflow.processor.TaskProcessor - [9c/862903] Cached process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:GTF_2_GENETX_MAP (test_orthology.001)
-Jul-27 15:17:11.601 [Actor Thread 31] INFO  nextflow.processor.TaskProcessor - [bf/0f9172] Cached process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD (10090)
-Jul-27 15:17:11.601 [Actor Thread 20] INFO  nextflow.processor.TaskProcessor - [93/d74597] Cached process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD (7955)
-Jul-27 15:17:11.652 [Actor Thread 30] INFO  nextflow.processor.TaskProcessor - [fa/d6f0b8] Cached process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_LONGORF (test_orthology.001)
-Jul-27 15:17:11.713 [Actor Thread 31] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD > Skipping output binding because one or more optional files are missing: fileoutparam<0>
-Jul-27 15:17:11.714 [Actor Thread 31] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD > Skipping output binding because one or more optional files are missing: fileoutparam<1>
-Jul-27 15:17:11.716 [Actor Thread 20] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD > Skipping output binding because one or more optional files are missing: fileoutparam<0>
-Jul-27 15:17:11.716 [Actor Thread 20] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:GFFREAD > Skipping output binding because one or more optional files are missing: fileoutparam<1>
-Jul-27 15:17:11.747 [Actor Thread 29] INFO  nextflow.processor.TaskProcessor - [e0/d2478c] Cached process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP (7955)
-Jul-27 15:17:11.748 [Actor Thread 18] INFO  nextflow.processor.TaskProcessor - [4c/af9512] Cached process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:GTF_2_GENETX_MAP (10090)
-Jul-27 15:17:11.777 [Actor Thread 20] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=96; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Jul-27 15:17:11.863 [Task submitter] WARN  nextflow.container.DockerBuilder - Undocumented setting `docker.userEmulation` is not supported any more - please remove it from your config
-Jul-27 15:17:11.872 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Local cache found for foreign file s3://mdibl-rgrindle/orthology_pipe/suplementary_files/Pfam-A.hmm at /compbio/scratch/rgrindle/orthology_map/work/stage-936e6adb-851a-434a-a610-da0cd2b4c2b5/a8/ccdd88635894a7a16758b9d72d11b5/Pfam-A.hmm
-Jul-27 15:17:11.887 [Actor Thread 23] INFO  nextflow.processor.TaskProcessor - [d1/6eba50] Cached process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:HMMER_HMMSCAN (test_orthology.001)
-Jul-27 15:17:11.912 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jul-27 15:17:11.914 [Task submitter] INFO  nextflow.Session - [7e/1e87cb] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF (7955)
-Jul-27 15:17:11.965 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jul-27 15:17:11.966 [Task submitter] INFO  nextflow.Session - [3f/ee7199] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:REF_TRANSDECODER:TRANSDECODER_LONGORF (10090)
-Jul-27 15:17:11.997 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jul-27 15:17:11.998 [Task submitter] INFO  nextflow.Session - [3b/e804d1] Submitted process > NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT (test_orthology.001)
-Jul-27 15:17:14.717 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT (test_orthology.001); status: COMPLETED; exit: 1; error: -; workDir: /compbio/scratch/rgrindle/orthology_map/work/3b/e804d1751898c04f6731d8a13f71f1]
-Jul-27 15:17:14.718 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=96; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Jul-27 15:17:14.731 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT (test_orthology.001); work-dir=/compbio/scratch/rgrindle/orthology_map/work/3b/e804d1751898c04f6731d8a13f71f1
-  error [nextflow.exception.ProcessFailedException]: Process `NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT (test_orthology.001)` terminated with an error exit status (1)
-Jul-27 15:17:14.756 [TaskFinalizer-1] ERROR nextflow.processor.TaskProcessor - Error executing process > 'NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT (test_orthology.001)'
-
-Caused by:
-  Process `NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT (test_orthology.001)` terminated with an error exit status (1)
-
-
-Command executed:
-
-  TransDecoder.Predict \
-      --single_best_only \
-      -t \
-      test_orthology.001.transcripts.fa \
-      --retain_pfam_hits Pfam.domtblout
-  
-  mv *.transdecoder.pep test_orthology.001.initial.transdecoder.pep
-  sed 's/>[^ ]*//' *.initial.transdecoder.pep | sed 's/^ />/'  > test_orthology.001.final.transdecoder.pep
-  
-  cat <<-END_VERSIONS > versions.yml
-  "NFCORE_ORTHOLOGYMAP:ORTHOLOGYMAP:TRANSDECODER:TRANSDECODER_PREDICT":
-      transdecoder: $(echo $(TransDecoder.Predict --version) | sed -e "s/TransDecoder.Predict //g")
-  END_VERSIONS
-
-Command exit status:
-  1
-
-Command output:
-  (empty)
-
-Command error:
-  -- Skipping CMD: /usr/local/bin/util/get_top_longest_fasta_entries.pl test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds 5000 5000 > test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.top_longest_5000, checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/get_longest_orfs.ok] exists.
-  -- Skipping CMD: /usr/local/bin/util/exclude_similar_proteins.pl test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.top_longest_5000 > test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.top_longest_5000.nr, checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/nr.ok] exists.
-  -- Skipping CMD: /usr/local/bin/util/get_top_longest_fasta_entries.pl test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.top_longest_5000.nr 500 > test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.top_500_longest, checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/top_train_select.ok] exists.
-  PCT_GC: 47.2
-  -- Skipping CMD: /usr/local/bin/util/seq_n_baseprobs_to_loglikelihood_vals.pl test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.top_500_longest test_orthology.001.transcripts.fa.transdecoder_dir/base_freqs.dat > test_orthology.001.transcripts.fa.transdecoder_dir/hexamer.scores, checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/hexamer_scores.ok] exists.
-  -- Skipping CMD: /usr/local/bin/util/score_CDS_likelihood_all_6_frames.pl test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds test_orthology.001.transcripts.fa.transdecoder_dir/hexamer.scores > test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.scores, checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/score_cdss.ok] exists.
-  -- Skipping CMD: /usr/local/bin/util/select_best_ORFs_per_transcript.pl --gff3_file test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.gff3 --cds_scores test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.scores  --min_length_auto_accept 749  --pfam_hits Pfam.domtblout  --single_best_orf  > test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.best_candidates.gff3 , checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/select_best_orfs.9129b10737be061ebf30f927085398bc.ok] exists.
-  -- Skipping CMD: /usr/local/bin/util/train_start_PWM.pl --transcripts test_orthology.001.transcripts.fa --selected_orfs test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.top_500_longest --out_prefix test_orthology.001.transcripts.fa.transdecoder_dir/start_refinement, checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/train_start_PWM.9129b10737be061ebf30f927085398bc.ok] exists.
-  -- Skipping CMD: /usr/local/bin/util/start_codon_refinement.pl --transcripts test_orthology.001.transcripts.fa --gff3_file test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.best_candidates.gff3 --workdir /compbio/scratch/rgrindle/orthology_map/work/3b/st_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/score_cdss.ok] exists.
-  -- Skipping CMD: /usr/local/bin/util/select_best_ORFs_per_transcript.pl --gff3_file test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.gff3 --cds_scores test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.scores  --min_length_auto_accept 749  --pfam_hits Pfam.domtblout  --single_best_orf  > test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.best_candidates.gff3 , checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/select_best_orfs.9129b10737be061ebf30f927085398bc.ok] exists.
-  -- Skipping CMD: /usr/local/bin/util/train_start_PWM.pl --transcripts test_orthology.001.transcripts.fa --selected_orfs test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.top_500_longest --out_prefix test_orthology.001.transcripts.fa.transdecoder_dir/start_refinement, checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/train_start_PWM.9129b10737be061ebf30f927085398bc.ok] exists.
-  -- Skipping CMD: /usr/local/bin/util/start_codon_refinement.pl --transcripts test_orthology.001.transcripts.fa --gff3_file test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.best_candidates.gff3 --workdir test_orthology.001.transcripts.fa.transdecoder_dir > test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.best_candidates.gff3.revised_starts.gff3, checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/revise_starts.9129b10737be061ebf30f927085398bc.ok] exists.
-  -- Skipping CMD: cp test_orthology.001.transcripts.fa.transdecoder_dir/longest_orfs.cds.best_candidates.gff3.revised_starts.gff3 test_orthology.001.transcripts.fa.transdecoder.gff3, checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/copy_to_final_outputfile.9129b10737be061ebf30f927085398bc.ok] exists.
-  -- Skipping CMD: /usr/local/bin/util/gff3_file_to_bed.pl test_orthology.001.transcripts.fa.transdecoder.gff3 > test_orthology.001.transcripts.fa.transdecoder.bed, checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/make_final_bed.9129b10737be061ebf30f927085398bc.ok] exists.
-  -- Skipping CMD: /usr/local/bin/util/gff3_file_to_proteins.pl --gff3 test_orthology.001.transcripts.fa.transdecoder.gff3 --fasta test_orthology.001.transcripts.fa  --genetic_code Universal > test_orthology.001.transcripts.fa.transdecoder.pep, checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/make_final_pep.9129b10737be061ebf30f927085398bc.ok] exists.
-  -- Skipping CMD: /usr/local/bin/util/gff3_file_to_proteins.pl --gff3 test_orthology.001.transcripts.fa.transdecoder.gff3 --fasta test_orthology.001.transcripts.fa --seqType CDS  --genetic_code Universal > test_orthology.001.transcripts.fa.transdecoder.cds, checkpoint [test_orthology.001.transcripts.fa.transdecoder_dir/__checkpoints_TDpredict/make_final_cds.9129b10737be061ebf30f927085398bc.ok] exists.
-  transdecoder is finished.  See output files test_orthology.001.transcripts.fa.transdecoder.*
-  
-  
-  mv: cannot stat '*.transdecoder.pep': No such file or directory
-
-Work dir:
-  /compbio/scratch/rgrindle/orthology_map/work/3b/e804d1751898c04f6731d8a13f71f1
-
-Container:
-  quay.io/rgrindle/transdecoder
-
-Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
-Jul-27 15:17:14.767 [TaskFinalizer-1] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
-Jul-27 15:17:14.768 [Actor Thread 27] DEBUG nextflow.file.SortFileCollector - FileCollector temp dir not removed: null
-Jul-27 15:17:14.777 [main] DEBUG nextflow.Session - Session await > all processes finished
-Jul-27 15:17:29.530 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
-Jul-27 15:17:29.573 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Jul-27 15:17:29.574 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Jul-27 15:17:29.585 [main] WARN  n.processor.TaskPollingMonitor - Killing running tasks (2)
-Jul-27 15:17:29.605 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=10; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=2; succeedDuration=0ms; failedDuration=16.1s; cachedDuration=37m 8s;loadCpus=0; loadMemory=0; peakRunning=3; peakCpus=18; peakMemory=108 GB; ]
-Jul-27 15:17:29.605 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
-Jul-27 15:17:29.782 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
-Jul-27 15:17:30.439 [SIGINT handler] INFO  nextflow.Session - Adieu
+	at org.codehaus.groovy.control.ErrorCollector.failIfErrors(ErrorCollector.java:292)
+	at org.codehaus.groovy.control.ErrorCollector.addFatalError(ErrorCollector.java:148)
+	at nextflow.config.parser.ConfigAstBuilder.collectSyntaxError(ConfigAstBuilder.java:1407)
+	at nextflow.config.parser.ConfigAstBuilder$1.syntaxError(ConfigAstBuilder.java:1428)
+	at org.antlr.v4.runtime.ProxyErrorListener.syntaxError(ProxyErrorListener.java:44)
+	at org.antlr.v4.runtime.Parser.notifyErrorListeners(Parser.java:543)
+	at nextflow.script.parser.DescriptiveErrorStrategy.notifyErrorListeners(DescriptiveErrorStrategy.java:121)
+	at nextflow.script.parser.DescriptiveErrorStrategy.reportNoViableAlternative(DescriptiveErrorStrategy.java:94)
+	at nextflow.script.parser.DescriptiveErrorStrategy.recover(DescriptiveErrorStrategy.java:51)
+	at nextflow.config.parser.ConfigParser.compilationUnit(ConfigParser.java:286)
+	at nextflow.config.parser.ConfigAstBuilder.buildCST(ConfigAstBuilder.java:163)
+	at nextflow.config.parser.ConfigAstBuilder.buildCST(ConfigAstBuilder.java:148)
+	at nextflow.config.parser.ConfigAstBuilder.buildAST(ConfigAstBuilder.java:177)
+	at nextflow.config.parser.ConfigParserPlugin.buildAST(ConfigParserPlugin.java:51)
+	at org.codehaus.groovy.control.SourceUnit.buildAST(SourceUnit.java:256)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:631)
+	at nextflow.config.parser.v2.ConfigCompiler.compile0(ConfigCompiler.java:112)
+	at nextflow.config.parser.v2.ConfigCompiler.compile(ConfigCompiler.java:97)
+	at nextflow.config.parser.v2.ConfigParserV2.parse(ConfigParserV2.groovy:141)
+	... 17 common frames omitted

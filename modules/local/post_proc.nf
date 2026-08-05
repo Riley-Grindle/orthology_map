@@ -12,7 +12,7 @@ process POST_PROC {
     tuple val(meta), path (outs)
     tuple val(meta), path (fastas)
     val fasta_file
-    val ensembl_data    // absolute path or null — not staged, accessed directly on shared fs
+    path ensembl_data    // absolute path or null — not staged, accessed directly on shared fs
     val taxa_db         // absolute path or null — not staged, accessed directly on shared fs
 
     output:
@@ -34,12 +34,12 @@ process POST_PROC {
     Rscript /rscripts/ortho_l_post.R ./outs/ortho_l/ "\${ORTHO_L_PREFIX}"
     Rscript /rscripts/eggnog_post.R ./outs/egg
     Rscript /rscripts/tree_post.R ./outs/tree
-    mkdir /headers
+    mkdir headers
     for file in ./odbdata/*; do
         FILE_NAME="\$(basename "\$file")"; filename_no_extension="\${FILE_NAME%.*}_headers.txt"
-        grep ">" "\$file" | grep -o '^[^[:space:]]*' > "/headers/"\$filename_no_extension""
+        grep ">" "\$file" | grep -o '^[^[:space:]]*' > "headers/"\$filename_no_extension""
     done
-    Rscript /rscripts/hexadecimal_correction.R ./odbdata /headers/ ./
+    Rscript /rscripts/hexadecimal_correction.R ./odbdata ./headers/ ./
     
     mv ./tree_std.csv input_tree.csv
     if [ -n "$ensembl_data" ]; then
