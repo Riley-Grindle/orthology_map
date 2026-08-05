@@ -265,6 +265,11 @@
             "type": "boolean",
             "default": true,
             "description": "Run i-ADHoRe pairwise synteny between the query and each reference species (one job per reference), adding collinear block evidence as the fifth input to consensus voting."
+        },
+        "min_tool_support": {
+            "type": "integer",
+            "default": 2,
+            "description": "Minimum number of distinct tools that must independently support a candidate ortholog match for it to be tagged high-confidence in voted_orthologs.json. All matches are kept regardless (nothing is dropped); this only sets the confidence tier and the best_match ranking cutoff."
         }
     }
 }

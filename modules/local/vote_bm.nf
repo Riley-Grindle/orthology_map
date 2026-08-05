@@ -21,7 +21,7 @@ process VOTE_BEST_MATCH {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args  ?: ''
+    def args = task.ext.args  ?: '--min-tool-support 2'
     """
     touch voted_orthologs.json
     grep ">" $query_fasta > queries.txt
@@ -29,8 +29,9 @@ process VOTE_BEST_MATCH {
     for file in *query_2_matches.json; do
         vote.py queries.txt voted_orthologs.json \$file
     done
-   
-    species_layer.py voted_orthologs.json    
+
+    species_layer.py voted_orthologs.json
+    rank_matches.py voted_orthologs.json ${args}
     """
 
     stub:

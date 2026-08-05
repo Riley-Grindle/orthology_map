@@ -42,6 +42,9 @@ process POST_PROC {
     Rscript /rscripts/hexadecimal_correction.R ./odbdata ./headers/ ./
     
     mv ./tree_std.csv input_tree.csv
+    build_treegrafter_id_map.py "$fasta_file" tree_id_map.tsv
+    fix_tree_query_ids.py input_tree.csv tree_id_map.tsv input_tree.fixed.csv
+    mv input_tree.fixed.csv input_tree.csv
     if [ -n "$ensembl_data" ]; then
         ensembl_id_2_gene_symbl.py ./input_tree.csv /sup_data/prefix_2_file.json $ensembl_data /sup_data/prefix_2_species.json
         paste -d"," input_tree.csv gene_symbols_ensembl.txt species_names.txt > tree_std.csv
@@ -56,8 +59,6 @@ process POST_PROC {
         cut -d, -f 1-3 tree_std.csv > editing_tree.csv
         paste -d"," editing_tree.csv taxa_col.tsv > tree_std.csv
     fi
-    sed  -i.bak 's/||/~~/' tree_std.csv; sed -i.bak 's/|/./g' tree_std.csv
-    
     cut -d"," -f2 eggnog_std.csv | sed "s/^.//" | sed "s/.\$//" > match_ids.txt
     mv eggnog_std.csv input_eggnog.csv
     string_search.py /sup_data/string_db.json ./match_ids.txt
