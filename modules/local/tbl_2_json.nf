@@ -23,7 +23,7 @@ process TBL_2_JSON {
     script:
     def args = task.ext.args  ?: ''
     """
-    tbl_2_json.py \\
+    ${projectDir}/bin/tbl_2_json.py \\
         $outfile \\
         ${args} \\
         ${meta.tool}

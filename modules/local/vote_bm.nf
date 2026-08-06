@@ -27,11 +27,11 @@ process VOTE_BEST_MATCH {
     grep ">" $query_fasta > queries.txt
 
     for file in *query_2_matches.json; do
-        vote.py queries.txt voted_orthologs.json \$file
+        ${projectDir}/bin/vote.py queries.txt voted_orthologs.json \$file
     done
 
     species_layer.py voted_orthologs.json
-    rank_matches.py voted_orthologs.json ${args}
+    ${projectDir}/bin/rank_matches.py voted_orthologs.json ${args}
     """
 
     stub:
