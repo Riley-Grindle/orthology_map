@@ -36,7 +36,11 @@ def main():
 
     with open(csv_path, newline="") as fh, open(out_path, "w", newline="") as out:
         reader = csv.reader(fh)
-        writer = csv.writer(out)
+        # csv.writer defaults to "\r\n" line endings; the rest of this
+        # pipeline (R's write.csv, bash cut/paste/sed) writes plain "\n", so
+        # the default here would leave a stray "\r" embedded mid-line once
+        # this file is later pasted/cut alongside "\n"-terminated files.
+        writer = csv.writer(out, lineterminator="\n")
         writer.writerow(next(reader))  # header
 
         for row in reader:
