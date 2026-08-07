@@ -23,15 +23,16 @@ process VOTE_BEST_MATCH {
     script:
     def args = task.ext.args  ?: '--min-tool-support 2'
     """
+    export PATH="${projectDir}/bin:\$PATH"
     touch voted_orthologs.json
     grep ">" $query_fasta > queries.txt
 
     for file in *query_2_matches.json; do
-        ${projectDir}/bin/vote.py queries.txt voted_orthologs.json \$file
+        vote.py queries.txt voted_orthologs.json \$file
     done
 
     species_layer.py voted_orthologs.json
-    ${projectDir}/bin/rank_matches.py voted_orthologs.json ${args}
+    rank_matches.py voted_orthologs.json ${args}
     """
 
     stub:
