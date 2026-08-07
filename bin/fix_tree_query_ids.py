@@ -40,7 +40,12 @@ def main():
         # pipeline (R's write.csv, bash cut/paste/sed) writes plain "\n", so
         # the default here would leave a stray "\r" embedded mid-line once
         # this file is later pasted/cut alongside "\n"-terminated files.
-        writer = csv.writer(out, lineterminator="\n")
+        # QUOTE_ALL matters too: write.csv() quotes every field unconditionally,
+        # and post_proc.nf's final CSV->TSV sed step
+        # (sed 's/^.//' | sed 's/","/\t/g' | sed 's/.$//') hard-depends on that --
+        # the default QUOTE_MINIMAL only quotes fields that need it, which strips
+        # the quotes sed expects to strip and leaves "," where it expects '","'.
+        writer = csv.writer(out, lineterminator="\n", quoting=csv.QUOTE_ALL)
         writer.writerow(next(reader))  # header
 
         for row in reader:
