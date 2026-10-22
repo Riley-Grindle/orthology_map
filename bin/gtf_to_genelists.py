@@ -5,11 +5,14 @@ Build i-ADHoRe gene-list files from a GTF.
 One .lst file is written per chromosome/scaffold.  Each file lists genes in
 genomic order with their strand appended directly to the ID (no space):
 
-    TRINITY_DN1_c0_g1_i1+
-    ENST00000380152.7-
+    ENSDARG00000103202~~ENSDART00000159919+
+    ENSDARG00000009657~~ENSDART00000021139-
 
-IDs are transcript_id values so they match the headers in TransDecoder's
-final.transdecoder.pep (which also uses transcript_id after stripping .pN).
+IDs are "gene_id~~transcript_id" so they match TransDecoder's
+final.transdecoder.pep headers (TransDecoder is run with --gene_trans_map,
+which produces that composite header), after stripping the trailing ".pN"
+ORF suffix that TransDecoder adds (that stripping happens where the blast
+table is prepared for i-ADHoRe, since ORF numbering isn't known from the GTF).
 Genes are de-duplicated and sorted by start coordinate within each scaffold.
 
 Usage:
@@ -49,14 +52,16 @@ def gtf_to_genelists(gtf_path, out_dir):
             strand  = fields[6]
             attrs   = parse_attrs(fields[8])
 
-            if feature in ('transcript', 'gene'):
-                tx_id = attrs.get('transcript_id') or attrs.get('gene_id', '')
-            elif feature == 'exon':
-                tx_id = attrs.get('transcript_id', '')
-            else:
+            if feature not in ('transcript', 'exon'):
                 continue
 
-            if tx_id and tx_id not in chroms[chrom]:
+            gene_id = attrs.get('gene_id', '')
+            transcript_id = attrs.get('transcript_id', '')
+            if not (gene_id and transcript_id):
+                continue
+            tx_id = f"{gene_id}~~{transcript_id}"
+
+            if tx_id not in chroms[chrom]:
                 chroms[chrom][tx_id] = (start, strand)
 
     if not chroms:

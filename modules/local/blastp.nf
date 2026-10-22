@@ -31,7 +31,7 @@ process BLASTP {
            -query $query_fasta \\
            -outfmt 6 \\
            -out all_v_all.tsv \\
-           -num_threads ${task.cpus} \\
+           -num_threads \$(nproc) \\
            ${args}
 
     cat <<-END_VERSIONS > versions.yml

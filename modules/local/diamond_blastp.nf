@@ -33,7 +33,7 @@ process DIAMOND_BLASTP {
         -d ref_db \\
         -o ${out_file} \\
         --outfmt 6 qseqid sseqid evalue \\
-        -p ${task.cpus} \\
+        -p \$(nproc) \\
         -e 1e-5 \\
         --more-sensitive \\
         --quiet \\

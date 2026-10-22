@@ -1,4 +1,3 @@
-
 process PANTHER_API {
     tag "Pulling gene ids from PantherDB"
     label "process_medium"
@@ -10,13 +9,15 @@ process PANTHER_API {
 
     input:
     path tree_out
+    val ref_panther_prefixes
 
     output:
     path "*orthologs.txt"
 
     script:
     """
-    post_panther.sh
+    export PATH="${projectDir}/bin:\$PATH"
+    post_panther.sh "${ref_panther_prefixes}"
     mv orthologs.txt "\$(basename $tree_out)_orthologs.txt"
     """
 

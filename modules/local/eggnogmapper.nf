@@ -28,7 +28,7 @@ process EGGNOGMAPPER {
             -m diamond \\
             -o $project_id \\
             --itype proteins \\
-            --cpu ${task.cpus} \\
+            --cpu \$(nproc) \\
             ${args}
 
         cat <<-END_VERSIONS > versions.yml
@@ -37,14 +37,19 @@ process EGGNOGMAPPER {
         END_VERSIONS
         """
     } else {
+        // `-d`/`--database` selects eggnog-mapper's HMMER-mode database, not
+        // a custom diamond database -- with `-m diamond` it's silently
+        // ignored and emapper.py falls back to its bundled, full
+        // cross-species eggnog_proteins.dmnd. `--dmnd_db` is the diamond-mode
+        // flag for pointing at this reference-species-only database.
         """
         emapper.py \\
             -i $fasta/ \\
             -m diamond \\
             -o $project_id \\
             --itype proteins \\
-            --cpu ${task.cpus} \\
-            -d $dmnd \\
+            --cpu \$(nproc) \\
+            --dmnd_db $dmnd \\
             ${args}
 
         cat <<-END_VERSIONS > versions.yml
