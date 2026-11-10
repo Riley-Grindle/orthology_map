@@ -1,0 +1,16 @@
+{
+  "_comment": "Maps NCBI taxon ID -> the gene-ID database prefix PANTHER uses for that species' leaves in its family/tree data (not Ensembl-style IDs). Empirically derived by sampling PANTHER treeinfo responses across multiple PTHR families and cross-referencing against modules/local or the post_proc image's prefix_2_species.json (which covers everything else via standard Ensembl prefixes, e.g. ENSDAR, ENSRNO). Species not listed here should fall back to that Ensembl prefix table.",
+  "9606": { "prefix": "HGNC", "name": "Homo sapiens" },
+  "10090": { "prefix": "MGI", "name": "Mus musculus" },
+  "10116": { "prefix": "RGD", "name": "Rattus norvegicus" },
+  "7955": { "prefix": "ZFIN", "name": "Danio rerio" },
+  "7227": { "prefix": "FlyBase", "name": "Drosophila melanogaster" },
+  "8364": { "prefix": "Xenbase", "name": "Xenopus tropicalis" },
+  "8355": { "prefix": "Xenbase", "name": "Xenopus laevis" },
+  "6239": { "prefix": "WormBase", "name": "Caenorhabditis elegans" },
+  "559292": { "prefix": "SGD", "name": "Saccharomyces cerevisiae" },
+  "237561": { "prefix": "CGD", "name": "Candida albicans" },
+  "284812": { "prefix": "PomBase", "name": "Schizosaccharomyces pombe" },
+  "44689": { "prefix": "dictyBase", "name": "Dictyostelium discoideum" },
+  "3702": { "prefix": "TAIR", "name": "Arabidopsis thaliana" }
+}

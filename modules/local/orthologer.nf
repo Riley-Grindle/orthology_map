@@ -30,7 +30,23 @@ process ORTHOLOGER {
     """
     WORKDIR=\$(pwd)
 
-    cp -r $odbdata/* /odbdata
+    # ORTHOLOGER derives its internal species labels from the part of each
+    # input filename before the first '.', and only allows [a-z0-9_]
+    # (case-insensitive). Sanitize filenames here so labels like
+    # "\${params.project_id}" (which may contain '-' or '.') don't trip its
+    # "bad characters" check, without changing the actual pipeline parameter.
+    mkdir -p /odbdata
+    for f in $odbdata/*; do
+        fname=\$(basename "\$f")
+        base="\${fname%%.*}"
+        ext="\${fname#*.}"
+        safe_base=\$(printf '%s' "\$base" | tr -c 'A-Za-z0-9_' '_')
+        if [ "\$ext" = "\$fname" ]; then
+            cp -r "\$f" "/odbdata/\${safe_base}"
+        else
+            cp -r "\$f" "/odbdata/\${safe_base}.\${ext}"
+        fi
+    done
     cd /odbwork
     setup_odb.sh
     orthologer -c import
@@ -45,18 +61,23 @@ process ORTHOLOGER {
     mkdir -p \${WORKDIR}/${odbwork}/Cluster
     cp -r Cluster/. \${WORKDIR}/${odbwork}/Cluster/
 
-    cat <<-END_VERSIONS > \${WORKDIR}/${odbwork}/versions.yml
-    "${task.process}":
-        orthologer: \$(./orthologer.sh -v)
-    END_VERSIONS
+    # `orthologer.sh -v` prints a multi-line startup banner rather than a
+    # clean version string; pull just the "pipeline version" line so the
+    # versions.yml we write stays valid single-line YAML.
+    ORTHOLOGER_VERSION=\$(./orthologer.sh -v 2>&1 | grep -m1 'pipeline version' | sed -E 's/^pipeline version[[:space:]]*:[[:space:]]*//' || true)
+    ORTHOLOGER_VERSION=\${ORTHOLOGER_VERSION:-unknown}
+cat <<-END_VERSIONS > \${WORKDIR}/${odbwork}/versions.yml
+"${task.process}":
+    orthologer: "\${ORTHOLOGER_VERSION}"
+END_VERSIONS
     """
 
     stub:
     """
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        orthologer: \$(./orthologer.sh -v)
-    END_VERSIONS
+cat <<-END_VERSIONS > versions.yml
+"${task.process}":
+    orthologer: "unknown"
+END_VERSIONS
     """
 
 }

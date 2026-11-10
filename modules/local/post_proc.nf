@@ -14,6 +14,9 @@ process POST_PROC {
     val fasta_file
     path ensembl_data    // absolute path or null — not staged, accessed directly on shared fs
     val taxa_db         // absolute path or null — not staged, accessed directly on shared fs
+    path tree_grafter_raw       // TREEGRAFTER's own un-split "*.out.txt" (ch_tree) — query -> (family, subfamily), used only to compute NEAREST_REF_NODE_DISTANCE below
+    path panther_db_data        // same panther_db_data dir TREEGRAFTER was given (params.sup_data_panther) — per-family Newick trees + leaf annotations
+    val ref_panther_prefixes    // same comma-separated PANTHER gene-ID prefix list PANTHER_API uses, e.g. "MGI"
 
     output:
     tuple val(meta), path ("*ortho_f_std.tsv"), emit: ortho_f
@@ -28,19 +31,26 @@ process POST_PROC {
     PREFIX="\$(echo "\$FILE" | rev | cut -d. -f2- | rev)"
     
     if ! [[ -e "./outs/ortho_f/blank.txt" ]]; then
-        Rscript /rscripts/ortho_f_post.R ./outs/ortho_f/*/Orthologues/Orthologues_\${PREFIX}
+        Rscript ${projectDir}/bin/ortho_f_post.R ./outs/ortho_f/*/Orthologues/Orthologues_\${PREFIX}
     fi
         
-    ORTHO_L_PREFIX="\$(echo "\$FILE" | cut -d. -f1)"
-    Rscript /rscripts/ortho_l_post.R ./outs/ortho_l/ "\${ORTHO_L_PREFIX}"
-    Rscript /rscripts/eggnog_post.R ./outs/egg
-    Rscript /rscripts/tree_post.R ./outs/tree
+    # ORTHOLOGER sanitizes the query label (replaces any char outside
+    # [A-Za-z0-9_] with '_') before writing it into the .og cluster file,
+    # so this must match that sanitization or ortho_l_post.R finds 0 rows.
+    # (tr -c also translates the newline `cut` terminates its output with,
+    # so that newline must be stripped -- via the \$(...) capture -- before
+    # piping into tr, or it becomes a spurious trailing '_'.)
+    ORTHO_L_RAW="\$(echo "\$FILE" | cut -d. -f1)"
+    ORTHO_L_PREFIX="\$(printf '%s' "\$ORTHO_L_RAW" | tr -c 'A-Za-z0-9_' '_')"
+    Rscript ${projectDir}/bin/ortho_l_post.R ./outs/ortho_l/ "\${ORTHO_L_PREFIX}"
+    Rscript ${projectDir}/bin/eggnog_post.R ./outs/egg
+    Rscript ${projectDir}/bin/tree_post.R ./outs/tree
     mkdir headers
     for file in ./odbdata/*; do
         FILE_NAME="\$(basename "\$file")"; filename_no_extension="\${FILE_NAME%.*}_headers.txt"
         grep ">" "\$file" | grep -o '^[^[:space:]]*' > "headers/"\$filename_no_extension""
     done
-    Rscript /rscripts/hexadecimal_correction.R ./odbdata ./headers/ ./
+    Rscript ${projectDir}/bin/hexadecimal_correction.R ./odbdata ./headers/ ./
     
     mv ./tree_std.csv input_tree.csv
     build_treegrafter_id_map.py "$fasta_file" tree_id_map.tsv
@@ -60,6 +70,19 @@ process POST_PROC {
         cut -d, -f 1-3 tree_std.csv > editing_tree.csv
         paste -d"," editing_tree.csv taxa_col.tsv > tree_std.csv
     fi
+    # Appends NEAREST_REF_NODE_DISTANCE/NEAREST_REF_GENE_ID/NEAREST_REF_GENE_NAME:
+    # for every "NO MATCH" row, how many PANTHER12 gene-tree edges separate
+    # that query's TreeGrafter subfamily from the nearest reference-species
+    # gene, and which gene that actually is (a distance with no id attached
+    # to it isn't reviewable -- NA for real matches and continuation rows).
+    # nearest_ref_node_distance.py writes its own already-quoted CSV
+    # fragment (same QUOTE_ALL convention as tree_std.csv), so this just
+    # pastes it on directly.
+    if [ -n "$panther_db_data" ]; then
+        nearest_ref_node_distance.py tree_std.csv tree_id_map.tsv "$tree_grafter_raw" "$panther_db_data" "${ref_panther_prefixes}" distance_cols.csv
+        paste -d"," tree_std.csv distance_cols.csv > tree_std_with_distance.csv
+        mv tree_std_with_distance.csv tree_std.csv
+    fi
     cut -d"," -f2 eggnog_std.csv | sed "s/^.//" | sed "s/.\$//" > match_ids.txt
     mv eggnog_std.csv input_eggnog.csv
     string_search.py /sup_data/string_db.json ./match_ids.txt
@@ -69,7 +92,12 @@ process POST_PROC {
     
     for file in *std.csv; do
         sed 's/^.//' \${file} | sed 's/","/\t/g' | sed 's/.\$//' > ${meta.id}.\${file::-4}.tsv
-    done 
+    done
+    # Harmless cache-busting comment, v2: nearest_ref_node_distance.py now
+    # also reports which reference gene a NO-MATCH row's distance is
+    # measured to (NEAREST_REF_GENE_ID/NAME), not just the hop count --
+    # bin/ script changes alone don't invalidate -resume's cache, only a
+    # change to this process's own script body does.
     """
 
 }

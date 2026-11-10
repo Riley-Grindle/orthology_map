@@ -47,6 +47,14 @@ def get_data_file(prefix, prefix_2_json_file):
     return data_file
 
 
+# Each per-species reference file is several MB; get_gene_symbol() used to
+# open() + json.load() it fresh on every call, i.e. once per input row
+# (potentially millions of times for the same handful of species) instead of
+# once per species. Cache the parsed dict per path so repeat rows for the
+# same species reuse it.
+_gene_info_cache = {}
+
+
 def get_gene_symbol(ensembl_id, json_file, data_dir):
     """"""
 
@@ -55,8 +63,11 @@ def get_gene_symbol(ensembl_id, json_file, data_dir):
     else:
         path_to_file = data_dir + "/" + json_file
 
-    json_file = open(path_to_file, "r")
-    gene_info_dict = json.load(json_file)
+    gene_info_dict = _gene_info_cache.get(path_to_file)
+    if gene_info_dict is None:
+        with open(path_to_file, "r") as fh:
+            gene_info_dict = json.load(fh)
+        _gene_info_cache[path_to_file] = gene_info_dict
 
     if ensembl_id[-2] == ".":
         try:
@@ -118,9 +129,14 @@ def main():
         gene_id_list.append(line[1])
 
     # main control structure
-    gene_symbol_str = "\"GENE\"\n"
-    species_str = "\"SPECIES\"\n"
-    counter = 0
+    #
+    # NOTE: this used to build gene_symbol_str/species_str via repeated
+    # string concatenation (`x = x + ...`) in a loop over every row -- with
+    # millions of rows that reallocates and copies the whole growing string
+    # each time, the same class of slowdown as rbind()-in-a-loop in the R
+    # scripts. Appending to a list and joining once at the end is O(n).
+    gene_symbol_lines = ["\"GENE\""]
+    species_lines = ["\"SPECIES\""]
     for id in gene_id_list:
 
         if id == "MATCH":
@@ -128,21 +144,21 @@ def main():
 
         if id[0:8] == "Ensembl:":
 
-            prefix          = get_prefix(id[8:])
-            species_str     = species_str + "\"" + species[prefix].strip() + "\"\n"
-            data_file       = get_data_file(prefix, prefix_dict)
-            gene_symbol     = get_gene_symbol(id[8:], data_file, json_data_dir)
-            gene_symbol_str = gene_symbol_str + "\"" + gene_symbol + "\"\n"
+            prefix      = get_prefix(id[8:])
+            species_lines.append("\"" + species[prefix].strip() + "\"")
+            data_file   = get_data_file(prefix, prefix_dict)
+            gene_symbol = get_gene_symbol(id[8:], data_file, json_data_dir)
+            gene_symbol_lines.append("\"" + gene_symbol + "\"")
 
         else:
-            gene_symbol_str = gene_symbol_str + "\"" + "NA" + "\"\n"
-            species_str     = species_str + "\"" + "NA" + "\"\n"
+            gene_symbol_lines.append("\"NA\"")
+            species_lines.append("\"NA\"")
 
     with open("gene_symbols_ensembl.txt", "w") as gene_symbols_file:
-        gene_symbols_file.write(gene_symbol_str)
+        gene_symbols_file.write("\n".join(gene_symbol_lines) + "\n")
 
     with open("species_names.txt", "w") as species_file:
-        species_file.write(species_str)
+        species_file.write("\n".join(species_lines) + "\n")
 
 
 if __name__ == "__main__":

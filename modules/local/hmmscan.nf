@@ -27,12 +27,12 @@ process HMMER_HMMSCAN {
     """
     hmmpress $hmmfile
 
-    hmmscan --cpu $task.cpus --domtblout $output $hmmfile $longest_orfs $args
+    hmmscan --cpu \$(nproc) --domtblout $output $hmmfile $longest_orfs $args
 
 
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        hmmer: \$(hmmscan -h | grep -o '^# HMMER [0-9.]*' | sed 's/^# HMMER *//')
-    END_VERSIONS
+cat <<-END_VERSIONS > versions.yml
+"${task.process}":
+    hmmer: \$(hmmscan -h | grep -o '^# HMMER [0-9.]*' | sed 's/^# HMMER *//')
+END_VERSIONS
     """
 }

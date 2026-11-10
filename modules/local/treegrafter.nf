@@ -28,7 +28,7 @@ process TREEGRAFTER {
     perl /opt/TreeGrafter.git/treeGrafter.pl \\
         -f $fasta \\
         -o $project_id\.out.txt \\
-        -cpus ${task.cpus} \\
+        -cpus \$(nproc) \\
         -d $sup_info -auto \\
         ${args}
 
